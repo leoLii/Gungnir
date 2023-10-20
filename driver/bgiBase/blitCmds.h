@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_BASE_BLITCMDS_H
-#define GUNGNIR_DRIVER_BASE_BLITCMDS_H
+#ifndef GUNGNIR_DRIVER_BASE_BLIT_CMDS_H
+#define GUNGNIR_DRIVER_BASE_BLIT_CMDS_H
 
 #include "cmds.h"
 #include "buffer.h"
