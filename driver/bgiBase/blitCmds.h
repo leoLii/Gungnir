@@ -41,45 +41,45 @@ public:
     /// Copy a texture resource from GPU to CPU.
     /// Synchronization between GPU writes and CPU reads must be managed by
     /// the client by supplying the correct 'wait' flags in SubmitCmds.
-    virtual void CopyTextureGpuToCpu(HgiTextureGpuToCpuOp const& copyOp) = 0;
+    virtual void CopyTextureGpuToCpu(BgiTextureGpuToCpuOp const& copyOp) = 0;
 
     /// Copy new data from the CPU into a GPU texture.
-    virtual void CopyTextureCpuToGpu(HgiTextureCpuToGpuOp const& copyOp) = 0;
+    virtual void CopyTextureCpuToGpu(BgiTextureCpuToGpuOp const& copyOp) = 0;
 
     /// Copy a buffer resource from GPU to GPU.
-    virtual void CopyBufferGpuToGpu(HgiBufferGpuToGpuOp const& copyOp) = 0;
+    virtual void CopyBufferGpuToGpu(BgiBufferGpuToGpuOp const& copyOp) = 0;
 
     /// Copy new data from CPU into GPU buffer.
     /// For example copy new data into a uniform block or storage buffer.
-    virtual void CopyBufferCpuToGpu(HgiBufferCpuToGpuOp const& copyOp) = 0;
+    virtual void CopyBufferCpuToGpu(BgiBufferCpuToGpuOp const& copyOp) = 0;
 
     /// Copy new data from GPU into CPU buffer.
     /// Synchronization between GPU writes and CPU reads must be managed by
     /// the client by supplying the correct 'wait' flags in SubmitCmds.
-    virtual void CopyBufferGpuToCpu(HgiBufferGpuToCpuOp const& copyOp) = 0;
+    virtual void CopyBufferGpuToCpu(BgiBufferGpuToCpuOp const& copyOp) = 0;
 
     /// Copy a texture resource into a buffer resource from GPU to GPU.
-    virtual void CopyTextureToBuffer(HgiTextureToBufferOp const& copyOp) = 0;
+    virtual void CopyTextureToBuffer(BgiTextureToBufferOp const& copyOp) = 0;
 
     /// Copy a buffer resource into a texture resource from GPU to GPU.
-    virtual void CopyBufferToTexture(HgiBufferToTextureOp const& copyOp) = 0;
+    virtual void CopyBufferToTexture(BgiBufferToTextureOp const& copyOp) = 0;
 
     /// Generate mip maps for a texture
-    virtual void GenerateMipMaps(HgiTextureHandle const& texture) = 0;
+    virtual void GenerateMipMaps(BgiTextureHandle const& texture) = 0;
     
     /// Fill a buffer with a constant value.
-    virtual void FillBuffer(HgiBufferHandle const& buffer, uint8_t value) = 0;
+    virtual void FillBuffer(BgiBufferHandle const& buffer, uint8_t value) = 0;
 
     /// Inserts a barrier so that data written to memory by commands before
     /// the barrier is available to commands after the barrier.
-    virtual void InsertMemoryBarrier(HgiMemoryBarrier barrier) = 0;
+    virtual void InsertMemoryBarrier(BgiMemoryBarrier barrier) = 0;
 
 protected:
-    HgiBlitCmds();
+    BgiBlitCmds();
 
 private:
-    HgiBlitCmds & operator=(const HgiBlitCmds&) = delete;
-    HgiBlitCmds(const HgiBlitCmds&) = delete;
+    BgiBlitCmds & operator=(const BgiBlitCmds&) = delete;
+    BgiBlitCmds(const BgiBlitCmds&) = delete;
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
