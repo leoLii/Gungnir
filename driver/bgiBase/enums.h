@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_ENUMS_H
 
 #include "base.h"
+
 #include <cstdint>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE

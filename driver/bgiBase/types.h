@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_TYPES_H
 
 #include "base.h"
+
 #include <vector>
 #include <limits>
 #include <stdlib.h>

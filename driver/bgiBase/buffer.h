@@ -1,11 +1,11 @@
 #ifndef GUNGNIR_DRIVER_BASE_BUFFER_H
 #define GUNGNIR_DRIVER_BASE_BUFFER_H
 
-#include <vector>
-#include <string>
-
 #include "base.h"
 #include "enums.h"
+
+#include <vector>
+#include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

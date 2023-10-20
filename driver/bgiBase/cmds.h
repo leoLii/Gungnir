@@ -3,6 +3,7 @@
 
 #include "base.h"
 #include "enums.h"
+
 #include <memory>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
