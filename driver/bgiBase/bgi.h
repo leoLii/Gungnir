@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_BGI_H
-#define GUNGNIR_DRIVER_BGI_H
+#ifndef GUNGNIR_DRIVER_BASE_BGI_H
+#define GUNGNIR_DRIVER_BASE_BGI_H
 
 #include "core/base.h"
 

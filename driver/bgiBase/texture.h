@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_TEXTURE_H
-#define GUNGNIR_DRIVER_TEXTURE_H
+#ifndef GUNGNIR_DRIVER_BASE_TEXTURE_H
+#define GUNGNIR_DRIVER_BASE_TEXTURE_H
 
 #include "base.h"
 #include "enums.h"

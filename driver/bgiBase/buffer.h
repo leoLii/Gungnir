@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_BUFFER_H
-#define GUNGNIR_DRIVER_BUFFER_H
+#ifndef GUNGNIR_DRIVER_BASE_BUFFER_H
+#define GUNGNIR_DRIVER_BASE_BUFFER_H
 
 #include <vector>
 #include <string>

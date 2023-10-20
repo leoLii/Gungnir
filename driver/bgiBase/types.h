@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_TYPES_H
-#define GUNGNIR_DRIVER_TYPES_H
+#ifndef GUNGNIR_DRIVER_BASE_TYPES_H
+#define GUNGNIR_DRIVER_BASE_TYPES_H
 
 #include "base.h"
 #include <vector>

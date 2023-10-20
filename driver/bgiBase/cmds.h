@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_CMDS_H
-#define GUNGNIR_DRIVER_CMDS_H
+#ifndef GUNGNIR_DRIVER_BASE_CMDS_H
+#define GUNGNIR_DRIVER_BASE_CMDS_H
 
 #include "base.h"
 #include "enums.h"
