@@ -2,8 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-HgiComputeCmds::HgiComputeCmds() = default;
+BgiComputeCmds::BgiComputeCmds() = default;
 
-HgiComputeCmds::~HgiComputeCmds() = default;
+BgiComputeCmds::~BgiComputeCmds() = default;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
