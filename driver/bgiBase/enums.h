@@ -372,17 +372,17 @@ using BgiShaderStage = BgiBits;
 ///   Tessellation factors for Metal tessellation.</li>
 /// </ul>
 ///
-enum BgiBindingResourceType
+enum BgiBindResourceType
 {
-    BgiBindingResourceTypeSampler = 0,
-    BgiBindingResourceTypeSampledImage,
-    BgiBindingResourceTypeCombinedSamplerImage,
-    BgiBindingResourceTypeStorageImage,
-    BgiBindingResourceTypeUniformBuffer,
-    BgiBindingResourceTypeStorageBuffer,
-    BgiBindingResourceTypeTessFactors,
+    BgiBindResourceTypeSampler = 0,
+    BgiBindResourceTypeSampledImage,
+    BgiBindResourceTypeCombinedSamplerImage,
+    BgiBindResourceTypeStorageImage,
+    BgiBindResourceTypeUniformBuffer,
+    BgiBindResourceTypeStorageBuffer,
+    BgiBindResourceTypeTessFactors,
 
-    BgiBindingResourceTypeCount
+    BgiBindResourceTypeCount
 };
 
 /// \enum BgiPolygonMode
