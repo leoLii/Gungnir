@@ -54,7 +54,7 @@ struct BgiBufferBindingDesc
     BgiBufferHandleVector buffers;
     std::vector<uint32_t> offsets;
     std::vector<uint32_t> sizes;
-    BgiBindingResourceType resourceType;
+    BgiBindResourceType resourceType;
     uint32_t bindingIndex;
     BgiShaderStage stageUsage;
     bool writable;
@@ -100,7 +100,7 @@ struct BgiTextureBindingDesc
 
     BgiTextureHandleVector textures;
     BgiSamplerHandleVector samplers;
-    BgiBindingResourceType resourceType;
+    BgiBindResourceType resourceType;
     uint32_t bindingIndex;
     BgiShaderStage stageUsage;
     bool writable;
