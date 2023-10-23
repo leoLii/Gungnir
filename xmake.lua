@@ -7,6 +7,13 @@ set_languages("c++20")
 
 add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map")
 
+target("engine")
+    set_kind("binary")
+    add_includedirs("$(projectdir)")
+    add_headerfiles("engine/*.h")
+    add_files("engine/*.cpp")
+    add_deps("core", "driver")
+
 target("core")
     set_kind("static")
     add_includedirs("$(projectdir)")
