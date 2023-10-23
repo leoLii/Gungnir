@@ -1,10 +1,11 @@
 #ifndef GUNGNIR_DRIVER_BASE_TEXTURE_H
 #define GUNGNIR_DRIVER_BASE_TEXTURE_H
 
-#include "base.h"
-#include "enums.h"
-#include "handle.h"
-#include "types.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
+#include "driver/bgiBase/types.h"
 
 #include <string>
 #include <vector>

@@ -1,12 +1,13 @@
 #ifndef GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_H
 #define GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_H
 
-#include "base.h"
-#include "cmds.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/cmds.h"
 //#include "pxr/base/gf/vec4i.h"
-#include "graphicsCmdsDesc.h"
-#include "graphicsPipeline.h"
-#include "resourceBindings.h"
+#include "driver/bgiBase/graphicsCmdsDesc.h"
+#include "driver/bgiBase/graphicsPipeline.h"
+#include "driver/bgiBase/resourceBindings.h"
 
 #include <memory>
 
@@ -23,7 +24,7 @@ using BgiGraphicsCmdsUniquePtr = std::unique_ptr<class BgiGraphicsCmds>;
 class BgiGraphicsCmds : public BgiCmds
 {
 public:
-     ~HgiGraphicsCmds() override;
+     ~BgiGraphicsCmds() override;
 
      /// Push a debug marker.
     virtual void PushDebugGroup(const char* label) = 0;

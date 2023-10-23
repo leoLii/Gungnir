@@ -1,9 +1,10 @@
 #ifndef GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_H
 #define GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_H
 
-#include "cmds.h"
-#include "computeCmds.h"
-#include "resourceBindings.h"
+#include "driver/bgiBase/cmds.h"
+#include "driver/bgiBase/computeCmds.h"
+#include "driver/bgiBase/resourceBindings.h"
+#include "driver/bgiBase/computePipeline.h"
 
 #include <memory.h>
 

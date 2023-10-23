@@ -1,13 +1,14 @@
 #ifndef GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H
 #define GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H
 
-#include "base.h"
-#include "buffer.h"
-#include "enums.h"
-#include "handle.h"
-#include "sampler.h"
-#include "texture.h"
-#include "types.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/buffer.h"
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
+#include "driver/bgiBase/sampler.h"
+#include "driver/bgiBase/texture.h"
+#include "driver/bgiBase/types.h"
 
 #include <string>
 #include <vector>

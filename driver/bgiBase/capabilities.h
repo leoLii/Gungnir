@@ -1,8 +1,9 @@
 #ifndef GUNGNIR_DRIVER_BASE_CAPABILITIES_H
 #define GUNGNIR_DRIVER_BASE_CAPABILITIES_H
 
-#include "base.h"
-#include "enums.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/enums.h"
 
 #include <cstddef>
 

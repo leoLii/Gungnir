@@ -1,12 +1,12 @@
 #ifndef GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
 #define GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
 
-#include "attachmentDesc.h"
-#include "enums.h"
-#include "handle.h"
-#include "resourceBindings.h"
-#include "shaderProgram.h"
-#include "types.h"
+#include "driver/bgiBase/attachmentDesc.h"
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
+#include "driver/bgiBase/resourceBindings.h"
+#include "driver/bgiBase/shaderProgram.h"
+#include "driver/bgiBase/types.h"
 
 #include <string>
 #include <vector>
@@ -22,8 +22,8 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 ///    Size of the constants in bytes. (max 256 bytes)</li>
 /// </ul>
 ///
-struct HgiComputeShaderConstantsDesc {
-    HgiComputeShaderConstantsDesc();
+struct BgiComputeShaderConstantsDesc {
+    BgiComputeShaderConstantsDesc();
 
     uint32_t byteSize;
 };

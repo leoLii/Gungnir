@@ -1,13 +1,14 @@
 #ifndef GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H
 #define GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H
 
-#include "base.h"
-#include "attachmentDesc.h"
-#include "enums.h"
-#include "handle.h"
-#include "resourceBindings.h"
-#include "shaderProgram.h"
-#include "types.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/attachmentDesc.h"
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
+#include "driver/bgiBase/resourceBindings.h"
+#include "driver/bgiBase/shaderProgram.h"
+#include "driver/bgiBase/types.h"
 
 //#include "pxr/base/gf/vec2f.h"
 

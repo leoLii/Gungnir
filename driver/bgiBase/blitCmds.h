@@ -1,11 +1,11 @@
 #ifndef GUNGNIR_DRIVER_BASE_BLIT_CMDS_H
 #define GUNGNIR_DRIVER_BASE_BLIT_CMDS_H
 
-#include "cmds.h"
-#include "buffer.h"
-#include "texture.h"
-#include "types.h"
-#include "enums.h"
+#include "driver/bgiBase/cmds.h"
+#include "driver/bgiBase/buffer.h"
+#include "driver/bgiBase/texture.h"
+#include "driver/bgiBase/types.h"
+#include "driver/bgiBase/enums.h"
 
 #include <memory>
 

@@ -1,10 +1,10 @@
 #ifndef GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H
 #define GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H
 
-#include "base.h"
+#include "core/base.h"
 #include "enums.h"
 #include "types.h"
-#include "pxr/base/gf/vec4f.h"
+//#include "pxr/base/gf/vec4f.h"
 
 #include <vector>
 

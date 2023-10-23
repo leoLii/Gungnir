@@ -1,8 +1,9 @@
 #ifndef GUNGNIR_DRIVER_BASE_CMDS_H
 #define GUNGNIR_DRIVER_BASE_CMDS_H
 
-#include "base.h"
-#include "enums.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/enums.h"
 
 #include <memory>
 

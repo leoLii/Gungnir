@@ -1,10 +1,11 @@
 #ifndef GUNGNIR_DRIVER_BASE_INDIRECT_COMMAND_ENCODER_H
 #define GUNGNIR_DRIVER_BASE_INDIRECT_COMMAND_ENCODER_H
 
-#include "base.h"
-#include "cmds.h"
-#include "resourceBindings.h"
-#include "graphicsPipeline.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/cmds.h"
+#include "driver/bgiBase/resourceBindings.h"
+#include "driver/bgiBase/graphicsPipeline.h"
 
 #include <memory>
 #include <stdint.h>

@@ -1,10 +1,11 @@
 #ifndef GUNGNIR_DRIVER_BASE_SHADER_PROGRAM_H
 #define GUNGNIR_DRIVER_BASE_SHADER_PROGRAM_H
 
-#include "base.h"
-#include "enums.h"
-#include "handle.h"
-#include "types.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
+#include "driver/bgiBase/types.h"
 
 #include <vector>
 #include <string>
@@ -87,6 +88,9 @@ private:
     BgiShaderProgram & operator=(const BgiShaderProgram&) = delete;
     BgiShaderProgram(const BgiShaderProgram&) = delete;
 };
+
+using BgiShaderProgramHandle = BgiHandle<class BgiShaderProgram>;
+using BgiShaderProgramHandleVector = std::vector<BgiShaderProgramHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

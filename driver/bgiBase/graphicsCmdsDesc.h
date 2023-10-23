@@ -1,9 +1,10 @@
 #ifndef GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H
 #define GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H
 
-#include "base.h"
-#include "texture.h"
-#include "attachmentDesc.h"
+#include "core/base.h"
+
+#include "driver/bgiBase/texture.h"
+#include "driver/bgiBase/attachmentDesc.h"
 
 #include <vector>
 

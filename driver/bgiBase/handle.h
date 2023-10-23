@@ -1,7 +1,7 @@
 #ifndef GUNGNIR_DRIVER_BASE_HANDLE_H
 #define GUNGNIR_DRIVER_BASE_HANDLE_H
 
-#include "base.h"
+#include "core/base.h"
 
 #include <stdint.h>
 
@@ -39,11 +39,11 @@ public:
     // Pointer access operator
     T* operator ->() const {return _ptr;}
 
-    bool operator==(const HgiHandle& other) const {
+    bool operator==(const BgiHandle& other) const {
         return _id == other._id;
     }
 
-    bool operator!=(const HgiHandle& other) const {
+    bool operator!=(const BgiHandle& other) const {
         return !(*this == other);
     }
 

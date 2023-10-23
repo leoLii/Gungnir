@@ -1,7 +1,7 @@
 #ifndef GUNGNIR_DRIVER_BASE_TYPES_H
 #define GUNGNIR_DRIVER_BASE_TYPES_H
 
-#include "base.h"
+#include "core/base.h"
 
 #include <vector>
 #include <limits>
