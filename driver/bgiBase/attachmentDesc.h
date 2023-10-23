@@ -2,9 +2,10 @@
 #define GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H
 
 #include "core/base.h"
+#include "core/math/math.h"
+
 #include "enums.h"
 #include "types.h"
-//#include "pxr/base/gf/vec4f.h"
 
 #include <vector>
 
@@ -62,7 +63,7 @@ struct BgiAttachmentDesc
     BgiTextureUsage usage;
     BgiAttachmentLoadOp loadOp;
     BgiAttachmentStoreOp storeOp;
-    GfVec4f clearValue;
+    Vector4f clearValue;
     BgiColorMask colorMask;
     bool blendEnabled;
     BgiBlendFactor srcColorBlendFactor;
@@ -71,7 +72,7 @@ struct BgiAttachmentDesc
     BgiBlendFactor srcAlphaBlendFactor;
     BgiBlendFactor dstAlphaBlendFactor;
     BgiBlendOp alphaBlendOp;
-    GfVec4f blendConstantColor;
+    Vector4f blendConstantColor;
 };
 
 using BgiAttachmentDescVector = std::vector<BgiAttachmentDesc>;

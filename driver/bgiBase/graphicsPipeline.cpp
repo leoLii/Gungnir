@@ -3,7 +3,7 @@
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 BgiVertexAttributeDesc::BgiVertexAttributeDesc()
-    : format(HgiFormatFloat32Vec4)
+    : format(BgiFormatFloat32Vec4)
     , offset(0)
     , shaderBindLocation(0)
 {
@@ -209,20 +209,20 @@ BgiTessellationState::BgiTessellationState()
 {
 }
 
-HgiGraphicsPipelineDesc::HgiGraphicsPipelineDesc()
-    : primitiveType(HgiPrimitiveTypeTriangleList)
+BgiGraphicsPipelineDesc::BgiGraphicsPipelineDesc()
+    : primitiveType(BgiPrimitiveTypeTriangleList)
 {
 }
 
-HgiGraphicsPipelineDesc const&
-HgiGraphicsPipeline::GetDescriptor() const
+BgiGraphicsPipelineDesc const&
+BgiGraphicsPipeline::GetDescriptor() const
 {
     return _descriptor;
 }
 
 bool operator==(
-    const HgiGraphicsPipelineDesc& lhs,
-    const HgiGraphicsPipelineDesc& rhs)
+    const BgiGraphicsPipelineDesc& lhs,
+    const BgiGraphicsPipelineDesc& rhs)
 {
     return lhs.debugName == rhs.debugName &&
            lhs.primitiveType == rhs.primitiveType &&
@@ -239,17 +239,17 @@ bool operator==(
 }
 
 bool operator!=(
-    const HgiGraphicsPipelineDesc& lhs,
-    const HgiGraphicsPipelineDesc& rhs)
+    const BgiGraphicsPipelineDesc& lhs,
+    const BgiGraphicsPipelineDesc& rhs)
 {
     return !(lhs == rhs);
 }
 
-HgiGraphicsPipeline::HgiGraphicsPipeline(HgiGraphicsPipelineDesc const& desc)
+BgiGraphicsPipeline::BgiGraphicsPipeline(BgiGraphicsPipelineDesc const& desc)
     : _descriptor(desc)
 {
 }
 
-HgiGraphicsPipeline::~HgiGraphicsPipeline() = default;
+BgiGraphicsPipeline::~BgiGraphicsPipeline() = default;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

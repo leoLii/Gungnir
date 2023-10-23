@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_TYPES_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include <vector>
 #include <limits>
@@ -113,7 +114,7 @@ struct BgiMipInfo
     /// Offset in bytes from start of texture data to start of mip map.
     size_t byteOffset;
     /// Dimension of mip GfVec3i.
-    GfVec3i dimensions;
+    Vector3i dimensions;
     /// size of (one layer if array of) mip map in bytes.
     size_t byteSizePerLayer;
 };
@@ -146,7 +147,7 @@ bool BgiIsCompressed(BgiFormat f);
 
 size_t BgiGetDataSize(
     BgiFormat f,
-    const GfVec3i &dimensions);
+    const Vector3i &dimensions);
 
 /// Returns the scalar type of the format, in the form of an BgiFormat, if
 /// possible.
@@ -171,7 +172,7 @@ BgiFormat BgiGetComponentBaseFormat(
 std::vector<BgiMipInfo>
 BgiGetMipInfos(
     BgiFormat format,
-    const GfVec3i& dimensions,
+    const Vector3i& dimensions,
     size_t layerCount,
     size_t dataByteSize = std::numeric_limits<size_t>::max());
 

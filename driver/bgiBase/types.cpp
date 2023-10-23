@@ -157,7 +157,7 @@ BgiIsCompressed(const BgiFormat f)
 size_t
 BgiGetDataSize(
     const BgiFormat format,
-    const GfVec3i &dimensions)
+    const Vector3i &dimensions)
 {
     size_t blockWidth, blockHeight;
     const size_t bpt =
@@ -230,7 +230,7 @@ BgiGetComponentBaseFormat(
 }
 
 uint16_t
-_ComputeNumMipLevels(const GfVec3i &dimensions)
+_ComputeNumMipLevels(const Vector3i &dimensions)
 {
     const int dim = std::max({dimensions[0], dimensions[1], dimensions[2]});
     
@@ -248,7 +248,7 @@ _ComputeNumMipLevels(const GfVec3i &dimensions)
 std::vector<BgiMipInfo>
 BgiGetMipInfos(
     const BgiFormat format,
-    const GfVec3i& dimensions,
+    const Vector3i& dimensions,
     const size_t layerCount,
     const size_t dataByteSize)
 {
@@ -263,7 +263,7 @@ BgiGetMipInfos(
     result.reserve(numMips);
 
     size_t byteOffset = 0;
-    GfVec3i size = dimensions;
+    Vector3i size = dimensions;
 
     for (uint16_t mipLevel = 0; mipLevel < numMips; mipLevel++) {
         const size_t byteSize = BgiGetDataSize(format, size);

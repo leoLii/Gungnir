@@ -4,6 +4,7 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/handle.h"
 
 #include <vector>
 #include <string>
@@ -54,7 +55,7 @@ private:
     BgiBuffer(const BgiBuffer&) = delete;
 };
 
-using BgiBufferHandle = BgiHandle<BgiBuffer>;
+using BgiBufferHandle = BgiHandle<class BgiBuffer>;
 using BgiBufferHandleVector = std::vector<BgiBufferHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

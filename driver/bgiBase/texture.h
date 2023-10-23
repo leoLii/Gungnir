@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_TEXTURE_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
@@ -48,7 +49,7 @@ struct BgiTextureDesc
     BgiFormat format;
     BgiComponentMapping componentMapping;
     BgiTextureType type;
-    GfVec3i dimensions;
+    Vector3i dimensions;
     uint16_t layerCount;
     uint16_t mipLevels;
     BgiSampleCount sampleCount;

@@ -2,9 +2,9 @@
 #define GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include "driver/bgiBase/cmds.h"
-//#include "pxr/base/gf/vec4i.h"
 #include "driver/bgiBase/graphicsCmdsDesc.h"
 #include "driver/bgiBase/graphicsPipeline.h"
 #include "driver/bgiBase/resourceBindings.h"
@@ -33,11 +33,11 @@ public:
     virtual void PopDebugGroup() = 0;
 
     /// Set viewport [left, BOTTOM, width, height] - OpenGL coords
-    virtual void SetViewport(GfVec4i const& vp) = 0;
+    virtual void SetViewport(Vector4i const& vp) = 0;
 
     /// Only pixels that lie within the scissor box are modified by
     /// drawing commands.
-    virtual void SetScissor(GfVec4i const& sc) = 0;
+    virtual void SetScissor(Vector4i const& sc) = 0;
 
     /// Bind a pipeline state object. Usually you call this right after calling
     /// CreateGraphicsCmds to set the graphics pipeline state.

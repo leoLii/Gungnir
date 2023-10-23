@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include "driver/bgiBase/attachmentDesc.h"
 #include "driver/bgiBase/enums.h"
@@ -9,8 +10,6 @@
 #include "driver/bgiBase/resourceBindings.h"
 #include "driver/bgiBase/shaderProgram.h"
 #include "driver/bgiBase/types.h"
-
-//#include "pxr/base/gf/vec2f.h"
 
 #include <string>
 #include <vector>
@@ -156,7 +155,7 @@ struct BgiRasterizationState
     BgiWinding winding;
     bool rasterizerEnabled;
     bool depthClampEnabled;
-    GfVec2f depthRange;
+    Vector2f depthRange;
     bool conservativeRaster;
     size_t numClipDistances;
 };
