@@ -1,7 +1,7 @@
 #ifndef GUNGNIR_DRIVER_VULKAN_VULKAN_H
 #define GUNGNIR_DRIVER_VULKAN_VULKAN_H
 
-#include "defines.h"
+#include "core/base.h"
 
 #include <vulkan/vulkan.h>
 
