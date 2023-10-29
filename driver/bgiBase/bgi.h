@@ -223,21 +223,22 @@ private:
     std::atomic<uint64_t> _uniqueIdCounter;
 };
 
-// ///
-// /// Bgi factory for plugin system
-// ///
-// class BgiFactoryBase : public TfType::FactoryBase {
-// public:
-//     virtual Hgi* New() const = 0;
-// };
+///
+/// Bgi factory for plugin system
+///
+class BgiFactoryBase {
+public:
+    virtual Bgi* New() const = 0;
+    virtual ~BgiFactoryBase();
+};
 
-// template <class T>
-// class BgiFactory : public BgiFactoryBase {
-// public:
-//     Bgi* New() const {
-//         return new T;
-//     }
-// };
+template <class T>
+class BgiFactory : public BgiFactoryBase {
+public:
+    Bgi* New() const {
+        return new T;
+    }
+};
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
