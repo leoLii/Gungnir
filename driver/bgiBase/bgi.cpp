@@ -1,6 +1,19 @@
-#include "bgi.h"
+#include "driver/bgiBase/bgi.h"
+#include "pxr/base/arch/defines.h"
+#include "pxr/base/plug/plugin.h"
+#include "pxr/base/plug/registry.h"
+#include "pxr/base/tf/envSetting.h"
+#include "pxr/base/trace/trace.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
+
+TF_DEFINE_ENV_SETTING(HGI_ENABLE_VULKAN, 0,
+                      "Enable Vulkan as platform default Hgi backend (WIP)");
+
+TF_REGISTRY_FUNCTION(TfType)
+{
+    TfType::Define<Hgi>();
+}
 
 Bgi::Bgi()
     : _uniqueIdCounter(1)

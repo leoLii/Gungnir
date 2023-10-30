@@ -3,6 +3,8 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
+
 #include <cstdint>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -807,4 +809,4 @@ enum BgiComputeDispatch
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif GUNGNIR_DRIVER_ENUMS_H
+#endif // GUNGNIR_DRIVER_BASE_ENUMS_H

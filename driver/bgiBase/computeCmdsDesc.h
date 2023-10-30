@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -18,19 +19,22 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 ///
 struct BgiComputeCmdsDesc
 {
+    BGI_API
     BgiComputeCmdsDesc();
 
     BgiComputeDispatch dispatchMethod;
 };
 
+BGI_API
 bool operator==(
     const BgiComputeCmdsDesc& lhs,
     const BgiComputeCmdsDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiComputeCmdsDesc& lhs,
     const BgiComputeCmdsDesc& rhs);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_DESC_H

@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/texture.h"
 #include "driver/bgiBase/attachmentDesc.h"
 
@@ -60,18 +61,21 @@ struct BgiGraphicsCmdsDesc
     BgiTextureHandle depthResolveTexture;
 };
 
+BGI_API
 bool operator==(
     const BgiGraphicsCmdsDesc& lhs,
     const BgiGraphicsCmdsDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiGraphicsCmdsDesc& lhs,
     const BgiGraphicsCmdsDesc& rhs);
 
+BGI_API
 std::ostream& operator<<(
     std::ostream& out,
     const BgiGraphicsCmdsDesc& desc);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H

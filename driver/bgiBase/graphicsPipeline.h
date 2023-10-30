@@ -4,6 +4,7 @@
 #include "core/base.h"
 #include "core/math/math.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/attachmentDesc.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
@@ -31,6 +32,7 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 ///
 struct BgiVertexAttributeDesc
 {
+    BGI_API
     BgiVertexAttributeDesc();
 
     BgiFormat format;
@@ -39,10 +41,12 @@ struct BgiVertexAttributeDesc
 };
 using BgiVertexAttributeDescVector = std::vector<BgiVertexAttributeDesc>;
 
+BGI_API
 bool operator==(
     const BgiVertexAttributeDesc& lhs,
     const BgiVertexAttributeDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiVertexAttributeDesc& lhs,
     const BgiVertexAttributeDesc& rhs);
@@ -64,6 +68,7 @@ bool operator!=(
 ///
 struct BgiVertexBufferDesc
 {
+    BGI_API
     BgiVertexBufferDesc();
 
     uint32_t bindingIndex;
@@ -73,10 +78,12 @@ struct BgiVertexBufferDesc
 };
 using BgiVertexBufferDescVector = std::vector<BgiVertexBufferDesc>;
 
+BGI_API
 bool operator==(
     const BgiVertexBufferDesc& lhs,
     const BgiVertexBufferDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiVertexBufferDesc& lhs,
     const BgiVertexBufferDesc& rhs);
@@ -101,6 +108,7 @@ bool operator!=(
 ///
 struct BgiMultiSampleState
 {
+    BGI_API
     BgiMultiSampleState();
 
     bool multiSampleEnable;
@@ -109,10 +117,12 @@ struct BgiMultiSampleState
     BgiSampleCount sampleCount;
 };
 
+BGI_API
 bool operator==(
     const BgiMultiSampleState& lhs,
     const BgiMultiSampleState& rhs);
 
+BGI_API
 bool operator!=(
     const BgiMultiSampleState& lhs,
     const BgiMultiSampleState& rhs);
@@ -147,6 +157,7 @@ bool operator!=(
 ///
 struct BgiRasterizationState
 {
+    BGI_API
     BgiRasterizationState();
 
     BgiPolygonMode polygonMode;
@@ -160,10 +171,12 @@ struct BgiRasterizationState
     size_t numClipDistances;
 };
 
+BGI_API
 bool operator==(
     const BgiRasterizationState& lhs,
     const BgiRasterizationState& rhs);
 
+BGI_API
 bool operator!=(
     const BgiRasterizationState& lhs,
     const BgiRasterizationState& rhs);
@@ -193,6 +206,7 @@ bool operator!=(
 ///
 struct BgiStencilState
 {
+    BGI_API
     BgiStencilState();
 
     BgiCompareFunction compareFn;
@@ -204,10 +218,12 @@ struct BgiStencilState
     uint32_t writeMask;
 };
 
+BGI_API
 bool operator==(
     const BgiStencilState& lhs,
     const BgiStencilState& rhs);
 
+BGI_API
 bool operator!=(
     const BgiStencilState& lhs,
     const BgiStencilState& rhs);
@@ -243,6 +259,7 @@ bool operator!=(
 ///
 struct BgiDepthStencilState
 {
+    BGI_API
     BgiDepthStencilState();
 
     bool depthTestEnabled;
@@ -258,10 +275,12 @@ struct BgiDepthStencilState
     BgiStencilState stencilBack;
 };
 
+BGI_API
 bool operator==(
     const BgiDepthStencilState& lhs,
     const BgiDepthStencilState& rhs);
 
+BGI_API
 bool operator!=(
     const BgiDepthStencilState& lhs,
     const BgiDepthStencilState& rhs);
@@ -278,22 +297,26 @@ bool operator!=(
 /// </ul>
 ///
 struct BgiGraphicsShaderConstantsDesc {
+    BGI_API
     BgiGraphicsShaderConstantsDesc();
 
     uint32_t byteSize;
     BgiShaderStage stageUsage;
 };
 
+BGI_API
 bool operator==(
     const BgiGraphicsShaderConstantsDesc& lhs,
     const BgiGraphicsShaderConstantsDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiGraphicsShaderConstantsDesc& lhs,
     const BgiGraphicsShaderConstantsDesc& rhs);
 
 struct BgiTessellationLevel
 {
+    BGI_API
     BgiTessellationLevel();
 
     float innerTessLevel[2];
@@ -327,6 +350,7 @@ struct BgiTessellationState
         TessVertex
     };
 
+    BGI_API
     BgiTessellationState();
 
     PatchType patchType;
@@ -371,6 +395,7 @@ struct BgiTessellationState
 ///
 struct BgiGraphicsPipelineDesc
 {
+    BGI_API
     BgiGraphicsPipelineDesc();
 
     std::string debugName;
@@ -388,10 +413,12 @@ struct BgiGraphicsPipelineDesc
     BgiTessellationState tessellationState;
 };
 
+BGI_API
 bool operator==(
     const BgiGraphicsPipelineDesc& lhs,
     const BgiGraphicsPipelineDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiGraphicsPipelineDesc& lhs,
     const BgiGraphicsPipelineDesc& rhs);
@@ -410,12 +437,15 @@ bool operator!=(
 class BgiGraphicsPipeline
 {
 public:
+    BGI_API
     virtual ~BgiGraphicsPipeline();
 
     /// The descriptor describes the object.
+    BGI_API
     BgiGraphicsPipelineDesc const& GetDescriptor() const;
 
 protected:
+    BGI_API
     BgiGraphicsPipeline(BgiGraphicsPipelineDesc const& desc);
 
     BgiGraphicsPipelineDesc _descriptor;
@@ -431,4 +461,4 @@ using BgiGraphicsPipelineHandleVector = std::vector<BgiGraphicsPipelineHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H

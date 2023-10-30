@@ -1,4 +1,4 @@
-#include "indirectCommandEncoder.h"
+#include "driver/bgiBase/indirectCommandEncoder.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

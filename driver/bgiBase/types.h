@@ -4,6 +4,8 @@
 #include "core/base.h"
 #include "core/math/math.h"
 
+#include "driver/bgiBase/api.h"
+
 #include <vector>
 #include <limits>
 #include <stdlib.h>
@@ -120,7 +122,7 @@ struct BgiMipInfo
 };
 
 /// Return the count of components in the given format.
-
+BGI_API
 size_t BgiGetComponentCount(BgiFormat f);
 
 /// Return the size of a single element of the given format.
@@ -131,27 +133,27 @@ size_t BgiGetComponentCount(BgiFormat f);
 /// block and sets blockWidth and blockHeight to the width and height of
 /// a block.
 ///
-
+BGI_API
 size_t BgiGetDataSizeOfFormat(
     BgiFormat f,
     size_t *blockWidth = nullptr,
     size_t *blockHeight = nullptr);
 
 /// Return whether the given format uses compression.
-
+BGI_API
 bool BgiIsCompressed(BgiFormat f);
 
 /// Returns the size necessary to allocate a buffer of given dimensions
 /// and format, rounding dimensions up to suitable multiple when
 /// using a compressed format.
-
+BGI_API
 size_t BgiGetDataSize(
     BgiFormat f,
     const Vector3i &dimensions);
 
 /// Returns the scalar type of the format, in the form of an BgiFormat, if
 /// possible.
-
+BGI_API
 BgiFormat BgiGetComponentBaseFormat(
     BgiFormat f);
 
@@ -168,7 +170,7 @@ BgiFormat BgiGetComponentBaseFormat(
 /// level 3: 4x6
 /// level 4: 2x3
 /// level 5: 1x1
-
+BGI_API
 std::vector<BgiMipInfo>
 BgiGetMipInfos(
     BgiFormat format,
@@ -178,4 +180,4 @@ BgiGetMipInfos(
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif // GUNGNIR_DRIVER_TYPES_H
+#endif // GUNGNIR_DRIVER_BASE_TYPES_H

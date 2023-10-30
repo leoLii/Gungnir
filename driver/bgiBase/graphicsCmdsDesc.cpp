@@ -1,4 +1,4 @@
-#include "graphicsCmdsDesc.h"
+#include "driver/bgiBase/graphicsCmdsDesc.h"
 
 #include <ostream>
 

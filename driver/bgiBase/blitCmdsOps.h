@@ -2,9 +2,10 @@
 #define GUNGNIR_DRIVER_BASE_BLIT_CMDS_OPS_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/buffer.h"
-#include "driver/bgiBase/cmds.h"
 #include "driver/bgiBase/texture.h"
 #include "driver/bgiBase/types.h"
 #include "driver/bgiBase/enums.h"
@@ -52,7 +53,7 @@ struct BgiTextureGpuToCpuOp
     {}
 
     BgiTextureHandle gpuSourceTexture;
-    GfVec3i sourceTexelOffset;
+    Vector3i sourceTexelOffset;
     uint32_t mipLevel;
     void* cpuDestinationBuffer;
     size_t destinationByteOffset;
@@ -95,7 +96,7 @@ struct BgiTextureCpuToGpuOp
 
     void const* cpuSourceBuffer;
     size_t bufferByteSize;
-    GfVec3i destinationTexelOffset;
+    Vector3i destinationTexelOffset;
     uint32_t mipLevel;
     BgiTextureHandle gpuDestinationTexture;
 };
@@ -255,7 +256,7 @@ struct BgiTextureToBufferOp
     {}
 
     BgiTextureHandle gpuSourceTexture;
-    GfVec3i sourceTexelOffset;
+    Vector3i sourceTexelOffset;
     uint32_t mipLevel;
     BgiBufferHandle gpuDestinationBuffer;
     size_t destinationByteOffset;
@@ -301,11 +302,11 @@ struct BgiBufferToTextureOp
     BgiBufferHandle gpuSourceBuffer;
     size_t sourceByteOffset;
     BgiTextureHandle gpuDestinationTexture;
-    GfVec3i destinationTexelOffset;
+    Vector3i destinationTexelOffset;
     uint32_t mipLevel;
     size_t byteSize;
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_BLIT_CMDS_OPS_H

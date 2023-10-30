@@ -1,4 +1,4 @@
-#include "computeCmdsDesc.h"
+#include "driver/bgiBase/computeCmdsDesc.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

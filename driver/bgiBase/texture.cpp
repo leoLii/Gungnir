@@ -1,4 +1,4 @@
-#include "texture.h"
+#include "driver/bgiBase/texture.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

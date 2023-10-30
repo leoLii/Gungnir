@@ -1,6 +1,9 @@
 #ifndef GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
 #define GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
 
+#include "core/base.h"
+
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/attachmentDesc.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
@@ -23,15 +26,18 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 /// </ul>
 ///
 struct BgiComputeShaderConstantsDesc {
+    BGI_API
     BgiComputeShaderConstantsDesc();
 
     uint32_t byteSize;
 };
 
+BGI_API
 bool operator==(
     const BgiComputeShaderConstantsDesc& lhs,
     const BgiComputeShaderConstantsDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiComputeShaderConstantsDesc& lhs,
     const BgiComputeShaderConstantsDesc& rhs);
@@ -49,6 +55,7 @@ bool operator!=(
 ///
 struct BgiComputePipelineDesc
 {
+    BGI_API
     BgiComputePipelineDesc();
 
     std::string debugName;
@@ -56,10 +63,12 @@ struct BgiComputePipelineDesc
     BgiComputeShaderConstantsDesc shaderConstantsDesc;
 };
 
+BGI_API
 bool operator==(
     const BgiComputePipelineDesc& lhs,
     const BgiComputePipelineDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiComputePipelineDesc& lhs,
     const BgiComputePipelineDesc& rhs);
@@ -76,12 +85,15 @@ bool operator!=(
 class BgiComputePipeline
 {
 public:
+    BGI_API
     virtual ~BgiComputePipeline();
 
     /// The descriptor describes the object.
+    BGI_API
     BgiComputePipelineDesc const& GetDescriptor() const;
 
 protected:
+    BGI_API
     BgiComputePipeline(BgiComputePipelineDesc const& desc);
 
     BgiComputePipelineDesc _descriptor;
@@ -97,4 +109,4 @@ using BgiComputePipelineHandleVector = std::vector<BgiComputePipelineHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H

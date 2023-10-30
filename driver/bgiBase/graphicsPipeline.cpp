@@ -1,4 +1,4 @@
-#include "graphicsPipeline.h"
+#include "driver/bgiBase/graphicsPipeline.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

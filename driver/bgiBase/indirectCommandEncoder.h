@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/cmds.h"
 #include "driver/bgiBase/resourceBindings.h"
 #include "driver/bgiBase/graphicsPipeline.h"
@@ -50,11 +51,13 @@ using BgiIndirectCommandsUniquePtr = std::unique_ptr<BgiIndirectCommands>;
 class BgiIndirectCommandEncoder : public BgiCmds
 {
 public:
+    BGI_API
     ~BgiIndirectCommandEncoder() override;
 
     /// Encodes a batch of draw commands from the drawParameterBuffer.
     /// Returns a HgiIndirectCommands which holds the necessary buffers and
     /// state for replaying the batch.
+    BGI_API
     virtual BgiIndirectCommandsUniquePtr EncodeDraw(
         BgiComputeCmds * computeCmds,
         BgiGraphicsPipelineHandle const& pipeline,
@@ -68,6 +71,7 @@ public:
     /// Encodes a batch of indexed draw commands from the drawParameterBuffer.
     /// Returns a HgiIndirectCommands which holds the necessary buffers and
     /// state for replaying the batch.
+    BGI_API
     virtual BgiIndirectCommandsUniquePtr EncodeDrawIndexed(
         BgiComputeCmds * computeCmds,
         BgiGraphicsPipelineHandle const& pipeline,
@@ -82,11 +86,13 @@ public:
 
     /// Excutes an indirect command batch from the HgiIndirectCommands
     /// structure.
+    BGI_API
     virtual void ExecuteDraw(
         BgiGraphicsCmds * gfxCmds,
         BgiIndirectCommands const* commands) = 0;
 
 protected:
+    BGI_API
     BgiIndirectCommandEncoder();
 
 private:

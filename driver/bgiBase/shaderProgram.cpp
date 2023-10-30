@@ -1,4 +1,4 @@
-#include "shaderProgram.h"
+#include "driver/bgiBase/shaderProgram.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

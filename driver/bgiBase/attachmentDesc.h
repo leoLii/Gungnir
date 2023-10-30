@@ -4,8 +4,9 @@
 #include "core/base.h"
 #include "core/math/math.h"
 
-#include "enums.h"
-#include "types.h"
+#include "driver/bgiBase/api.h"
+#include "driver/bgiBase/enums.h"
+#include "driver/bgiBase/types.h"
 
 #include <vector>
 
@@ -77,18 +78,21 @@ struct BgiAttachmentDesc
 
 using BgiAttachmentDescVector = std::vector<BgiAttachmentDesc>;
 
+BGI_API
 bool operator==(
     const BgiAttachmentDesc& lhs,
     const BgiAttachmentDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiAttachmentDesc& lhs,
     const BgiAttachmentDesc& rhs);
 
+BGI_API
 std::ostream& operator<<(
     std::ostream& out,
     const BgiAttachmentDesc& attachment);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H

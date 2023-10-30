@@ -1,4 +1,4 @@
-#include "capabilities.h"
+#include "driver/bgiBase/capabilities.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

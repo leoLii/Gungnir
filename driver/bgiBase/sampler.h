@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
 #include "driver/bgiBase/types.h"
@@ -39,6 +40,7 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 struct BgiSamplerDesc
 {
+    BGI_API
     BgiSamplerDesc()
         : magFilter(BgiSamplerFilterNearest)
         , minFilter(BgiSamplerFilterNearest)
@@ -63,10 +65,12 @@ struct BgiSamplerDesc
     BgiCompareFunction compareFunction;
 };
 
+BGI_API
 bool operator==(
     const BgiSamplerDesc& lhs,
     const BgiSamplerDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiSamplerDesc& lhs,
     const BgiSamplerDesc& rhs);
@@ -81,8 +85,11 @@ bool operator!=(
 class BgiSampler
 {
 public:
+    BGI_API
     virtual ~BgiSampler();
 
+    /// The descriptor describes the object.
+    BGI_API
     BgiSamplerDesc const& GetDescripter() const;
 
     /// This function returns the handle to the Hgi backend's gpu resource, cast
@@ -95,9 +102,11 @@ public:
     /// In OpenGL this returns the GLuint resource name.
     /// In Metal this returns the id<MTLSamplerState> as uint64_t.
     /// In Vulkan this returns the VkSampler as uint64_t.
+    BGI_API
     virtual uint64_t GetRawResource() const = 0;
 
 protected:
+    BGI_API
     BgiSampler(BgiSamplerDesc const& desc);
 
     BgiSamplerDesc _descriptor;
@@ -113,4 +122,4 @@ using BgiSamplerHandleVector = std::vector<BgiSamplerHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_SAMPLER_H

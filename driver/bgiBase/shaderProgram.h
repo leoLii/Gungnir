@@ -3,12 +3,13 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
+// #include "driver/bgiBase/shaderFunction.h"
 #include "driver/bgiBase/types.h"
 
 #include <vector>
-#include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
@@ -25,15 +26,18 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 ///
 struct BgiShaderProgramDesc
 {
+    BGI_API
     BgiShaderProgramDesc();
 
     std::string debugName;
 };
 
+BGI_API
 bool operator==(
     const BgiShaderProgramDesc& lhs,
     const BgiShaderProgramDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiShaderProgramDesc& lhs,
     const BgiShaderProgramDesc& rhs);
@@ -50,21 +54,30 @@ bool operator!=(
 class BgiShaderProgram
 {
 public:
+    BGI_API
     virtual ~BgiShaderProgram();
 
     /// The descriptor describes the object.
+    BGI_API
     BgiShaderProgramDesc const& GetDescriptor() const;
 
     /// Returns false if any shader compile errors occured.
+    BGI_API
     virtual bool IsValid() const = 0;
 
     /// Returns shader compile errors.
+    BGI_API
     virtual std::string const& GetCompileErrors() = 0;
+
+    /// Returns the shader functions that are part of this program.
+    //BGI_API
+    //virtual HgiShaderFunctionHandleVector const& GetShaderFunctions() const = 0;
 
     /// Returns the byte size of the GPU shader program.
     /// APIs that do not have programs can return the combined byte size of the
     /// shader functions used by the program.
     /// This can be helpful if the application wishes to tally up memory usage.
+    BGI_API
     virtual size_t GetByteSizeOfResource() const = 0;
 
     /// This function returns the handle to the Hgi backend's gpu resource, cast
@@ -76,9 +89,11 @@ public:
     /// HgiMetal resource into an OpenGL call, bad things may happen.
     /// In OpenGL this returns the GLuint resource name.
     /// In Metal, Vulkan this returns 0.
+    BGI_API
     virtual uint64_t GetRawResource() const = 0;
 
 protected:
+    BGI_API
     BgiShaderProgram(BgiShaderProgramDesc const& desc);
 
     BgiShaderProgramDesc _descriptor;
@@ -94,4 +109,4 @@ using BgiShaderProgramHandleVector = std::vector<BgiShaderProgramHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_SHADER_PROGRAM_H

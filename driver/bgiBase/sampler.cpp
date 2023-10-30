@@ -1,4 +1,4 @@
-#include "sampler.h"
+#include "driver/bgiBase/sampler.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

@@ -1,4 +1,4 @@
-#include "graphicsCmds.h"
+#include "driver/bgiBase/graphicsCmds.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

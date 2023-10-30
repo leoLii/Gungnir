@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/buffer.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
@@ -50,6 +51,7 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 ///
 struct BgiBufferBindingDesc
 {
+    BGI_API
     BgiBufferBindingDesc();
 
     BgiBufferHandleVector buffers;
@@ -62,10 +64,12 @@ struct BgiBufferBindingDesc
 };
 using BgiBufferBindingDescVector = std::vector<BgiBufferBindingDesc>;
 
+BGI_API
 bool operator==(
     const BgiBufferBindingDesc& lhs,
     const BgiBufferBindingDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiBufferBindingDesc& lhs,
     const BgiBufferBindingDesc& rhs);
@@ -97,6 +101,7 @@ bool operator!=(
 ///
 struct BgiTextureBindingDesc
 {
+    BGI_API
     BgiTextureBindingDesc();
 
     BgiTextureHandleVector textures;
@@ -108,10 +113,12 @@ struct BgiTextureBindingDesc
 };
 using BgiTextureBindingDescVector = std::vector<BgiTextureBindingDesc>;
 
+BGI_API
 bool operator==(
     const BgiTextureBindingDesc& lhs,
     const BgiTextureBindingDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiTextureBindingDesc& lhs,
     const BgiTextureBindingDesc& rhs);
@@ -130,6 +137,7 @@ bool operator!=(
 ///
 struct BgiResourceBindingsDesc
 {
+    BGI_API
     BgiResourceBindingsDesc();
 
     std::string debugName;
@@ -137,10 +145,12 @@ struct BgiResourceBindingsDesc
     BgiTextureBindingDescVector textures;
 };
 
+BGI_API
 bool operator==(
     const BgiResourceBindingsDesc& lhs,
     const BgiResourceBindingsDesc& rhs);
 
+BGI_API
 bool operator!=(
     const BgiResourceBindingsDesc& lhs,
     const BgiResourceBindingsDesc& rhs);
@@ -154,12 +164,15 @@ bool operator!=(
 class BgiResourceBindings
 {
 public:
+    BGI_API
     virtual ~BgiResourceBindings();
 
     /// The descriptor describes the object.
+    BGI_API
     BgiResourceBindingsDesc const& GetDescriptor() const;
 
 protected:
+BGI_API
     BgiResourceBindings(BgiResourceBindingsDesc const& desc);
 
     BgiResourceBindingsDesc _descriptor;
@@ -188,6 +201,7 @@ using BgiResourceBindingsHandleVector = std::vector<BgiResourceBindingsHandle>;
 ///
 struct BgiVertexBufferBinding
 {
+    BGI_API
     BgiVertexBufferBinding(BgiBufferHandle const &buffer,
                            uint32_t byteOffset,
                            uint32_t index)
@@ -206,4 +220,4 @@ using BgiVertexBufferBindingVector = std::vector<BgiVertexBufferBinding>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H

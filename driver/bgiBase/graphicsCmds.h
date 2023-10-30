@@ -4,6 +4,7 @@
 #include "core/base.h"
 #include "core/math/math.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/cmds.h"
 #include "driver/bgiBase/graphicsCmdsDesc.h"
 #include "driver/bgiBase/graphicsPipeline.h"
@@ -24,30 +25,37 @@ using BgiGraphicsCmdsUniquePtr = std::unique_ptr<class BgiGraphicsCmds>;
 class BgiGraphicsCmds : public BgiCmds
 {
 public:
-     ~BgiGraphicsCmds() override;
+    BGI_API
+    ~BgiGraphicsCmds() override;
 
-     /// Push a debug marker.
+    /// Push a debug marker.
+    BGI_API
     virtual void PushDebugGroup(const char* label) = 0;
 
     /// Pop the last debug marker.
+    BGI_API
     virtual void PopDebugGroup() = 0;
 
     /// Set viewport [left, BOTTOM, width, height] - OpenGL coords
+    BGI_API
     virtual void SetViewport(Vector4i const& vp) = 0;
 
     /// Only pixels that lie within the scissor box are modified by
     /// drawing commands.
+    BGI_API
     virtual void SetScissor(Vector4i const& sc) = 0;
 
     /// Bind a pipeline state object. Usually you call this right after calling
     /// CreateGraphicsCmds to set the graphics pipeline state.
     /// The resource bindings used when creating the pipeline must be compatible
     /// with the resources bound via BindResources().
+    BGI_API
     virtual void BindPipeline(BgiGraphicsPipelineHandle pipeline) = 0;
 
     /// Bind resources such as textures and uniform buffers.
     /// Usually you call this right after BindPipeline() and the resources bound
     /// must be compatible with the bound pipeline.
+    BGI_API
     virtual void BindResources(BgiResourceBindingsHandle resources) = 0;
 
     /// Set Push / Function constants.
@@ -60,6 +68,7 @@ public:
     /// to bind the data to.
     /// `byteSize` is the size of the data you are updating.
     /// `data` is the data you are copying into the push constants block.
+    BGI_API
     virtual void SetConstantValues(
         BgiGraphicsPipelineHandle pipeline,
         BgiShaderStage stages,
@@ -68,6 +77,7 @@ public:
         const void* data) = 0;
 
     /// Binds the vertex buffer(s) that describe the vertex attributes.
+    BGI_API
     virtual void BindVertexBuffers(
         BgiVertexBufferBindingVector const &bindings) = 0;
 
@@ -79,6 +89,7 @@ public:
     /// `baseVertex`: The index of the first vertex to draw.
     /// `instanceCount`: Number of instances to draw.
     /// `baseInstance`: The first instance to draw.
+    BGI_API
     virtual void Draw(
         uint32_t vertexCount,
         uint32_t baseVertex,
@@ -99,6 +110,7 @@ public:
     /// `drawBufferByteOffset`: Byte offset where the draw parameters begin.
     /// `drawCount`: The number of draws to execute.
     /// `stride`: byte stride between successive sets of draw parameters.
+    BGI_API
     virtual void DrawIndirect(
         BgiBufferHandle const& drawParameterBuffer,
         uint32_t drawBufferByteOffset,
@@ -116,6 +128,7 @@ public:
     ///                 into the vertex buffer (baseVertex).
     /// `instanceCount`: Number of instances to draw.
     /// `baseInstance`: The first instance to draw.
+    BGI_API
     virtual void DrawIndexed(
         BgiBufferHandle const& indexBuffer,
         uint32_t indexCount,
@@ -153,6 +166,7 @@ public:
     /// in `drawParameterBufferUint32` which is the `baseVertex` value
     /// which must be applied to each HgiVertexBufferPerPatchControlPoint
     /// vertex buffer for each patch draw for Metal.
+    BGI_API
     virtual void DrawIndexedIndirect(
         BgiBufferHandle const& indexBuffer,
         BgiBufferHandle const& drawParameterBuffer,
@@ -164,9 +178,11 @@ public:
 
     /// Inserts a barrier so that data written to memory by commands before
     /// the barrier is available to commands after the barrier.
+    BGI_API
     virtual void InsertMemoryBarrier(BgiMemoryBarrier barrier) = 0;
 
 protected:
+    BGI_API
     BgiGraphicsCmds();
 
 private:
@@ -176,4 +192,4 @@ private:
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_H

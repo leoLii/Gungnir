@@ -1,4 +1,4 @@
-#include "resourceBindings.h"
+#include "driver/bgiBase/resourceBindings.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

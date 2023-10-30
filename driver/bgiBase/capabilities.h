@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
 
 #include <cstddef>
@@ -16,32 +17,40 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 class BgiCapabilities
 {
 public:
+    BGI_API
     virtual ~BgiCapabilities() = 0;
 
     bool IsSet(BgiDeviceCapabilities mask) const {
         return (_flags & mask) != 0;
     }
 
+    BGI_API
     virtual int GetAPIVersion() const = 0;
     
+    BGI_API
     virtual int GetShaderVersion() const = 0;
 
+    BGI_API
     size_t GetMaxUniformBlockSize() const {
         return _maxUniformBlockSize;
     }
 
+    BGI_API
     size_t GetMaxShaderStorageBlockSize() const {
         return _maxShaderStorageBlockSize;
     }
 
+    BGI_API
     size_t GetUniformBufferOffsetAlignment() const {
         return _uniformBufferOffsetAlignment;
     }
 
+    BGI_API
     size_t GetMaxClipDistances() const {
         return _maxClipDistances;
     }
 
+    BGI_API
     size_t GetPageSizeAlignment() const {
         return _pageSizeAlignment;
     }
@@ -79,4 +88,4 @@ private:
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_BASE_CAPABILITIES_H

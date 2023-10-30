@@ -3,6 +3,8 @@
 
 #include "core/base.h"
 
+#include "driver/bgiBase/api.h"
+
 #include <stdint.h>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -53,4 +55,4 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-#endif // GUNGNIR_DRIVER_HANDLE_H
+#endif // GUNGNIR_DRIVER_BASE_HANDLE_H

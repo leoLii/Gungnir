@@ -1,6 +1,9 @@
-#include "tokens.h"
+#include "driver/bgiBase/tokens.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+// TF_DEFINE_PUBLIC_TOKENS(BgiTokens, BGI_TOKENS);
+
+// TF_DEFINE_PUBLIC_TOKENS(BgiShaderKeywordTokens, BGI_SHADER_KEYWORD_TOKENS);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
