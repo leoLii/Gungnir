@@ -4,6 +4,7 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/capabilities.h"
+#include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -17,12 +18,16 @@ class BgiVulkanDevice;
 class BgiVulkanCapabilities final :public BgiCapabilities
 {
 public:
+    HGIVULKAN_API
     BgiVulkanCapabilities(BgiVulkanDevice* device);
 
+    HGIVULKAN_API
     ~BgiVulkanCapabilities();
 
+    HGIVULKAN_API
     int GetAPIVersion() const override;
     
+    HGIVULKAN_API
     int GetShaderVersion() const override;
 
     bool supportsTimeStamps;
@@ -41,4 +46,4 @@ public:
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_VULKAN_CAPABILITIES_H

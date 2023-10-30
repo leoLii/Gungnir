@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 
 #include <vector>
@@ -21,38 +22,48 @@ class BgiVulkanPipelineCache;
 class BgiVulkanDevice final
 {
 public:
+    BGIVULKAN_API
     BgiVulkanDevice(BgiVulkanInstance* instance);
 
+    BGIVULKAN_API
     ~BgiVulkanDevice();
 
     /// Returns the vulkan device
+    BGIVULKAN_API
     VkDevice GetVulkanDevice() const;
 
     /// Returns the vulkan memory allocator.
+    BGIVULKAN_API
     VmaAllocator GetVulkanMemoryAllocator() const;
 
     /// Returns the command queue which manages command buffers submission.
+    BGIVULKAN_API
     BgiVulkanCommandQueue* GetCommandQueue() const;
 
     /// Returns the device capablities / features it supports.
-    HGIVULKAN_API
+    BGIVULKAN_API
     BgiVulkanCapabilities const& GetDeviceCapabilities() const;
 
     /// Returns the type (or family index) for the graphics queue.
+    BGIVULKAN_API
     uint32_t GetGfxQueueFamilyIndex() const;
 
     /// Returns vulkan physical device
+    BGIVULKAN_API
     VkPhysicalDevice GetVulkanPhysicalDevice() const;
 
     /// Returns the pipeline cache.
+    BGIVULKAN_API
     BgiVulkanPipelineCache* GetPipelineCache() const;
 
     /// Wait for all queued up commands to have been processed on device.
     /// This should ideally never be used as it creates very big stalls, but
     /// is useful for unit testing.
+    BGIVULKAN_API
     void WaitForIdle();
 
     /// Returns true if the provided extension is supported by the device
+    BGIVULKAN_API
     bool IsSupportedExtension(const char* extensionName) const;
 
     /// Device extension function pointers
@@ -82,4 +93,4 @@ private:
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_VULKAN_DEVICE_H

@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -14,11 +15,14 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 class BgiVulkanInstance final
 {
 public:
+    BGIVULKAN_API
     BgiVulkanInstance();
 
+    BGIVULKAN_API
     ~BgiVulkanInstance();
 
     /// Return the vulkan instance
+    BGIVULKAN_API
     VkInstance const& GetVulkanInstance() const;
 
     /// Instance Extension function pointers
@@ -32,4 +36,4 @@ private:
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 
-#endif
+#endif // GUNGNIR_DRIVER_VULKAN_INSTANCE_H

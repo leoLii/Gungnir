@@ -1,4 +1,4 @@
-#include "capabilities.h"
+#include "driver/bgiVulkan/capabilities.h"
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/diagnostic.h"
 

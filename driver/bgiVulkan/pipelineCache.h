@@ -3,6 +3,7 @@
 
 #include "core/base.h"
 
+#include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -16,11 +17,14 @@ class BgiVulkanDevice;
 class BgiVulkanPipelineCache final
 {
 public:
+    BGIVULKAN_API
     BgiVulkanPipelineCache(BgiVulkanDevice* device);
 
+    BGIVULKAN_API
     ~BgiVulkanPipelineCache();
 
     /// Returns the vulkan pipeline cache.
+    BGIVULKAN_API
     VkPipelineCache GetVulkanPipelineCache() const;
 
 private:

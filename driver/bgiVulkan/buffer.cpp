@@ -1,3 +1,5 @@
+// #include "pxr/base/tf/diagnostic.h"
+
 #include "driver/bgiVulkan/buffer.h"
 #include "driver/bgiVulkan/commandBuffer.h"
 #include "driver/bgiVulkan/commandQueue.h"
