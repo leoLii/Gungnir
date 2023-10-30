@@ -1,5 +1,5 @@
-#ifndef GUNGNIR_DRIVER_BGI_VULKAN_API_H
-#define GUNGNIR_DRIVER_BGI_VULKAN_API_H
+#ifndef GUNGNIR_DRIVER_VULKAN_API_H
+#define GUNGNIR_DRIVER_VULKAN_API_H
 
 #include "core/arch/export.h"
 
