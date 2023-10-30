@@ -5,7 +5,7 @@ set_arch("x64")
 add_rules("mode.debug", "mode.release")
 set_languages("c++20")
 
-add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map")
+add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map", "shaderc")
 
 -- target("application")
 --     set_kind("binary")
@@ -34,6 +34,6 @@ target("driver")
     add_includedirs("$(projectdir)")
     add_headerfiles("driver/**/*.h")
     add_files("driver/**/*.cpp")
-    add_packages("eigen", "volk", "vulkan-memory-allocator-hpp")
+    add_packages("eigen", "volk", "vulkan-memory-allocator-hpp", "sahderc")
     add_deps("core")
 
