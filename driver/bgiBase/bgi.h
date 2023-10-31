@@ -13,6 +13,7 @@
 #include "driver/bgiBase/resourceBindings.h"
 #include "driver/bgiBase/sampler.h"
 #include "driver/bgiBase/shaderProgram.h"
+#include "driver/bgiBase/shaderFunction.h"
 #include "driver/bgiBase/texture.h"
 #include "driver/bgiBase/types.h"
 
@@ -198,15 +199,15 @@ public:
 
     /// Create a new shader function.
     /// Thread safety: Creation must happen on main thread. See notes above.
-    // BGI_API
-    // virtual BgiShaderFunctionHandle CreateShaderFunction(
-    //     BgiShaderFunctionDesc const& desc) = 0;
+    BGI_API
+    virtual BgiShaderFunctionHandle CreateShaderFunction(
+        BgiShaderFunctionDesc const& desc) = 0;
 
     /// Destroy a shader function.
     /// Thread safety: Destruction must happen on main thread. See notes above.
-    // BGI_API
-    // virtual void DestroyShaderFunction(
-    //     BgiShaderFunctionHandle* shaderFunctionHandle) = 0;
+    BGI_API
+    virtual void DestroyShaderFunction(
+        BgiShaderFunctionHandle* shaderFunctionHandle) = 0;
 
     /// Create a new shader program.
     /// Thread safety: Creation must happen on main thread. See notes above.
