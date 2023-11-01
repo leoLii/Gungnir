@@ -5,7 +5,6 @@
 
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/types.h"
-
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 
