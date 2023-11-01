@@ -4,7 +4,7 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/api.h"
-#include "driver/bgiBase/enum.h"
+#include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/types.h"
 
 #include <string>
