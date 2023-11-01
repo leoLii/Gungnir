@@ -4,7 +4,6 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/computePipeline.h"
-s
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
 

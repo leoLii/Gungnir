@@ -5,7 +5,6 @@
 
 #include "driver/bgiBase/bgi.h"
 #include "driver/bgiBase/tokens.h"
-
 #include "driver/bgiVulkan/capabilities.h"
 #include "driver/bgiVulkan/commandQueue.h"
 #include "driver/bgiVulkan/device.h"

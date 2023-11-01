@@ -4,7 +4,6 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/texture.h"
-
 #include "driver/bgiVulkan/api.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE

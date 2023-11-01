@@ -1,8 +1,9 @@
 #ifndef GUNGNIR_DRIVER_VULKAN_SHADER_PROGRAM_H
 #define GUNGNIR_DRIVER_VULKAN_SHADER_PROGRAM_H
 
-#include "driver/bgiBase/shaderProgram.h"
+#include "core/base.h"
 
+#include "driver/bgiBase/shaderProgram.h"
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/shaderFunction.h"
 

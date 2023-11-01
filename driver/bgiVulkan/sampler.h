@@ -1,6 +1,8 @@
 #ifndef GUNGNIR_DRIVER_VULKAN_SAMPLER_H
 #define GUNGNIR_DRIVER_VULKAN_SAMPLER_H
 
+#include "core/base.h"
+
 #include "driver/bgiBase/sampler.h"
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkan.h"
