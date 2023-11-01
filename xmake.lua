@@ -38,7 +38,7 @@ target("driver")
     add_includedirs("$(projectdir)")
     add_headerfiles("driver/**/*.h")
     add_files("driver/**/*.cpp")
-    add_packages("eigen", "volk", "vulkan-memory-allocator-hpp", "sahderc")
+    add_packages("eigen", "volk", "vulkan-memory-allocator-hpp", "shaderc")
     add_deps("core")
     add_defines("GUNGNIR_STATIC")
 
