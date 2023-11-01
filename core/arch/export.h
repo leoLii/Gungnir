@@ -130,7 +130,6 @@
 ///
 /// Clients of the library will fail to link if they use _DoSomethingPrivate()
 /// if FOO_LOCAL is supported.  If not then the symbol will remain in the API.
-#define ARCH_OS_WINDOWS
 
 #if defined(ARCH_OS_WINDOWS)
 #   if defined(ARCH_COMPILER_GCC) && ARCH_COMPILER_GCC_MAJOR >= 4 || defined(ARCH_COMPILER_CLANG)

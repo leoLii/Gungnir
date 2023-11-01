@@ -1,6 +1,8 @@
 -- xmake.lua (根目录)
 set_project("GungnirEngine")
 
+add_defines("ARCH_OS_WINDOWS")
+
 set_arch("x64")
 add_rules("mode.debug", "mode.release")
 set_languages("c++20")
@@ -22,12 +24,14 @@ target("engine")
     add_packages("eigen", "robin_map")
     add_deps("core", "driver")
 
+
 target("core")
     set_kind("static")
     add_includedirs("$(projectdir)")
     add_headerfiles("core/*.h", "core/**/*.h")
     add_files("core/*.cpp", "core/**/*.cpp")
     add_packages("eigen", "robin_map")
+    add_defines("GUNGNIR_STATIC")
 
 target("driver")
     set_kind("static")
@@ -36,4 +40,5 @@ target("driver")
     add_files("driver/**/*.cpp")
     add_packages("eigen", "volk", "vulkan-memory-allocator-hpp", "sahderc")
     add_deps("core")
+    add_defines("GUNGNIR_STATIC")
 
