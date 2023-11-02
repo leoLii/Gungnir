@@ -1,7 +1,6 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/types.h"
-// #include "pxr/base/tf/diagnostic.h"
 
 #include <algorithm>
 

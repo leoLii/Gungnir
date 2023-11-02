@@ -1,4 +1,4 @@
-// #include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/buffer.h"
 #include "driver/bgiVulkan/commandBuffer.h"
@@ -45,7 +45,7 @@ BgiVulkanBuffer::BgiVulkanBuffer(
     VmaAllocationCreateInfo ai = {};
     ai.preferredFlags = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT; // GPU efficient
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vmaCreateBuffer(vma,&bi,&ai,&_vkBuffer,&_vmaAllocation,0) == VK_SUCCESS
     );
 
@@ -143,7 +143,7 @@ BgiVulkanBuffer::GetCPUStagingAddress()
     }
 
     if (!_cpuStagingAddress) {
-        TF_VERIFY(
+        UTILS_VERIFY(
             vmaMapMemory(
                 _device->GetVulkanMemoryAllocator(), 
                 _stagingBuffer->GetVulkanMemoryAllocation(), 
@@ -214,14 +214,14 @@ BgiVulkanBuffer::CreateStagingBuffer(
 
     VkBuffer buffer = 0;
     VmaAllocation alloc = 0;
-    TF_VERIFY(
+    UTILS_VERIFY(
         vmaCreateBuffer(vma, &bi, &ai, &buffer, &alloc, 0) == VK_SUCCESS
     );
 
     // Map the (HOST_VISIBLE) buffer and upload data
     if (desc.initialData) {
         void* map;
-        TF_VERIFY(vmaMapMemory(vma, alloc, &map) == VK_SUCCESS);
+        UTILS_VERIFY(vmaMapMemory(vma, alloc, &map) == VK_SUCCESS);
         memcpy(map, desc.initialData, desc.byteSize);
         vmaUnmapMemory(vma, alloc);
     }

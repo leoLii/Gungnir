@@ -1,5 +1,6 @@
-#include "driver/bgiBase/blitCmdsOps.h"
+#include "core/utils/diagnostic.h"
 
+#include "driver/bgiBase/blitCmdsOps.h"
 #include "driver/bgiVulkan/blitCmds.h"
 #include "driver/bgiVulkan/buffer.h"
 #include "driver/bgiVulkan/commandBuffer.h"
@@ -7,7 +8,7 @@
 #include "driver/bgiVulkan/conversions.h"
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/diagnostic.h"
-#include "driver/bgiVulkan/hgi.h"
+#include "driver/bgiVulkan/bgi.h"
 #include "driver/bgiVulkan/texture.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -47,7 +48,7 @@ BgiVulkanBlitCmds::CopyTextureGpuToCpu(
     BgiVulkanTexture* srcTexture =
         static_cast<BgiVulkanTexture*>(copyOp.gpuSourceTexture.Get());
 
-    if (!TF_VERIFY(srcTexture && srcTexture->GetImage(),
+    if (!UTILS_VERIFY(srcTexture && srcTexture->GetImage(),
         "Invalid texture handle")) {
         return;
     }
@@ -106,7 +107,7 @@ BgiVulkanBlitCmds::CopyTextureGpuToCpu(
     // before any downloads (read backs) overwrite the staging buffer texels.
     uint8_t* src = static_cast<uint8_t*>(srcTexture->GetCPUStagingAddress());
     BgiVulkanBuffer* stagingBuffer = srcTexture->GetStagingBuffer();
-    TF_VERIFY(src && stagingBuffer);
+    UTILS_VERIFY(src && stagingBuffer);
 
     vkCmdCopyImageToBuffer(
         _commandBuffer->GetVulkanCommandBuffer(),
@@ -174,7 +175,7 @@ BgiVulkanBlitCmds::CopyTextureCpuToGpu(
 
             uint8_t* dst = static_cast<uint8_t*>(
                 dstTexture->GetCPUStagingAddress());
-            TF_VERIFY(dst && dstTexture->GetStagingBuffer());
+            UTILS_VERIFY(dst && dstTexture->GetStagingBuffer());
 
             dst += mipInfo.byteOffset;
             const size_t size =
@@ -185,7 +186,7 @@ BgiVulkanBlitCmds::CopyTextureCpuToGpu(
 
     // Schedule transfer from staging buffer to device-local texture
     BgiVulkanBuffer* stagingBuffer = dstTexture->GetStagingBuffer();
-    if (TF_VERIFY(stagingBuffer, "Invalid staging buffer for texture")) {
+    if (UTILS_VERIFY(stagingBuffer, "Invalid staging buffer for texture")) {
         dstTexture->CopyBufferToTexture(
             _commandBuffer, 
             dstTexture->GetStagingBuffer(),
@@ -203,7 +204,7 @@ void BgiVulkanBlitCmds::CopyBufferGpuToGpu(
     BgiVulkanBuffer* srcBuffer =
         static_cast<BgiVulkanBuffer*>(srcBufHandle.Get());
 
-    if (!TF_VERIFY(srcBuffer && srcBuffer->GetVulkanBuffer(),
+    if (!UTILS_VERIFY(srcBuffer && srcBuffer->GetVulkanBuffer(),
         "Invalid source buffer handle")) {
         return;
     }
@@ -212,7 +213,7 @@ void BgiVulkanBlitCmds::CopyBufferGpuToGpu(
     BgiVulkanBuffer* dstBuffer =
         static_cast<BgiVulkanBuffer*>(dstBufHandle.Get());
 
-    if (!TF_VERIFY(dstBuffer && dstBuffer->GetVulkanBuffer(),
+    if (!UTILS_VERIFY(dstBuffer && dstBuffer->GetVulkanBuffer(),
         "Invalid destination buffer handle")) {
         return;
     }
@@ -272,7 +273,7 @@ void BgiVulkanBlitCmds::CopyBufferCpuToGpu(
     // Schedule copy data from staging buffer to device-local buffer.
     BgiVulkanBuffer* stagingBuffer = buffer->GetStagingBuffer();
 
-    if (TF_VERIFY(stagingBuffer)) {
+    if (UTILS_VERIFY(stagingBuffer)) {
         VkBufferCopy copyRegion = {};
         copyRegion.srcOffset = copyOp.sourceByteOffset;
         copyRegion.dstOffset = copyOp.destinationByteOffset;
@@ -305,7 +306,7 @@ BgiVulkanBlitCmds::CopyBufferGpuToCpu(BgiBufferGpuToCpuOp const& copyOp)
     // Make sure there is a staging buffer in the buffer by asking for cpuAddr.
     void* cpuAddress = buffer->GetCPUStagingAddress();
     BgiVulkanBuffer* stagingBuffer = buffer->GetStagingBuffer();
-    if (!TF_VERIFY(stagingBuffer)) {
+    if (!UTILS_VERIFY(stagingBuffer)) {
         return;
     }
 
@@ -508,7 +509,7 @@ BgiVulkanBlitCmds::_CreateCommandBuffer()
         BgiVulkanDevice* device = _bgi->GetPrimaryDevice();
         BgiVulkanCommandQueue* queue = device->GetCommandQueue();
         _commandBuffer = queue->AcquireCommandBuffer();
-        TF_VERIFY(_commandBuffer);
+        UTILS_VERIFY(_commandBuffer);
     }
 }
 

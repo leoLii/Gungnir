@@ -1,5 +1,5 @@
 #include "pxr/base/arch/hints.h"
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/garbageCollector.h"
 #include "driver/bgiVulkan/buffer.h"

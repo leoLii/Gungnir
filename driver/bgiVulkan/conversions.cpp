@@ -1,7 +1,7 @@
 #include "driver/bgiVulkan/conversions.h"
 #include "driver/bgiVulkan/vulkan.h"
 
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 #include "pxr/base/tf/iterator.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
@@ -354,7 +354,7 @@ _imageLayoutFormatTable[BgiFormatCount][2] =
 VkFormat
 BgiVulkanConversions::GetFormat(BgiFormat inFormat, bool depthFormat)
 {
-    if (!TF_VERIFY(inFormat!=BgiFormatInvalid)) {
+    if (!UTILS_VERIFY(inFormat!=BgiFormatInvalid)) {
         return VK_FORMAT_UNDEFINED;
     }
 
@@ -372,7 +372,7 @@ BgiVulkanConversions::GetFormat(BgiFormat inFormat, bool depthFormat)
 BgiFormat
 BgiVulkanConversions::GetFormat(VkFormat inFormat)
 {
-    if (!TF_VERIFY(inFormat!=VK_FORMAT_UNDEFINED)) {
+    if (!UTILS_VERIFY(inFormat!=VK_FORMAT_UNDEFINED)) {
         return BgiFormatInvalid;
     }
 

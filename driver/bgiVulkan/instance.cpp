@@ -54,7 +54,7 @@ BgiVulkanInstance::BgiVulkanInstance()
     createInfo.ppEnabledExtensionNames = extensions.data();
     createInfo.enabledExtensionCount = (uint32_t) extensions.size();
 
-    TF_VERIFY(vkCreateInstance(
+    UTILS_VERIFYIFY(vkCreateInstance(
             &createInfo,
             BgiVulkanAllocator(),
             &_vkInstance) == VK_SUCCESS

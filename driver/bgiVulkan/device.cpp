@@ -70,7 +70,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     const uint32_t maxDevices = 64;
     VkPhysicalDevice physicalDevices[maxDevices];
     uint32_t physicalDeviceCount = maxDevices;
-    TF_VERIFY(
+    UTILS_VERIFYIFY(
         vkEnumeratePhysicalDevices(
             instance->GetVulkanInstance(),
             &physicalDeviceCount,
@@ -116,7 +116,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     //
 
     uint32_t extensionCount = 0;
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkEnumerateDeviceExtensionProperties(
             _vkPhysicalDevice,
             nullptr,
@@ -126,7 +126,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
 
     _vkExtensions.resize(extensionCount);
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkEnumerateDeviceExtensionProperties(
             _vkPhysicalDevice,
             nullptr,
@@ -271,7 +271,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     createInfo.enabledExtensionCount = (uint32_t) extensions.size();
     createInfo.pNext = &features;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateDevice(
             _vkPhysicalDevice,
             &createInfo,
@@ -304,7 +304,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
         allocatorInfo.flags |= VMA_ALLOCATOR_CREATE_EXT_MEMORY_BUDGET_BIT;
     }
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vmaCreateAllocator(&allocatorInfo, &_vmaAllocator) == VK_SUCCESS
     );
 
@@ -324,7 +324,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
 BgiVulkanDevice::~BgiVulkanDevice()
 {
     // Make sure device is idle before destroying objects.
-    TF_VERIFY(vkDeviceWaitIdle(_vkDevice) == VK_SUCCESS);
+    UTILS_VERIFY(vkDeviceWaitIdle(_vkDevice) == VK_SUCCESS);
 
     delete _pipelineCache;
     delete _commandQueue;
@@ -378,7 +378,7 @@ BgiVulkanDevice::GetPipelineCache() const
 void
 BgiVulkanDevice::WaitForIdle()
 {
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkDeviceWaitIdle(_vkDevice) == VK_SUCCESS
     );
 }

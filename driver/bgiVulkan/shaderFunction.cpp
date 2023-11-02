@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/shaderFunction.h"
 #include "driver/bgiVulkan/conversions.h"
@@ -50,7 +50,7 @@ BgiVulkanShaderFunction::BgiVulkanShaderFunction(
         shaderCreateInfo.codeSize = _spirvByteSize;
         shaderCreateInfo.pCode = (uint32_t*) spirv.data();
 
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkCreateShaderModule(
                 device->GetVulkanDevice(),
                 &shaderCreateInfo,

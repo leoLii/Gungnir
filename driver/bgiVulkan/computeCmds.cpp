@@ -51,7 +51,7 @@ BgiVulkanComputeCmds::BindPipeline(BgiComputePipelineHandle pipeline)
     BgiVulkanComputePipeline* pso = 
         static_cast<BgiVulkanComputePipeline*>(pipeline.Get());
 
-    if (TF_VERIFY(pso)) {
+    if (UTILS_VERIFY(pso)) {
         _pipelineLayout = pso->GetVulkanPipelineLayout();
         pso->BindPipeline(_commandBuffer->GetVulkanCommandBuffer());
     }
@@ -208,7 +208,7 @@ BgiVulkanComputeCmds::_CreateCommandBuffer()
         BgiVulkanDevice* device = _bgi->GetPrimaryDevice();
         BgiVulkanCommandQueue* queue = device->GetCommandQueue();
         _commandBuffer = queue->AcquireCommandBuffer();
-        TF_VERIFY(_commandBuffer);
+        UTILS_VERIFY(_commandBuffer);
     }
 }
 

@@ -22,7 +22,7 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     uint32_t gfxQueueIndex = device->GetGfxQueueFamilyIndex();
 
     // The last queue we grabbed the properties of is our gfx queue.
-    if (TF_VERIFY(gfxQueueIndex < queues.size())) {
+    if (UTILS_VERIFY(gfxQueueIndex < queues.size())) {
         VkQueueFamilyProperties const& gfxQueue = queues[gfxQueueIndex];
         supportsTimeStamps = gfxQueue.timestampValidBits > 0;
     }
@@ -65,16 +65,16 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     // Verify we meet feature and extension requirements
 
     // Storm with HgiVulkan needs gl_BaseInstance/gl_BaseInstanceARB in shader.
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkVulkan11Features.shaderDrawParameters);
 
     #if !defined(VK_USE_PLATFORM_MACOS_MVK)
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkIndexingFeatures.shaderSampledImageArrayNonUniformIndexing &&
             vkIndexingFeatures.shaderStorageBufferArrayNonUniformIndexing);
     #endif
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkVertexAttributeDivisorFeatures.vertexAttributeInstanceRateDivisor);
 
     if (BgiVulkanIsDebugEnabled()) {
@@ -95,15 +95,15 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     const bool shaderDrawParametersEnabled =
         vkVulkan11Features.shaderDrawParameters;
 
-    _SetFlag(HgiDeviceCapabilitiesBitsDepthRangeMinusOnetoOne, false);
-    _SetFlag(HgiDeviceCapabilitiesBitsStencilReadback, true);
-    _SetFlag(HgiDeviceCapabilitiesBitsMultiDrawIndirect, true);
-    _SetFlag(HgiDeviceCapabilitiesBitsShaderDoublePrecision, true);
-    _SetFlag(HgiDeviceCapabilitiesBitsConservativeRaster, 
+    _SetFlag(BgiDeviceCapabilitiesBitsDepthRangeMinusOnetoOne, false);
+    _SetFlag(BgiDeviceCapabilitiesBitsStencilReadback, true);
+    _SetFlag(BgiDeviceCapabilitiesBitsMultiDrawIndirect, true);
+    _SetFlag(BgiDeviceCapabilitiesBitsShaderDoublePrecision, true);
+    _SetFlag(BgiDeviceCapabilitiesBitsConservativeRaster, 
         conservativeRasterEnabled);
-    _SetFlag(HgiDeviceCapabilitiesBitsBuiltinBarycentrics, 
+    _SetFlag(BgiDeviceCapabilitiesBitsBuiltinBarycentrics, 
         hasBuiltinBarycentrics);
-    _SetFlag(HgiDeviceCapabilitiesBitsShaderDrawParameters, 
+    _SetFlag(BgiDeviceCapabilitiesBitsShaderDrawParameters, 
         shaderDrawParametersEnabled);
 }
 

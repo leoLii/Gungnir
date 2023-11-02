@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/commandBuffer.h"
 #include "driver/bgiVulkan/device.h"
@@ -30,7 +30,7 @@ BgiVulkanCommandBuffer::BgiVulkanCommandBuffer(
     allocInfo.commandPool = pool;
     allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkAllocateCommandBuffers(
             vkDevice,
             &allocInfo,
@@ -52,7 +52,7 @@ BgiVulkanCommandBuffer::BgiVulkanCommandBuffer(
     VkFenceCreateInfo fenceInfo = {VK_STRUCTURE_TYPE_FENCE_CREATE_INFO};
     fenceInfo.flags = 0; // Unsignaled starting state
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateFence(
             vkDevice,
             &fenceInfo,
@@ -63,7 +63,7 @@ BgiVulkanCommandBuffer::BgiVulkanCommandBuffer(
     // Create semaphore for GPU-GPU synchronization
     VkSemaphoreCreateInfo semaCreateInfo =
         {VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO};
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateSemaphore(
             vkDevice,
             &semaCreateInfo,
@@ -97,7 +97,7 @@ BgiVulkanCommandBuffer::BeginCommandBuffer(uint8_t inflightId)
             {VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO};
         beginInfo.flags |= VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
 
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkBeginCommandBuffer(_vkCommandBuffer, &beginInfo) == VK_SUCCESS
         );
 
@@ -116,7 +116,7 @@ void
 BgiVulkanCommandBuffer::EndCommandBuffer()
 {
     if (_isInFlight) {
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkEndCommandBuffer(_vkCommandBuffer) == VK_SUCCESS
         );
 
@@ -146,7 +146,7 @@ BgiVulkanCommandBuffer::ResetIfConsumedByGPU(BgiSubmitWaitType wait)
     if (vkGetFenceStatus(vkDevice, _vkFence) == VK_NOT_READY){
         if (wait == BgiSubmitWaitTypeWaitUntilCompleted) {
             static const uint64_t timeOut = 100000000000;
-            TF_VERIFY(vkWaitForFences(
+            UTILS_VERIFY(vkWaitForFences(
                 vkDevice, 1, &_vkFence, VK_TRUE, timeOut) == VK_SUCCESS);
         } else {
             return false;
@@ -158,7 +158,7 @@ BgiVulkanCommandBuffer::ResetIfConsumedByGPU(BgiSubmitWaitType wait)
     RunAndClearCompletedHandlers();
 
     // GPU is done with command buffer, reset fence and command buffer.
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkResetFences(vkDevice, 1, &_vkFence)  == VK_SUCCESS
     );
 
@@ -169,7 +169,7 @@ BgiVulkanCommandBuffer::ResetIfConsumedByGPU(BgiSubmitWaitType wait)
     // been consumed by the GPU.
 
     VkCommandBufferResetFlags flags = _GetCommandBufferResetFlags();
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkResetCommandBuffer(_vkCommandBuffer, flags) == VK_SUCCESS
     );
 
@@ -229,7 +229,7 @@ BgiVulkanCommandBuffer::InsertMemoryBarrier(BgiMemoryBarrier barrier)
     // currently do not get enough information from Hgi to
     // know what src or dst access there is or what images or
     // buffers might be affected.
-    TF_VERIFY(barrier==BgiMemoryBarrierAll, "Unsupported barrier");
+    UTILS_VERIFY(barrier==BgiMemoryBarrierAll, "Unsupported barrier");
 
     // Who might be generating the data we are interested in reading.
     memoryBarrier.srcAccessMask =

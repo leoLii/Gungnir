@@ -1,12 +1,11 @@
+#include "pxr/base/tf/envSetting.h"
+
 #include "driver/bgiVulkan/diagnostic.h"
 #include "driver/bgiVulkan/commandBuffer.h"
 #include "driver/bgiVulkan/commandQueue.h"
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/instance.h"
 #include "driver/bgiVulkan/vulkan.h"
-
-#include "pxr/base/tf/diagnostic.h"
-#include "pxr/base/tf/envSetting.h"
 
 #include <cstring>
 
@@ -69,10 +68,10 @@ BgiVulkanCreateDebug(BgiVulkanInstance* instance)
             vkInstance,
             "vkDestroyDebugUtilsMessengerEXT");
 
-    if (!TF_VERIFY(instance->vkCreateDebugUtilsMessengerEXT)) {
+    if (!utils::VERIFY(instance->vkCreateDebugUtilsMessengerEXT)) {
         return;
     }
-    if (!TF_VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
+    if (!utils::VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
         return;
     }
 
@@ -100,7 +99,7 @@ BgiVulkanCreateDebug(BgiVulkanInstance* instance)
     dbgMsgCreateInfo.pfnUserCallback = _VulkanDebugCallback;
     dbgMsgCreateInfo.pUserData = nullptr;
 
-    TF_VERIFY(
+    utils::VERIFY(
         instance->vkCreateDebugUtilsMessengerEXT(
             vkInstance,
             &dbgMsgCreateInfo,
@@ -118,7 +117,7 @@ BgiVulkanDestroyDebug(BgiVulkanInstance* instance)
 
     VkInstance vkInstance = instance->GetVulkanInstance();
 
-    if (!TF_VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
+    if (!utils::VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
         return;
     }
 
@@ -174,7 +173,7 @@ BgiVulkanSetDebugName(
         return;
     }
 
-    if (!TF_VERIFY(device && device->vkSetDebugUtilsObjectNameEXT)) {
+    if (!utils::VERIFY(device && device->vkSetDebugUtilsObjectNameEXT)) {
         return;
     }
 

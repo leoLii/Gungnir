@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/shaderCompiler.h"
 #include "driver/bgiVulkan/conversions.h"
@@ -79,7 +79,7 @@ BgiVulkanCompileGLSL(
 static bool
 _VerifyResults(SpvReflectShaderModule* module, SpvReflectResult const& result)
 {
-    if (!TF_VERIFY(result == SPV_REFLECT_RESULT_SUCCESS)) {
+    if (!UTILS_VERIFY(result == SPV_REFLECT_RESULT_SUCCESS)) {
         spvReflectDestroyShaderModule(module);
         return false;
     }
@@ -94,7 +94,7 @@ _CreateDescriptorSetLayout(
     std::string const& debugName)
 {
     VkDescriptorSetLayout layout = nullptr;
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateDescriptorSetLayout(
             device->GetVulkanDevice(),
             &createInfo,

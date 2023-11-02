@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/commandQueue.h"
 #include "driver/bgiVulkan/commandBuffer.h"
@@ -21,7 +21,7 @@ _CreateCommandPool(BgiVulkanDevice* device)
 
     VkCommandPool pool = nullptr;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateCommandPool(
             device->GetVulkanDevice(),
             &poolCreateInfo,
@@ -104,7 +104,7 @@ BgiVulkanCommandQueue::SubmitToQueue(
         resourceInfo.signalSemaphoreCount = 1;
         resourceInfo.pSignalSemaphores = &semaphore;
 
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkQueueSubmit(_vkGfxQueue, 1, &resourceInfo, rFence) == VK_SUCCESS
         );
 
@@ -133,7 +133,7 @@ BgiVulkanCommandQueue::SubmitToQueue(
     // Record and submission order does not guarantee execution order.
     // VK docs: "Execution Model" & "Implicit Synchronization Guarantees".
     // The vulkan queue must be externally synchronized.
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkQueueSubmit(_vkGfxQueue, 1, &workInfo, wFence) == VK_SUCCESS
     );
 
@@ -141,7 +141,7 @@ BgiVulkanCommandQueue::SubmitToQueue(
     if (wait == BgiSubmitWaitTypeWaitUntilCompleted) {
         static const uint64_t timeOut = 100000000000;
         VkDevice vkDevice = _device->GetVulkanDevice();
-        TF_VERIFY(
+        UTILS_VERIFY(
             vkWaitForFences(vkDevice, 1, &wFence, VK_TRUE, timeOut)==VK_SUCCESS
         );
         // When the client waits for the cmd buf to finish on GPU they will
@@ -191,7 +191,7 @@ BgiVulkanCommandQueue::AcquireResourceCommandBuffer()
     // with this since Hgi::Create* must currently happen on the main thread.
     // Once we change that, we must support resource command buffers on
     // secondary threads.
-    TF_VERIFY(std::this_thread::get_id() == _threadId);
+    UTILS_VERIFY(std::this_thread::get_id() == _threadId);
 
     if (!_resourceCommandBuffer) {
         _resourceCommandBuffer = AcquireCommandBuffer();

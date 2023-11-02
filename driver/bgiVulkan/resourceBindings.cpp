@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/resourceBindings.h"
 #include "driver/bgiVulkan/buffer.h"
@@ -29,7 +29,7 @@ _CreateDescriptorSetLayout(
     setCreateInfo.pNext = nullptr;
 
     VkDescriptorSetLayout layout = nullptr;
-    TF_VERIFY(
+    UTILS_VERIFYIFY(
         vkCreateDescriptorSetLayout(
             device->GetVulkanDevice(),
             &setCreateInfo,
@@ -164,7 +164,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     pool_info.poolSizeCount = (uint32_t) poolSizes.size();
     pool_info.pPoolSizes = poolSizes.data();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateDescriptorPool(
             _device->GetVulkanDevice(),
             &pool_info,
@@ -192,7 +192,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     allocateInfo.descriptorSetCount = _descriptorSetCnt;
     allocateInfo.pSetLayouts = &_vkDescriptorSetLayout;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkAllocateDescriptorSets(
             _device->GetVulkanDevice(),
             &allocateInfo,
@@ -245,19 +245,19 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
 
     for (BgiBufferBindDesc const& bufDesc : desc.buffers) {
         uint32_t & limit = bindLimits[bufDesc.resourceType][1];
-        if (!TF_VERIFY(limit>0, "Maximum size array-of-buffers exceeded")) {
+        if (!UTILS_VERIFY(limit>0, "Maximum size array-of-buffers exceeded")) {
             break;
         }
         limit -= 1;
 
-        TF_VERIFY(bufDesc.buffers.size() == bufDesc.offsets.size());
+        UTILS_VERIFY(bufDesc.buffers.size() == bufDesc.offsets.size());
 
         // Each buffer can be an array of buffers (usually one)
         for (size_t i=0; i<bufDesc.buffers.size(); i++) {
             BgiBufferHandle const& bufHandle = bufDesc.buffers[i];
             BgiVulkanBuffer* buf =
                 static_cast<BgiVulkanBuffer*>(bufHandle.Get());
-            if (!TF_VERIFY(buf)) continue;
+            if (!UTILS_VERIFY(buf)) continue;
             VkDescriptorBufferInfo bufferInfo;
             bufferInfo.buffer = buf->GetVulkanBuffer();
             bufferInfo.offset = bufDesc.offsets[i];
@@ -292,7 +292,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     for (BgiTextureBindDesc const& texDesc : desc.textures) {
 
         uint32_t & limit = bindLimits[texDesc.resourceType][1];
-        if (!TF_VERIFY(limit>0, "Maximum array-of-texture/samplers exceeded")) {
+        if (!UTILS_VERIFY(limit>0, "Maximum array-of-texture/samplers exceeded")) {
             break;
         }
         limit -= 1;
@@ -302,7 +302,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
             BgiTextureHandle const& texHandle = texDesc.textures[i];
             BgiVulkanTexture* tex =
                 static_cast<BgiVulkanTexture*>(texHandle.Get());
-            if (!TF_VERIFY(tex)) continue;
+            if (!UTILS_VERIFY(tex)) continue;
 
             // Not having a sampler is ok only for StorageImage.
             BgiVulkanSampler* smp = nullptr;

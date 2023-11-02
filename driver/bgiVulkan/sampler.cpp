@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/sampler.h"
 #include "driver/bgiVulkan/capabilities.h"
@@ -44,7 +44,7 @@ BgiVulkanSampler::BgiVulkanSampler(
     sampler.maxAnisotropy = sampler.anisotropyEnable ?
         caps.vkDeviceProperties.limits.maxSamplerAnisotropy : 1.0f;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateSampler(
             device->GetVulkanDevice(),
             &sampler,

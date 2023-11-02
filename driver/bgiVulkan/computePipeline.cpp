@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/computePipeline.h"
 #include "driver/bgiVulkan/device.h"
@@ -49,7 +49,7 @@ BgiVulkanComputePipeline::BgiVulkanComputePipeline(
     bool usePushConstants = desc.shaderConstantsDesc.byteSize > 0;
     VkPushConstantRange pcRanges;
     if (usePushConstants) {
-        TF_VERIFY(desc.shaderConstantsDesc.byteSize % 4 == 0,
+        UTILS_VERIFY(desc.shaderConstantsDesc.byteSize % 4 == 0,
             "Push constants not multipes of 4");
         pcRanges.offset = 0;
         pcRanges.size = desc.shaderConstantsDesc.byteSize;
@@ -66,7 +66,7 @@ BgiVulkanComputePipeline::BgiVulkanComputePipeline(
     pipeLayCreateInfo.setLayoutCount = (uint32_t)_vkDescriptorSetLayouts.size();
     pipeLayCreateInfo.pSetLayouts = _vkDescriptorSetLayouts.data();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreatePipelineLayout(
             _device->GetVulkanDevice(),
             &pipeLayCreateInfo,
@@ -91,7 +91,7 @@ BgiVulkanComputePipeline::BgiVulkanComputePipeline(
     //
     BgiVulkanPipelineCache* pCache = device->GetPipelineCache();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateComputePipelines(
             _device->GetVulkanDevice(),
             pCache->GetVulkanPipelineCache(),

@@ -107,7 +107,7 @@ BgiVulkanTexture::BgiVulkanTexture(
     // Equivalent to: vkCreateImage, vkAllocateMemory, vkBindImageMemory
     VmaAllocationCreateInfo allocInfo = {};
     allocInfo.usage = VMA_MEMORY_USAGE_GPU_ONLY;
-    TF_VERIFY(
+    UTILS_VERIFY(
         vmaCreateImage(
             device->GetVulkanMemoryAllocator(),
             &imageCreateInfo,
@@ -117,7 +117,7 @@ BgiVulkanTexture::BgiVulkanTexture(
             nullptr) == VK_SUCCESS
     );
 
-    TF_VERIFY(_vkImage, "Failed to create image");
+    UTILS_VERIFY(_vkImage, "Failed to create image");
 
     // Debug label
     if (!_descriptor.debugName.empty()) {
@@ -164,7 +164,7 @@ BgiVulkanTexture::BgiVulkanTexture(
     view.subresourceRange.levelCount = desc.mipLevels;
     view.image = _vkImage;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateImageView(
             device->GetVulkanDevice(),
             &view,
@@ -286,7 +286,7 @@ BgiVulkanTexture::BgiVulkanTexture(
     view.subresourceRange.levelCount = desc.mipLevels;
     view.image = srcTexture->GetImage();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateImageView(
             device->GetVulkanDevice(),
             &view,
@@ -358,7 +358,7 @@ BgiVulkanTexture::GetCPUStagingAddress()
     }
 
     if (!_cpuStagingAddress) {
-        TF_VERIFY(
+        UTILS_VERIFY(
             vmaMapMemory(
                 _device->GetVulkanMemoryAllocator(), 
                 _stagingBuffer->GetVulkanMemoryAllocation(), 

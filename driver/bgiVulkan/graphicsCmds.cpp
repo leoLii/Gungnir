@@ -125,7 +125,7 @@ BgiVulkanGraphicsCmds::BindPipeline(BgiGraphicsPipelineHandle pipeline)
     BgiVulkanGraphicsPipeline* pso = 
         static_cast<BgiVulkanGraphicsPipeline*>(_pipeline.Get());
 
-    if (TF_VERIFY(pso)) {
+    if (UTILS_VERIFYIFY(pso)) {
         pso->BindPipeline(_commandBuffer->GetVulkanCommandBuffer());
     }
 }
@@ -420,7 +420,7 @@ BgiVulkanGraphicsCmds::_CreateCommandBuffer()
         BgiVulkanDevice* device = _bgi->GetPrimaryDevice();
         BgiVulkanCommandQueue* queue = device->GetCommandQueue();
         _commandBuffer = queue->AcquireCommandBuffer();
-        TF_VERIFY(_commandBuffer);
+        UTILS_VERIFYIFY(_commandBuffer);
     }
 }
 

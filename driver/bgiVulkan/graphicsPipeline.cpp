@@ -1,4 +1,4 @@
-#include "pxr/base/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 #include "pxr/base/tf/iterator.h"
 
 #include "driver/bgiVulkan/graphicsPipeline.h"
@@ -301,7 +301,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
     bool usePushConstants = desc.shaderConstantsDesc.byteSize > 0;
     VkPushConstantRange pcRanges;
     if (usePushConstants) {
-        TF_VERIFY(desc.shaderConstantsDesc.byteSize % 4 == 0,
+        UTILS_VERIFY(desc.shaderConstantsDesc.byteSize % 4 == 0,
             "Push constants not multipes of 4");
         pcRanges.offset = 0;
         pcRanges.size = desc.shaderConstantsDesc.byteSize;
@@ -319,7 +319,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
     pipeLayCreateInfo.setLayoutCount= (uint32_t) _vkDescriptorSetLayouts.size();
     pipeLayCreateInfo.pSetLayouts = _vkDescriptorSetLayouts.data();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreatePipelineLayout(
             _device->GetVulkanDevice(),
             &pipeLayCreateInfo,
@@ -343,7 +343,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
     // RenderPass
     //
     _CreateRenderPass();
-    TF_VERIFY(_vkRenderPass);
+    UTILS_VERIFY(_vkRenderPass);
     pipeCreateInfo.renderPass = _vkRenderPass;
 
     //
@@ -351,7 +351,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
     //
     BgiVulkanPipelineCache* pCache = device->GetPipelineCache();
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateGraphicsPipelines(
             _device->GetVulkanDevice(),
             pCache->GetVulkanPipelineCache(),
@@ -492,7 +492,7 @@ BgiVulkanGraphicsPipeline::AcquireVulkanFramebuffer(
     fbCreateInfo.height = framebuffer.dimensions[1];
     fbCreateInfo.layers = 1;
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateFramebuffer(
             _device->GetVulkanDevice(),
             &fbCreateInfo,
@@ -510,7 +510,7 @@ BgiVulkanGraphicsPipeline::AcquireVulkanFramebuffer(
             debugLabel.c_str());
     }
 
-    TF_VERIFY(framebuffer.dimensions[0] > 0 && framebuffer.dimensions[1] > 0);
+    UTILS_VERIFY(framebuffer.dimensions[0] > 0 && framebuffer.dimensions[1] > 0);
 
     _framebuffers.push_back(std::move(framebuffer));
 
@@ -603,11 +603,11 @@ BgiVulkanGraphicsPipeline::_CreateRenderPass()
     BgiSampleCount samples = _descriptor.multiSampleState.sampleCount;
 
     if (!_descriptor.colorResolveAttachmentDescs.empty()) {
-        TF_VERIFY(
+        UTILS_VERIFY(
             _descriptor.colorAttachmentDescs.size() ==
             _descriptor.colorResolveAttachmentDescs.size(),
             "Count mismatch between color and resolve attachments");
-        TF_VERIFY(
+        UTILS_VERIFY(
             samples > BgiSampleCount1,
             "Pipeline sample count must be greater than one to use resolve");
     }
@@ -759,7 +759,7 @@ BgiVulkanGraphicsPipeline::_CreateRenderPass()
     vkCreateRenderPass2KHR = (PFN_vkCreateRenderPass2KHR) vkGetDeviceProcAddr(
         _device->GetVulkanDevice(), "vkCreateRenderPass2KHR");
 
-    TF_VERIFY(
+    UTILS_VERIFY(
         vkCreateRenderPass2KHR(
             _device->GetVulkanDevice(),
             &renderPassInfo,
