@@ -18,16 +18,16 @@ class BgiVulkanDevice;
 class BgiVulkanCapabilities final :public BgiCapabilities
 {
 public:
-    HGIVULKAN_API
+    BGIVULKAN_API
     BgiVulkanCapabilities(BgiVulkanDevice* device);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     ~BgiVulkanCapabilities();
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     int GetAPIVersion() const override;
     
-    HGIVULKAN_API
+    BGIVULKAN_API
     int GetShaderVersion() const override;
 
     bool supportsTimeStamps;

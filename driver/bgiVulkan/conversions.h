@@ -27,73 +27,73 @@ public:
     BGIVULKAN_API
     static VkImageAspectFlags GetImageAspectFlag(BgiTextureUsage usage);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkImageUsageFlags GetTextureUsage(BgiTextureUsage tu);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkFormatFeatureFlags GetFormatFeature(BgiTextureUsage tu);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkAttachmentLoadOp GetLoadOp(BgiAttachmentLoadOp op);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkAttachmentStoreOp GetStoreOp(BgiAttachmentStoreOp op);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkSampleCountFlagBits GetSampleCount(BgiSampleCount sc);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkShaderStageFlags GetShaderStages(BgiShaderStage ss);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkBufferUsageFlags GetBufferUsage(BgiBufferUsage bu);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkCullModeFlags GetCullMode(BgiCullMode cm);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkPolygonMode GetPolygonMode(BgiPolygonMode pm);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkFrontFace GetWinding(BgiWinding wd);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkDescriptorType GetDescriptorType(BgiBindResourceType rt);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkBlendFactor GetBlendFactor(BgiBlendFactor bf);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkBlendOp GetBlendEquation(BgiBlendOp bo);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkCompareOp GetDepthCompareFunction(BgiCompareFunction cf);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkImageType GetTextureType(BgiTextureType tt);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkImageViewType GetTextureViewType(BgiTextureType tt);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkSamplerAddressMode GetSamplerAddressMode(BgiSamplerAddressMode a);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkFilter GetMinMagFilter(BgiSamplerFilter mf);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkSamplerMipmapMode GetMipFilter(BgiMipFilter mf);
     
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkBorderColor GetBorderColor(BgiBorderColor bc);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkComponentSwizzle GetComponentSwizzle(BgiComponentSwizzle cs);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static VkPrimitiveTopology GetPrimitiveType(BgiPrimitiveType pt);
 
-    HGIVULKAN_API
+    BGIVULKAN_API
     static std::string GetImageLayoutFormatQualifier(BgiFormat inFormat);
 };
 

@@ -161,7 +161,7 @@ public:
 
 protected:
     BGIVULKAN_API
-    bool _SubmitCmds(HgiCmds* cmds, HgiSubmitWaitType wait) override;
+    bool _SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait) override;
 
 private:
     BgiVulkan & operator=(const BgiVulkan&) = delete;
