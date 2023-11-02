@@ -1,8 +1,8 @@
-#include "driver/bgiVulkan/conversions.h"
-#include "driver/bgiVulkan/vulkan.h"
-
 #include "core/utils/diagnostic.h"
 #include "pxr/base/tf/iterator.h"
+
+#include "driver/bgiVulkan/conversions.h"
+#include "driver/bgiVulkan/vulkan.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

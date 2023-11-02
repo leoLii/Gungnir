@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/capabilities.h"
 #include "driver/bgiVulkan/commandQueue.h"
@@ -70,7 +72,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     const uint32_t maxDevices = 64;
     VkPhysicalDevice physicalDevices[maxDevices];
     uint32_t physicalDeviceCount = maxDevices;
-    UTILS_VERIFYIFY(
+    UTILS_VERIFY(
         vkEnumeratePhysicalDevices(
             instance->GetVulkanInstance(),
             &physicalDeviceCount,

@@ -1,4 +1,4 @@
-// #include "core/tf/diagnostic.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/texture.h"
 #include "driver/bgiVulkan/buffer.h"

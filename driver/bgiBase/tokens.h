@@ -15,33 +15,31 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
     (Metal)           \
     (Vulkan)
 
-/*
-TF_DECLARE_PUBLIC_TOKENS(HgiTokens, HGI_API, HGI_TOKENS);
+// TF_DECLARE_PUBLIC_TOKENS(HgiTokens, HGI_API, HGI_TOKENS);
 
-#define HGI_SHADER_KEYWORD_TOKENS    \
-    (hdPosition) \
-    (hdPointCoord) \
-    (hdClipDistance) \
-    (hdCullDistance) \
-    (hdVertexID) \
-    (hdInstanceID) \
-    (hdPrimitiveID) \
-    (hdSampleID) \
-    (hdSamplePosition) \
-    (hdFragCoord) \
-    (hdFrontFacing) \
-    (hdLayer) \
-    (hdBaseVertex) \
-    (hdBaseInstance) \
-    (hdViewportIndex) \
-    (hdPositionInPatch) \
-    (hdPatchID) \
-    (hdGlobalInvocationID) \
-    (hdBaryCoordNoPerspNV)
+#define BGI_SHADER_KEYWORD_TOKENS    \
+    (Position) \
+    (PointCoord) \
+    (ClipDistance) \
+    (CullDistance) \
+    (VertexID) \
+    (InstanceID) \
+    (PrimitiveID) \
+    (SampleID) \
+    (SamplePosition) \
+    (FragCoord) \
+    (FrontFacing) \
+    (Layer) \
+    (BaseVertex) \
+    (BaseInstance) \
+    (ViewportIndex) \
+    (PositionInPatch) \
+    (PatchID) \
+    (GlobalInvocationID) \
+    (BaryCoordNoPerspNV)
 
-TF_DECLARE_PUBLIC_TOKENS(
-    HgiShaderKeywordTokens, HGI_API, HGI_SHADER_KEYWORD_TOKENS);
-*/
+// TF_DECLARE_PUBLIC_TOKENS(
+//     HgiShaderKeywordTokens, HGI_API, HGI_SHADER_KEYWORD_TOKENS);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

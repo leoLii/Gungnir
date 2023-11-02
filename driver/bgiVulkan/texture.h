@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_VULKAN_TEXTURE_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include "driver/bgiBase/texture.h"
 #include "driver/bgiVulkan/api.h"
@@ -71,9 +72,9 @@ public:
     /// If mipLevel is less than one, all mip levels will be copied from buffer.
     BGIVULKAN_API
     void CopyBufferToTexture(
-        HgiVulkanCommandBuffer* cb,
-        HgiVulkanBuffer* srcBuffer,
-        GfVec3i const& dstTexelOffset = GfVec3i(0),
+        BgiVulkanCommandBuffer* cb,
+        BgiVulkanBuffer* srcBuffer,
+        Vector3i const& dstTexelOffset = Vector3i(0),
         int mipLevel=-1);
 
     /// Transition image from oldLayout to newLayout.
@@ -84,8 +85,8 @@ public:
     /// If mipLevel is > -1 only that mips level will be transitioned.
     BGIVULKAN_API
     static void TransitionImageBarrier(
-        HgiVulkanCommandBuffer* cb,
-        HgiVulkanTexture* tex,
+        BgiVulkanCommandBuffer* cb,
+        BgiVulkanTexture* tex,
         VkImageLayout oldLayout,
         VkImageLayout newLayout,
         VkAccessFlags producerAccess,

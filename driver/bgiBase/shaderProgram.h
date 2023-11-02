@@ -6,7 +6,7 @@
 #include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiBase/handle.h"
-// #include "driver/bgiBase/shaderFunction.h"
+#include "driver/bgiBase/shaderFunction.h"
 #include "driver/bgiBase/types.h"
 
 #include <vector>
@@ -30,6 +30,7 @@ struct BgiShaderProgramDesc
     BgiShaderProgramDesc();
 
     std::string debugName;
+    BgiShaderFunctionHandleVector shaderFunctions;
 };
 
 BGI_API

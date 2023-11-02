@@ -5,10 +5,11 @@
 
 #include <vulkan/vulkan.h>
 
-#include "vk_mem_alloc.h"
+#include "driver/bgiVulkan/vk_mem_alloc.h"
+
 // Use the default allocator (nullptr)
 inline VkAllocationCallbacks*
-VulkanAllocator() {
+BgiVulkanAllocator() {
     return nullptr;
 }
 

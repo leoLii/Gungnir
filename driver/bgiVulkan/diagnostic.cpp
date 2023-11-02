@@ -68,10 +68,10 @@ BgiVulkanCreateDebug(BgiVulkanInstance* instance)
             vkInstance,
             "vkDestroyDebugUtilsMessengerEXT");
 
-    if (!utils::VERIFY(instance->vkCreateDebugUtilsMessengerEXT)) {
+    if (!UTILS_VERIFY(instance->vkCreateDebugUtilsMessengerEXT)) {
         return;
     }
-    if (!utils::VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
+    if (!UTILS_VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
         return;
     }
 
@@ -99,7 +99,7 @@ BgiVulkanCreateDebug(BgiVulkanInstance* instance)
     dbgMsgCreateInfo.pfnUserCallback = _VulkanDebugCallback;
     dbgMsgCreateInfo.pUserData = nullptr;
 
-    utils::VERIFY(
+    UTILS_VERIFY(
         instance->vkCreateDebugUtilsMessengerEXT(
             vkInstance,
             &dbgMsgCreateInfo,

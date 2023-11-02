@@ -5,8 +5,8 @@
 #include "core/math/math.h"
 
 #include "driver/bgiBase/graphicsCmds.h"
-#include "driver/bsgiVulkan/api.h"
-#include "driver/bsgiVulkan/vulkan.h"
+#include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkan.h"
 
 #include <cstdint>
 #include <functional>

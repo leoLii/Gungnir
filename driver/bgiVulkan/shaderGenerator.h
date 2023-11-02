@@ -7,6 +7,8 @@
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/shaderSection.h"
 
+#include <vector>
+
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 class Bgi;

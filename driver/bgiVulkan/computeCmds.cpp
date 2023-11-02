@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "driver/bgiVulkan/computeCmds.h"
 #include "driver/bgiVulkan/commandBuffer.h"
 #include "driver/bgiVulkan/commandQueue.h"
@@ -20,7 +22,7 @@ BgiVulkanComputeCmds::BgiVulkanComputeCmds(
     , _pushConstantsDirty(false)
     , _pushConstants(nullptr)
     , _pushConstantsByteSize(0)
-    , _localWorkGroupSize(GfVec3i(1, 1, 1))
+    , _localWorkGroupSize(Vector3i(1, 1, 1))
 {
 }
 
@@ -113,7 +115,7 @@ BgiVulkanComputeCmds::Dispatch(int dimX, int dimY)
     // Determine device's num compute work group limits
     const VkPhysicalDeviceLimits limits = 
         _bgi->GetCapabilities()->vkDeviceProperties.limits;
-    const GfVec3i maxNumWorkGroups = GfVec3i(
+    const Vector3i maxNumWorkGroups = Vector3i(
         limits.maxComputeWorkGroupCount[0],
         limits.maxComputeWorkGroupCount[1],
         limits.maxComputeWorkGroupCount[2]);

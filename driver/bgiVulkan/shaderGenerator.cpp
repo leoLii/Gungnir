@@ -1,8 +1,9 @@
 #include "driver/bgiBase/tokens.h"
-
 #include "driver/bgiVulkan/shaderGenerator.h"
 #include "driver/bgiVulkan/bgi.h"
 #include "driver/bgiVulkan/conversions.h"
+
+#include <set>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
@@ -343,23 +344,23 @@ BgiVulkanShaderGenerator::_WriteInOuts(
     };
 
     const static std::unordered_map<std::string, std::string> takenInParams {
-        { BgiShaderKeywordTokens->hdPosition, "gl_Position"},
-        { BgiShaderKeywordTokens->hdPointCoord, "gl_PointCoord"},
-        { BgiShaderKeywordTokens->hdClipDistance, "gl_ClipDistance"},
-        { BgiShaderKeywordTokens->hdCullDistance, "gl_CullDistance"},
-        { BgiShaderKeywordTokens->hdVertexID, "gl_VertexIndex"},
-        { BgiShaderKeywordTokens->hdInstanceID, "gl_InstanceIndex"},
-        { BgiShaderKeywordTokens->hdPrimitiveID, "gl_PrimitiveID"},
-        { BgiShaderKeywordTokens->hdSampleID, "gl_SampleID"},
-        { BgiShaderKeywordTokens->hdSamplePosition, "gl_SamplePosition"},
-        { BgiShaderKeywordTokens->hdFragCoord, "gl_FragCoord"},
-        { BgiShaderKeywordTokens->hdBaseVertex, "gl_BaseVertex"},
-        { BgiShaderKeywordTokens->hdBaseInstance, "BgiGetBaseInstance()"},
-        { BgiShaderKeywordTokens->hdFrontFacing, "gl_FrontFacing"},
-        { BgiShaderKeywordTokens->hdLayer, "gl_Layer"},
-        { BgiShaderKeywordTokens->hdViewportIndex, "gl_ViewportIndex"},
-        { BgiShaderKeywordTokens->hdGlobalInvocationID, "gl_GlobalInvocationID"},
-        { BgiShaderKeywordTokens->hdBaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
+        { BgiShaderKeywordTokens->Position, "gl_Position"},
+        { BgiShaderKeywordTokens->PointCoord, "gl_PointCoord"},
+        { BgiShaderKeywordTokens->ClipDistance, "gl_ClipDistance"},
+        { BgiShaderKeywordTokens->CullDistance, "gl_CullDistance"},
+        { BgiShaderKeywordTokens->VertexID, "gl_VertexIndex"},
+        { BgiShaderKeywordTokens->InstanceID, "gl_InstanceIndex"},
+        { BgiShaderKeywordTokens->PrimitiveID, "gl_PrimitiveID"},
+        { BgiShaderKeywordTokens->SampleID, "gl_SampleID"},
+        { BgiShaderKeywordTokens->SamplePosition, "gl_SamplePosition"},
+        { BgiShaderKeywordTokens->FragCoord, "gl_FragCoord"},
+        { BgiShaderKeywordTokens->BaseVertex, "gl_BaseVertex"},
+        { BgiShaderKeywordTokens->BaseInstance, "BgiGetBaseInstance()"},
+        { BgiShaderKeywordTokens->FrontFacing, "gl_FrontFacing"},
+        { BgiShaderKeywordTokens->Layer, "gl_Layer"},
+        { BgiShaderKeywordTokens->ViewportIndex, "gl_ViewportIndex"},
+        { BgiShaderKeywordTokens->GlobalInvocationID, "gl_GlobalInvocationID"},
+        { BgiShaderKeywordTokens->BaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
     };
 
     const bool in_qualifier = qualifier == "in";

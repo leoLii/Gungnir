@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "driver/bgiVulkan/shaderSection.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE

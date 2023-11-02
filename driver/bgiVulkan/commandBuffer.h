@@ -75,16 +75,16 @@ public:
     // If wait = HgiSubmitWaitTypeWaitUntilCompleted, the function will wait 
     // for the command buffer to be consumed before continuing.
     BGIVULKAN_API
-    bool ResetIfConsumedByGPU(HgiSubmitWaitType wait);
+    bool ResetIfConsumedByGPU(BgiSubmitWaitType wait);
 
     /// Inserts a barrier so that data written to memory by commands before
     /// the barrier is available to commands after the barrier.
     BGIVULKAN_API
-    void InsertMemoryBarrier(HgiMemoryBarrier barrier);
+    void InsertMemoryBarrier(BgiMemoryBarrier barrier);
 
     /// Returns the id that uniquely identifies this command buffer amongst
     /// all in-flight command buffers.
-    BgIVULKAN_API
+    BGIVULKAN_API
     uint8_t GetInflightId() const;
 
     /// Returns the device that was used to create the command buffer.

@@ -2,7 +2,6 @@
 #define GUNGNIR_DRIVER_VULKAN_GARBAGE_COLLECTOR_H
 
 #include "core/base.h"
-#include "core/utils/diagnostic.h"
 
 #include "driver/bgiBase/bgi.h"
 #include "driver/bgiVulkan/api.h"

@@ -1,5 +1,6 @@
-#include "driver/bgiBase/graphicsCmdsDesc.h"
+#include "core/utils/diagnostic.h"
 
+#include "driver/bgiBase/graphicsCmdsDesc.h"
 #include "driver/bgiVulkan/graphicsCmds.h"
 #include "driver/bgiVulkan/buffer.h"
 #include "driver/bgiVulkan/commandBuffer.h"

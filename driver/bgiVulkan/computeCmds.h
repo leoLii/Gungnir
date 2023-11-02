@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_VULKAN_COMPUTE_CMDS_H
 
 #include "core/base.h"
+#include "core/math/math.h"
 
 #include "driver/bgiBase/computeCmds.h"
 #include "driver/bgiBase/computePipeline.h"
@@ -76,7 +77,7 @@ private:
     bool _pushConstantsDirty;
     uint8_t* _pushConstants;
     uint32_t _pushConstantsByteSize;
-    GfVec3i _localWorkGroupSize;
+    Vector3i _localWorkGroupSize;
 
     // Cmds is used only one frame so storing multi-frame state on will not
     // survive.
