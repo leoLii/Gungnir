@@ -95,7 +95,7 @@ BgiVulkanGraphicsCmds::SetViewport(Vector4i const& vp)
 }
 
 void
-BgiVulkanGraphicsCmds::SetScissor(GfVec4i const& sc)
+BgiVulkanGraphicsCmds::SetScissor(Vector4i const& sc)
 {
     _scissorSet = true;
 
@@ -126,7 +126,7 @@ BgiVulkanGraphicsCmds::BindPipeline(BgiGraphicsPipelineHandle pipeline)
     BgiVulkanGraphicsPipeline* pso = 
         static_cast<BgiVulkanGraphicsPipeline*>(_pipeline.Get());
 
-    if (UTILS_VERIFYIFY(pso)) {
+    if (UTILS_VERIFY(pso)) {
         pso->BindPipeline(_commandBuffer->GetVulkanCommandBuffer());
     }
 }

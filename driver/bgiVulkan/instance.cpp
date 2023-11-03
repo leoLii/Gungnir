@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "driver/bgiVulkan/instance.h"
 #include "driver/bgiVulkan/diagnostic.h"
 
@@ -54,7 +56,7 @@ BgiVulkanInstance::BgiVulkanInstance()
     createInfo.ppEnabledExtensionNames = extensions.data();
     createInfo.enabledExtensionCount = (uint32_t) extensions.size();
 
-    UTILS_VERIFYIFY(vkCreateInstance(
+    UTILS_VERIFY(vkCreateInstance(
             &createInfo,
             BgiVulkanAllocator(),
             &_vkInstance) == VK_SUCCESS

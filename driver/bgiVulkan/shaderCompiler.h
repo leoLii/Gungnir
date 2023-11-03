@@ -50,7 +50,7 @@ bool BgiVulkanCompileGLSL(
 /// (HgiShaderProgram), but not the HgiResourceBindings so we must use
 /// spirv reflection to discover the descriptorSet info for the module.
 BGIVULKAN_API
-BgiVulkanDescriptorSetInfoVector HgiVulkanGatherDescriptorSetInfo(
+BgiVulkanDescriptorSetInfoVector BgiVulkanGatherDescriptorSetInfo(
     std::vector<unsigned int> const& spirv);
 
 /// Given all of the DescriptorSetInfos of all of the shader modules in a

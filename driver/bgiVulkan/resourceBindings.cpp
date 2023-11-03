@@ -29,7 +29,7 @@ _CreateDescriptorSetLayout(
     setCreateInfo.pNext = nullptr;
 
     VkDescriptorSetLayout layout = nullptr;
-    UTILS_VERIFYIFY(
+    UTILS_VERIFY(
         vkCreateDescriptorSetLayout(
             device->GetVulkanDevice(),
             &setCreateInfo,
@@ -108,7 +108,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     // Buffers
     std::vector<VkDescriptorSetLayoutBinding> bindings;
 
-    for (BgiBufferBindDesc const& b : desc.buffers) {
+    for (BgiBufferBindingDesc const& b : desc.buffers) {
         VkDescriptorSetLayoutBinding d = {};
         d.binding = b.bindingIndex;
         d.descriptorType =
@@ -126,7 +126,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     }
 
     // Textures
-    for (BgiTextureBindDesc const& t : desc.textures) {
+    for (BgiTextureBindingDesc const& t : desc.textures) {
         VkDescriptorSetLayoutBinding d = {};
         d.binding = textureBindIndexStart + t.bindingIndex;
         d.descriptorType =
@@ -243,7 +243,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     std::vector<VkDescriptorBufferInfo> bufferInfos;
     bufferInfos.reserve(desc.buffers.size());
 
-    for (BgiBufferBindDesc const& bufDesc : desc.buffers) {
+    for (BgiBufferBindingDesc const& bufDesc : desc.buffers) {
         uint32_t & limit = bindLimits[bufDesc.resourceType][1];
         if (!UTILS_VERIFY(limit>0, "Maximum size array-of-buffers exceeded")) {
             break;
@@ -267,7 +267,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     }
 
     size_t bufInfoOffset = 0;
-    for (BgiBufferBindDesc const& bufDesc : desc.buffers) {
+    for (BgiBufferBindingDesc const& bufDesc : desc.buffers) {
         VkWriteDescriptorSet writeSet= {VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET};
         writeSet.dstBinding = bufDesc.bindingIndex;
         writeSet.dstArrayElement = 0;
@@ -289,7 +289,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     std::vector<VkDescriptorImageInfo> imageInfos;
     imageInfos.reserve(desc.textures.size());
 
-    for (BgiTextureBindDesc const& texDesc : desc.textures) {
+    for (BgiTextureBindingDesc const& texDesc : desc.textures) {
 
         uint32_t & limit = bindLimits[texDesc.resourceType][1];
         if (!UTILS_VERIFY(limit>0, "Maximum array-of-texture/samplers exceeded")) {
@@ -320,7 +320,7 @@ BgiVulkanResourceBindings::BgiVulkanResourceBindings(
     }
 
     size_t texInfoOffset = 0;
-    for (BgiTextureBindDesc const& texDesc : desc.textures) {
+    for (BgiTextureBindingDesc const& texDesc : desc.textures) {
         // For dstBinding we must provided an index in descriptor set.
         // Must be one of the bindings specified in VkDescriptorSetLayoutBinding
         VkWriteDescriptorSet writeSet= {VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET};

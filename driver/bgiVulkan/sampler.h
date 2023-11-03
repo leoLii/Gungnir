@@ -38,7 +38,7 @@ public:
     uint64_t & GetInflightBits();
 
 protected:
-    friend class HgiVulkan;
+    friend class BgiVulkan;
 
     BGIVULKAN_API
     BgiVulkanSampler(

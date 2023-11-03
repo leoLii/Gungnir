@@ -38,10 +38,10 @@ public:
     void PopDebugGroup() override;
 
     BGIVULKAN_API
-    void SetViewport(GfVec4i const& vp) override;
+    void SetViewport(Vector4i const& vp) override;
 
     BGIVULKAN_API
-    void SetScissor(GfVec4i const& sc) override;
+    void SetScissor(Vector4i const& sc) override;
 
     BGIVULKAN_API
     void BindPipeline(BgiGraphicsPipelineHandle pipeline) override;

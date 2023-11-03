@@ -48,7 +48,7 @@ public:
     BGIVULKAN_API
     VkFramebuffer AcquireVulkanFramebuffer(
         BgiGraphicsCmdsDesc const& gfxDesc,
-        GfVec2i* dimensions);
+        Vector2i* dimensions);
 
     /// Returns the clear values for each color and depth attachment.
     BGIVULKAN_API

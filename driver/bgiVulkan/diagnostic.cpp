@@ -118,7 +118,7 @@ BgiVulkanDestroyDebug(BgiVulkanInstance* instance)
 
     VkInstance vkInstance = instance->GetVulkanInstance();
 
-    if (!utils::VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
+    if (!UTILS_VERIFY(instance->vkDestroyDebugUtilsMessengerEXT)) {
         return;
     }
 
@@ -174,7 +174,7 @@ BgiVulkanSetDebugName(
         return;
     }
 
-    if (!utils::VERIFY(device && device->vkSetDebugUtilsObjectNameEXT)) {
+    if (!UTILS_VERIFY(device && device->vkSetDebugUtilsObjectNameEXT)) {
         return;
     }
 
