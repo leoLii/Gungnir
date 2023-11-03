@@ -6,7 +6,6 @@
 #include "driver/bgiVulkan/commandQueue.h"
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/instance.h"
-#include "driver/bgiVulkan/vulkan.h"
 
 #include <cstring>
 

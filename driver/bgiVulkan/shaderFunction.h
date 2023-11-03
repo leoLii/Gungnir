@@ -4,9 +4,9 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/shaderFunction.h"
-#include "driver/bgiVulkan/api.h"
-#include "driver/bgiVulkan/vulkan.h"
 #include "driver/bgiVulkan/shaderCompiler.h"
+#include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

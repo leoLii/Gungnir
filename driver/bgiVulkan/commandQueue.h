@@ -5,7 +5,7 @@
 
 #include "driver/bgiBase/enums.h"
 #include "driver/bgiVulkan/api.h"
-#include "driver/bgiVulkan/vulkan.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 #include <atomic>
 #include <mutex>

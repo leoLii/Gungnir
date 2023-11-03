@@ -7,7 +7,7 @@
 #include "driver/bgiBase/graphicsCmdsDesc.h"
 #include "driver/bgiBase/graphicsPipeline.h"
 #include "driver/bgiVulkan/api.h"
-#include "driver/bgiVulkan/vulkan.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 #include <vector>
 

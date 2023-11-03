@@ -6,6 +6,7 @@
 #include "driver/bgiBase/shaderSection.h"
 #include "driver/bgiBase/shaderFunctionDesc.h"
 #include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 #include <string>
 #include <vector>

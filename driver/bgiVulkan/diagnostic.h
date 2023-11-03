@@ -4,6 +4,7 @@
 #include "core/base.h"
 
 #include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

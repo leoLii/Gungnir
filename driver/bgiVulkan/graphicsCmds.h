@@ -6,7 +6,7 @@
 
 #include "driver/bgiBase/graphicsCmds.h"
 #include "driver/bgiVulkan/api.h"
-#include "driver/bgiVulkan/vulkan.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 #include <cstdint>
 #include <functional>

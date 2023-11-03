@@ -5,10 +5,11 @@
 
 #include "driver/bgiBase/blitCmds.h"
 #include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-class bgiVulkan;
+class BgiVulkan;
 class BgiVulkanCommandBuffer;
 
 /// \class HgiVulkanBlitCmds

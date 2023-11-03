@@ -3,7 +3,6 @@
 #include "driver/bgiVulkan/commandBuffer.h"
 #include "driver/bgiVulkan/device.h"
 #include "driver/bgiVulkan/diagnostic.h"
-#include "driver/bgiVulkan/vulkan.h"
 
 #include <string>
 

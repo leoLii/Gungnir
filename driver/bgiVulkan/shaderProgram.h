@@ -4,8 +4,9 @@
 #include "core/base.h"
 
 #include "driver/bgiBase/shaderProgram.h"
-#include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/shaderFunction.h"
+#include "driver/bgiVulkan/api.h"
+#include "driver/bgiVulkan/vulkanBridge.h"
 
 #include <vector>
 
