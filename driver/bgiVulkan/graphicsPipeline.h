@@ -13,7 +13,7 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-class bgiVulkanDevice;
+class BgiVulkanDevice;
 
 using VkDescriptorSetLayoutVector = std::vector<VkDescriptorSetLayout>;
 using VkClearValueVector = std::vector<VkClearValue>;
