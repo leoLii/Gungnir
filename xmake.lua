@@ -1,8 +1,6 @@
 -- xmake.lua (根目录)
 set_project("GungnirEngine")
 
-add_defines("ARCH_OS_WINDOWS")
-
 set_arch("x64")
 add_rules("mode.debug", "mode.release")
 set_languages("c++20")
