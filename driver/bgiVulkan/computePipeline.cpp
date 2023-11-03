@@ -25,7 +25,7 @@ BgiVulkanComputePipeline::BgiVulkanComputePipeline(
         desc.shaderProgram->GetShaderFunctions();
 
     if (sfv.empty()) {
-        TF_CODING_ERROR("Missing compute program");
+        UTILS_CODING_ERROR("Missing compute program");
         return;
     }
 

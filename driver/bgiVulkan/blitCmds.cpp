@@ -54,7 +54,7 @@ BgiVulkanBlitCmds::CopyTextureGpuToCpu(
     }
 
     if (copyOp.destinationBufferByteSize == 0) {
-        TF_WARN("The size of the data to copy was zero (aborted)");
+        UTILS_WARN("The size of the data to copy was zero (aborted)");
         return;
     }
 
@@ -219,7 +219,7 @@ void BgiVulkanBlitCmds::CopyBufferGpuToGpu(
     }
 
     if (copyOp.byteSize == 0) {
-        TF_WARN("The size of the data to copy was zero (aborted)");
+        UTILS_WARN("The size of the data to copy was zero (aborted)");
         return;
     }
 
@@ -343,13 +343,13 @@ BgiVulkanBlitCmds::CopyBufferGpuToCpu(BgiBufferGpuToCpuOp const& copyOp)
 void
 BgiVulkanBlitCmds::CopyTextureToBuffer(BgiTextureToBufferOp const& copyOp)
 {
-    TF_CODING_ERROR("Missing Implementation");
+    UTILS_CODING_ERROR("Missing Implementation");
 }
 
 void
 BgiVulkanBlitCmds::CopyBufferToTexture(BgiBufferToTextureOp const& copyOp)
 {
-    TF_CODING_ERROR("Missing Implementation");
+    UTILS_CODING_ERROR("Missing Implementation");
 }
 
 void
@@ -370,7 +370,7 @@ BgiVulkanBlitCmds::GenerateMipMaps(BgiTextureHandle const& texture)
     int32_t height = desc.dimensions[1];
 
     if (desc.layerCount > 1) {
-        TF_CODING_ERROR("Missing implementation generating mips for layers");
+        UTILS_CODING_ERROR("Missing implementation generating mips for layers");
     }
 
     // Ensure texture format supports blit src&dst required for mips
@@ -380,7 +380,7 @@ BgiVulkanBlitCmds::GenerateMipMaps(BgiTextureHandle const& texture)
     if (!(formatProps.optimalTilingFeatures & VK_FORMAT_FEATURE_BLIT_SRC_BIT) ||
         !(formatProps.optimalTilingFeatures & VK_FORMAT_FEATURE_BLIT_DST_BIT))
     {
-        TF_CODING_ERROR("Texture format does not support "
+        UTILS_CODING_ERROR("Texture format does not support "
                         "blit source and destination");
         return;                    
     }
@@ -470,7 +470,7 @@ BgiVulkanBlitCmds::GenerateMipMaps(BgiTextureHandle const& texture)
 void
 BgiVulkanBlitCmds::FillBuffer(BgiBufferHandle const& buffer, uint8_t value)
 {
-    TF_CODING_ERROR("Missing Implementation");
+    UTILS_CODING_ERROR("Missing Implementation");
 }
 
 void

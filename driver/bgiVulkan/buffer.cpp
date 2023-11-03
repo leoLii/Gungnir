@@ -24,7 +24,7 @@ BgiVulkanBuffer::BgiVulkanBuffer(
     , _cpuStagingAddress(nullptr)
 {
     if (desc.byteSize == 0) {
-        TF_CODING_ERROR("The size of buffer [%p] is zero.", this);
+        UTILS_CODING_ERROR("The size of buffer [%p] is zero.", this);
         return;
     }
 

@@ -279,7 +279,7 @@ void
 BgiVulkanTextureShaderSection::WriteType(std::ostream &ss) const
 {
     if(_dimensions < 1 || _dimensions > 3) {
-        TF_CODING_ERROR("Invalid texture dimension");
+        UTILS_CODING_ERROR("Invalid texture dimension");
     }
     _WriteSamplerType(ss); // e.g. sampler<N>D, isampler<N>D, usampler<N>D
 }

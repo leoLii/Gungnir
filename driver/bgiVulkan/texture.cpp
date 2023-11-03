@@ -66,7 +66,7 @@ BgiVulkanTexture::BgiVulkanTexture(
 
     imageCreateInfo.usage = BgiVulkanConversions::GetTextureUsage(desc.usage);
     if (imageCreateInfo.usage == 0) {
-        TF_CODING_ERROR("Texture usage missing in descriptor");
+        UTILS_CODING_ERROR("Texture usage missing in descriptor");
         imageCreateInfo.usage = 
             BgiTextureUsageBitsColorTarget | 
             BgiTextureUsageBitsShaderRead |
@@ -92,12 +92,12 @@ BgiVulkanTexture::BgiVulkanTexture(
             device->GetVulkanPhysicalDevice(),
             imageCreateInfo.format,
             formatValidationFlags)) {
-        TF_CODING_ERROR("Image format / usage combo not supported on device");
+        UTILS_CODING_ERROR("Image format / usage combo not supported on device");
         return;
     };
 
     if (imageCreateInfo.tiling != VK_IMAGE_TILING_OPTIMAL && desc.mipLevels>1) {
-        TF_WARN("Linear tiled images usually do not support mips");
+        UTILS_WARN("Linear tiled images usually do not support mips");
     }
 
     //
@@ -542,7 +542,7 @@ VkImageLayout
 BgiVulkanTexture::GetDefaultImageLayout(BgiTextureUsage usage)
 {
     if (usage == 0) {
-        TF_CODING_ERROR("Cannot determine image layout from invalid usage.");
+        UTILS_CODING_ERROR("Cannot determine image layout from invalid usage.");
     }
 
     if (usage & BgiTextureUsageBitsShaderWrite) {
@@ -563,7 +563,7 @@ VkAccessFlags
 BgiVulkanTexture::GetDefaultAccessFlags(BgiTextureUsage usage)
 {
     if (usage == 0) {
-        TF_CODING_ERROR("Cannot determine image layout from invalid usage.");
+        UTILS_CODING_ERROR("Cannot determine image layout from invalid usage.");
     }
 
     if (usage & BgiTextureUsageBitsShaderRead) {

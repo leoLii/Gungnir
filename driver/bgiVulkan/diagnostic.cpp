@@ -1,3 +1,4 @@
+#include "core/utils/diagnostic.h"
 #include "pxr/base/tf/envSetting.h"
 
 #include "driver/bgiVulkan/diagnostic.h"
@@ -41,9 +42,9 @@ _VulkanDebugCallback(
             "VULKAN_ERROR" : "VULKAN_MESSAGE";
 
     if (severity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT) {
-        TF_CODING_ERROR("%s: %s\n", type, callbackData->pMessage);
+        UTILS_CODING_ERROR("%s: %s\n", type, callbackData->pMessage);
     } else {
-        TF_WARN("%s: %s\n", type, callbackData->pMessage);
+        UTILS_WARN("%s: %s\n", type, callbackData->pMessage);
     }
 
     return VK_FALSE;

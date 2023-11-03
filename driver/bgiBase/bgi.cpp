@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "driver/bgiBase/bgi.h"
 #include "pxr/base/arch/defines.h"
 #include "pxr/base/plug/plugin.h"
@@ -39,8 +41,8 @@ _MakeNewPlatformDefaultBgi()
     BgiFactoryBase* factory = BgiFactoryBase();
     Bgi* instance = factory->New();
     if (!instance) {
-        // TF_CODING_ERROR("[PluginLoad] Cannot construct instance of type '%s'\n",
-        //         plugType.GetTypeName().c_str());
+        UTILS_CODING_ERROR("[PluginLoad] Cannot construct instance of type '%s'\n",
+                plugType.GetTypeName().c_str());
         return nullptr;
     }
 
@@ -50,8 +52,8 @@ _MakeNewPlatformDefaultBgi()
 Bgi*
 Bgi::GetPlatformDefaultBgi()
 {
-    // TF_WARN("GetPlatformDefaultHgi is deprecated. "
-    //         "Please use CreatePlatformDefaultHgi");
+    UTILS_WARN("GetPlatformDefaultHgi is deprecated. "
+            "Please use CreatePlatformDefaultHgi");
 
     return _MakeNewPlatformDefaultBgi();
 }

@@ -7,7 +7,7 @@ set_arch("x64")
 add_rules("mode.debug", "mode.release")
 set_languages("c++20")
 
-add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map", "shaderc")
+add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map", "shaderc", "boost")
 
 -- target("application")
 --     set_kind("binary")

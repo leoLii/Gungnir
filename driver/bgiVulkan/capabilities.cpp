@@ -80,7 +80,7 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
         vkVertexAttributeDivisorFeatures.vertexAttributeInstanceRateDivisor);
 
     if (BgiVulkanIsDebugEnabled()) {
-        TF_WARN("Selected GPU %s", vkDeviceProperties.deviceName);
+        UTILS_WARN("Selected GPU %s", vkDeviceProperties.deviceName);
     }
 
     _maxClipDistances = vkDeviceProperties.limits.maxClipDistances;

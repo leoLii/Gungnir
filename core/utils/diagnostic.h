@@ -23,6 +23,12 @@ verifyStringFormat() { return nullptr; }
 UTILS_API const char *
 verifyStringFormat(char const *format, ...);
 
+
+// TODO: Alternat printf() because sometimes it's unsafe.
+#define UTILS_CODING_ERROR printf
+#define UTILS_WARN printf
+#define UTILS_ERROR printf
+
 }
 
 #endif // GUNGNIR_CORE_UTILS_DIAGNOSTIC_H

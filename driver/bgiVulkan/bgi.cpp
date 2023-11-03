@@ -1,3 +1,5 @@
+#include "core/utils/diagnostic.h"
+
 #include "pxr/base/trace/trace.h"
 
 #include "pxr/base/tf/envSetting.h"
@@ -112,7 +114,7 @@ BgiTextureViewHandle
 BgiVulkan::CreateTextureView(BgiTextureViewDesc const & desc)
 {
     if (!desc.sourceTexture) {
-        TF_CODING_ERROR("Source texture is null");
+        UTILS_CODING_ERROR("Source texture is null");
     }
 
     BgiTextureHandle src = BgiTextureHandle(
@@ -317,7 +319,7 @@ BgiVulkan::_SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
     // we only have one resource command buffer, we cannot support submitting
     // cmds from secondary threads until those issues are resolved.
     if (ARCH_UNLIKELY(_threadId != std::this_thread::get_id())) {
-        TF_CODING_ERROR("Secondary threads should not submit cmds");
+        UTILS_CODING_ERROR("Secondary threads should not submit cmds");
         return false;
     }
 
@@ -344,7 +346,7 @@ BgiVulkan::_EndFrameSync()
     // The garbage collector and command buffer reset must happen on the
     // main-thread when no threads are recording.
     if (ARCH_UNLIKELY(_threadId != std::this_thread::get_id())) {
-        TF_CODING_ERROR("Secondary thread violation");
+        UTILS_CODING_ERROR("Secondary thread violation");
         return;
     }
 

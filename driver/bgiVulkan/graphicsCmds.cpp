@@ -352,7 +352,7 @@ void
 BgiVulkanGraphicsCmds::_ApplyPendingUpdates()
 {
     if (!_pipeline) {
-        TF_CODING_ERROR("No pipeline bound");
+        UTILS_CODING_ERROR("No pipeline bound");
         return;
     }
 

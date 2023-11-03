@@ -30,7 +30,7 @@ _GetShaderStage(BgiShaderStage stage)
             return shaderc_glsl_compute_shader;
     }
 
-    TF_CODING_ERROR("Unknown stage");
+    UTILS_CODING_ERROR("Unknown stage");
     return shaderc_glsl_infer_from_source;
 }
 

@@ -177,7 +177,7 @@ template<class T>
 T* BgiVulkanGarbageCollector::_GetThreadLocalStorageList(std::vector<T*>* collector)
 {
     if (ARCH_UNLIKELY(_isDestroying)) {
-        TF_CODING_ERROR("Cannot destroy object during garbage collection ");
+        UTILS_CODING_ERROR("Cannot destroy object during garbage collection ");
         while(_isDestroying);
     }
 

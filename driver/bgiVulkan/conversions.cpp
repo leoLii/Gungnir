@@ -386,7 +386,7 @@ BgiVulkanConversions::GetFormat(VkFormat inFormat)
         if (f[1] == inFormat) return BgiFormat(f[0]);
     }
 
-    TF_CODING_ERROR("Missing format table entry");
+    UTILS_CODING_ERROR("Missing format table entry");
     return BgiFormatInvalid;
 }
 
@@ -416,7 +416,7 @@ BgiVulkanConversions::GetTextureUsage(BgiTextureUsage tu)
     }
 
     if (vkFlags==0) {
-        TF_CODING_ERROR("Missing texture usage table entry");
+        UTILS_CODING_ERROR("Missing texture usage table entry");
     }
     return vkFlags;
 }
@@ -430,7 +430,7 @@ BgiVulkanConversions::GetFormatFeature(BgiTextureUsage tu)
     }
 
     if (vkFlags==0) {
-        TF_CODING_ERROR("Missing texture usage table entry");
+        UTILS_CODING_ERROR("Missing texture usage table entry");
     }
     return vkFlags;
 }
@@ -454,7 +454,7 @@ BgiVulkanConversions::GetSampleCount(BgiSampleCount sc)
         if (s[0] == sc) return VkSampleCountFlagBits(s[1]);
     }
 
-    TF_CODING_ERROR("Missing Sample table entry");
+    UTILS_CODING_ERROR("Missing Sample table entry");
     return VK_SAMPLE_COUNT_1_BIT;
 }
 
@@ -467,7 +467,7 @@ BgiVulkanConversions::GetShaderStages(BgiShaderStage ss)
     }
 
     if (vkFlags==0) {
-        TF_CODING_ERROR("Missing shader stage table entry");
+        UTILS_CODING_ERROR("Missing shader stage table entry");
     }
     return vkFlags;
 }
@@ -481,7 +481,7 @@ BgiVulkanConversions::GetBufferUsage(BgiBufferUsage bu)
     }
 
     if (vkFlags==0) {
-        TF_CODING_ERROR("Missing buffer usage table entry");
+        UTILS_CODING_ERROR("Missing buffer usage table entry");
     }
     return vkFlags;
 }
@@ -581,7 +581,7 @@ BgiVulkanConversions::GetImageLayoutFormatQualifier(BgiFormat inFormat)
 {
     const std::string layoutQualifier = _imageLayoutFormatTable[inFormat][1];
     if (layoutQualifier.empty()) {
-        TF_WARN("Given HgiFormat is not a supported image unit format, "
+        UTILS_WARN("Given HgiFormat is not a supported image unit format, "
                 "defaulting to rgba16f");
         return _imageLayoutFormatTable[9][1];
     }

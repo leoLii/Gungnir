@@ -109,7 +109,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     }
 
     if (!_vkPhysicalDevice) {
-        TF_CODING_ERROR("VULKAN_ERROR: Unable to determine physical device");
+        UTILS_CODING_ERROR("VULKAN_ERROR: Unable to determine physical device");
         return;
     }
 
@@ -191,7 +191,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     if (IsSupportedExtension(VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME)) {
         extensions.push_back(VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME);
     } else {
-        TF_WARN("Unsupported VK_EXT_scalar_block_layout."
+        UTILS_WARN("Unsupported VK_EXT_scalar_block_layout."
                 "Update gfx driver?");
     }
 

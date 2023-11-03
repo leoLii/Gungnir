@@ -225,7 +225,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
         desc.depthState.stencilTestEnabled;
 
     if (desc.depthState.stencilTestEnabled) {
-        TF_CODING_ERROR("Missing implementation stencil mask enabled");
+        UTILS_CODING_ERROR("Missing implementation stencil mask enabled");
     } else {
         depthStencilState.back.failOp = VK_STENCIL_OP_KEEP;
         depthStencilState.back.passOp = VK_STENCIL_OP_KEEP;
