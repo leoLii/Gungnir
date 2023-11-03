@@ -1,21 +1,11 @@
 #include "core/utils/diagnostic.h"
 
 #include "driver/bgiBase/bgi.h"
-#include "pxr/base/arch/defines.h"
-#include "pxr/base/plug/plugin.h"
-#include "pxr/base/plug/registry.h"
-#include "pxr/base/tf/envSetting.h"
-#include "pxr/base/trace/trace.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-TF_DEFINE_ENV_SETTING(HGI_ENABLE_VULKAN, 0,
-                      "Enable Vulkan as platform default Hgi backend (WIP)");
-
-TF_REGISTRY_FUNCTION(TfType)
-{
-    TfType::Define<Hgi>();
-}
+// "Enable Vulkan as platform default Hgi backend (WIP)"
+#define BGI_ENABLE_VULKAN 1
 
 Bgi::Bgi()
     : _uniqueIdCounter(1)
@@ -27,7 +17,9 @@ Bgi::~Bgi() = default;
 void
 Bgi::SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
 {
-    if (cmds && !cmds->IsSubmitted()) {
+    TRACE_FUNCTION();
+
+    if (cmds && UTILS_VERIFY(!cmds->IsSubmitted())) {
         _SubmitCmds(cmds, wait);
         cmds->_SetSubmitted();
     }
@@ -36,9 +28,41 @@ Bgi::SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
 static Bgi*
 _MakeNewPlatformDefaultBgi()
 {
-    const char* bgiType = "BgiVulkan";
+    // We use the plugin system to construct derived Hgi classes to avoid any
+    // linker complications.
 
-    BgiFactoryBase* factory = BgiFactoryBase();
+    PlugRegistry& plugReg = PlugRegistry::GetInstance();
+
+    const char* bgiType = 
+        #if defined(ARCH_OS_DARWIN)
+            "BgiMetal";
+        #elif defined(ARCH_OS_WINDOWS)
+            #if BGI_ENABLE_VULKAN == 1
+            "BgiVulkan";
+            #endif
+        #else
+            ""; 
+            #error Unknown Platform
+            return nullptr;
+        #endif
+
+    const TfType plugType = plugReg.FindDerivedTypeByName<Bgi>(bgiType);
+
+    PlugPluginPtr plugin = plugReg.GetPluginForType(plugType);
+    if (!plugin || !plugin->Load()) {
+        UTILS_CODING_ERROR(
+            "[PluginLoad] PlugPlugin could not be loaded for TfType '%s'\n",
+            plugType.GetTypeName().c_str());
+        return nullptr;
+    }
+
+    BgiFactoryBase* factory = plugType.GetFactory<BgiFactoryBase>();
+    if (!factory) {
+        UTILS_CODING_ERROR("[PluginLoad] Cannot manufacture type '%s' \n",
+                plugType.GetTypeName().c_str());
+        return nullptr;
+    }
+
     Bgi* instance = factory->New();
     if (!instance) {
         UTILS_CODING_ERROR("[PluginLoad] Cannot construct instance of type '%s'\n",
@@ -47,15 +71,6 @@ _MakeNewPlatformDefaultBgi()
     }
 
     return instance;
-}
-
-Bgi*
-Bgi::GetPlatformDefaultBgi()
-{
-    UTILS_WARN("GetPlatformDefaultHgi is deprecated. "
-            "Please use CreatePlatformDefaultHgi");
-
-    return _MakeNewPlatformDefaultBgi();
 }
 
 BgiUniquePtr

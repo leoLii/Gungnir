@@ -1,5 +1,4 @@
 #include "core/utils/diagnostic.h"
-#include "pxr/base/tf/envSetting.h"
 
 #include "driver/bgiVulkan/diagnostic.h"
 #include "driver/bgiVulkan/commandBuffer.h"
@@ -11,21 +10,23 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-TF_DEFINE_ENV_SETTING(BGIVULKAN_DEBUG, 0, "Enable debugging for HgiVulkan");
-TF_DEFINE_ENV_SETTING(BGIVULKAN_DEBUG_VERBOSE, 0, 
-    "Enable verbose debugging for HgiVulkan");
+// "Enable debugging for HgiVulkan"
+#define VULKAN_DEBUG 0
+
+// "Enable verbose debugging for HgiVulkan"
+#define VULKAN_DEBUG_VERBOSE 0
 
 bool
 BgiVulkanIsDebugEnabled()
 {
-    static bool _v = TfGetEnvSetting(BGIVULKAN_DEBUG) == 1;
+    static bool _v = VULKAN_DEBUG == 1;
     return _v;
 }
 
 bool
 BgiVulkanIsVerboseDebugEnabled()
 {
-    static bool _v = TfGetEnvSetting(BGIVULKAN_DEBUG_VERBOSE) == 1;
+    static bool _v = VULKAN_DEBUG_VERBOSE == 1;
     return _v;
 }
 
