@@ -1,4 +1,4 @@
-#include "pxr/base/arch/hints.h"
+#include "core/arch/hints.h"
 #include "core/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/garbageCollector.h"
