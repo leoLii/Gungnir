@@ -114,16 +114,16 @@ enum BgiFormat : int
 struct BgiMipInfo
 {
     /// Offset in bytes from start of texture data to start of mip map.
-    std::size_t byteOffset;
+    size_t byteOffset;
     /// Dimension of mip GfVec3i.
     Vector3i dimensions;
     /// size of (one layer if array of) mip map in bytes.
-    std::size_t byteSizePerLayer;
+    size_t byteSizePerLayer;
 };
 
 /// Return the count of components in the given format.
 BGI_API
-std::size_t BgiGetComponentCount(BgiFormat f);
+size_t BgiGetComponentCount(BgiFormat f);
 
 /// Return the size of a single element of the given format.
 ///
@@ -134,10 +134,10 @@ std::size_t BgiGetComponentCount(BgiFormat f);
 /// a block.
 ///
 BGI_API
-std::size_t BgiGetDataSizeOfFormat(
+size_t BgiGetDataSizeOfFormat(
     BgiFormat f,
-    std::size_t* blockWidth = nullptr,
-    std::size_t* blockHeight = nullptr);
+    size_t* blockWidth = nullptr,
+    size_t* blockHeight = nullptr);
 
 /// Return whether the given format uses compression.
 BGI_API
@@ -147,7 +147,7 @@ bool BgiIsCompressed(BgiFormat f);
 /// and format, rounding dimensions up to suitable multiple when
 /// using a compressed format.
 BGI_API
-std::size_t BgiGetDataSize(
+size_t BgiGetDataSize(
     BgiFormat f,
     const Vector3i& dimensions);
 
@@ -171,12 +171,12 @@ BgiFormat BgiGetComponentBaseFormat(
 /// level 4: 2x3
 /// level 5: 1x1
 BGI_API
-std::vector<BgiMipInfo>
+std::vector<BgiMipInfo> 
 BgiGetMipInfos(
     BgiFormat format,
     const Vector3i& dimensions,
-    const std::size_t layerCount,
-    const std::size_t dataByteSize = std::numeric_limits<std::size_t>::max());
+    const size_t layerCount,
+    const size_t dataByteSize = std::numeric_limits<size_t>::max());
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

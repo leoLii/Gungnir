@@ -9,7 +9,8 @@
 #include "driver/bgiBase/types.h"
 #include "driver/bgiBase/shaderFunctionDesc.h"
 
-#include <vector>;
+#include <vector>
+#include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

@@ -50,7 +50,7 @@ BgiVulkanInstance::BgiVulkanInstance()
             "VK_LAYER_LUNARG_standard_validation"
         };
         createInfo.ppEnabledLayerNames = debugLayers;
-        createInfo.enabledLayerCount = (uint32_t)TfArraySize(debugLayers);
+        createInfo.enabledLayerCount = (uint32_t)std::size(debugLayers);
     }
 
     createInfo.ppEnabledExtensionNames = extensions.data();

@@ -2,6 +2,7 @@
 #include "core/utils/diagnostic.h"
 
 #include "driver/bgiBase/bgi.h"
+#include "driver/bgiVulkan/bgi.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
@@ -43,7 +44,7 @@ _MakeNewPlatformDefaultBgi()
             return nullptr;
         #endif
 
-    BgiFactory<Bgi>* factory = new BgiFactory<Bgi>();
+    BgiFactory<BgiVulkan>* factory = new BgiFactory<BgiVulkan>();
     if (!factory) {
         UTILS_CODING_ERROR("Cannot create bgiFactory \n");
         return nullptr;

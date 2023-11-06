@@ -59,4 +59,7 @@ BgiVulkanShaderProgram::GetInflightBits()
     return _inflightBits;
 }
 
+using BgiShaderProgramHandle = BgiHandle<class BgiShaderProgram>;
+using BgiShaderProgramHandleVector = std::vector<BgiShaderProgramHandle>;
+
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

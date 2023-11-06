@@ -61,11 +61,11 @@ BgiGetComponentCount(const BgiFormat f)
     return 0;
 }
 
-std::size_t
+size_t
 BgiGetDataSizeOfFormat(
     const BgiFormat f,
-    std::size_t * const blockWidth,
-    std::size_t * const blockHeight)
+    size_t * const blockWidth,
+    size_t * const blockHeight)
 {
     if (blockWidth) {
         *blockWidth = 1;
@@ -157,13 +157,13 @@ BgiIsCompressed(const BgiFormat f)
     }
 }
 
-std::size_t
+size_t
 BgiGetDataSize(
     const BgiFormat format,
     const Vector3i &dimensions)
 {
-    std::size_t blockWidth, blockHeight;
-    const std::size_t bpt =
+    size_t blockWidth, blockHeight;
+    const size_t bpt =
         BgiGetDataSizeOfFormat(format, &blockWidth, &blockHeight);
     return
         ((dimensions[0] + blockWidth  - 1) / blockWidth ) *
@@ -252,8 +252,8 @@ std::vector<BgiMipInfo>
 BgiGetMipInfos(
     const BgiFormat format,
     const Vector3i& dimensions,
-    const std::size_t layerCount,
-    const std::size_t dataByteSize)
+    const size_t layerCount,
+    const size_t dataByteSize)
 {
     const bool is2DArray = layerCount > 1;
     if (is2DArray && dimensions[2] != 1) {
@@ -265,11 +265,11 @@ BgiGetMipInfos(
     std::vector<BgiMipInfo> result;
     result.reserve(numMips);
 
-    std::size_t byteOffset = 0;
+    size_t byteOffset = 0;
     Vector3i size = dimensions;
 
     for (uint16_t mipLevel = 0; mipLevel < numMips; mipLevel++) {
-        const std::size_t byteSize = BgiGetDataSize(format, size);
+        const size_t byteSize = BgiGetDataSize(format, size);
 
         result.push_back({ byteOffset, size, byteSize });
 

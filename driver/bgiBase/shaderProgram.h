@@ -71,8 +71,8 @@ public:
     virtual std::string const& GetCompileErrors() = 0;
 
     /// Returns the shader functions that are part of this program.
-    //BGI_API
-    //virtual HgiShaderFunctionHandleVector const& GetShaderFunctions() const = 0;
+    BGI_API
+    virtual BgiShaderFunctionHandleVector const& GetShaderFunctions() const = 0;
 
     /// Returns the byte size of the GPU shader program.
     /// APIs that do not have programs can return the combined byte size of the

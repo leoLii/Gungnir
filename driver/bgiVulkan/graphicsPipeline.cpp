@@ -1,6 +1,4 @@
 #include "core/utils/diagnostic.h"
-#include "pxr/base/tf/iterator.h"
-
 #include "driver/bgiVulkan/graphicsPipeline.h"
 #include "driver/bgiVulkan/capabilities.h"
 #include "driver/bgiVulkan/conversions.h"
@@ -291,7 +289,7 @@ BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
 
     VkPipelineDynamicStateCreateInfo dynamicState =
         {VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO};
-    dynamicState.dynamicStateCount = (uint32_t)  TfArraySize(dynamicStates);
+    dynamicState.dynamicStateCount = (uint32_t)std::size(dynamicStates);
     dynamicState.pDynamicStates = dynamicStates;
     pipeCreateInfo.pDynamicState = &dynamicState;
 
