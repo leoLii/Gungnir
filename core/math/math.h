@@ -3,6 +3,11 @@
 
 #include "core/base.h"
 
+// This defination must be placed before including Eigen, cause Eigen might have included windowskit 
+// and windowskit has defined min and max, it's a disaster when you use your own min max functions
+// because compiler will recognize your min max function as definations in windowskit.
+// In the future we will replace eigen.
+#define NOMINMAX
 #include <Eigen/Dense>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
