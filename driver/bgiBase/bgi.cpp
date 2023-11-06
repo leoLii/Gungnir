@@ -1,3 +1,4 @@
+#include "core/arch/defines.h"
 #include "core/utils/diagnostic.h"
 
 #include "driver/bgiBase/bgi.h"

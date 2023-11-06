@@ -217,8 +217,8 @@ bool operator!=(
 
 BGI_API
 bool operator==(
-    const HBgiShaderFunctionParamBlockDesc::Member& lhs,
-    const HBgiShaderFunctionParamBlockDesc::Member& rhs);
+    const BgiShaderFunctionParamBlockDesc::Member& lhs,
+    const BgiShaderFunctionParamBlockDesc::Member& rhs);
 
 BGI_API
 bool operator!=(
@@ -246,7 +246,7 @@ struct BgiShaderFunctionComputeDesc
     BGI_API
     BgiShaderFunctionComputeDesc();
 
-    GfVec3i localSize;
+    Vector3i localSize;
 };
 
 BGI_API
@@ -509,7 +509,7 @@ BgiShaderFunctionAddConstantParam(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role = 0);
+    const SHADER_KEYWORD &role);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor.
@@ -520,7 +520,7 @@ BgiShaderFunctionAddStageInput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role = 0);
+    const SHADER_KEYWORD &role);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor given param descriptor.
@@ -547,7 +547,7 @@ BgiShaderFunctionAddStageOutput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role = 0);
+    const SHADER_KEYWORD &role);
 
 /// Adds stage output function param descriptor to given shader function
 /// descriptor.

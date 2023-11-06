@@ -26,13 +26,13 @@ struct BgiComponentMapping
 
 BGI_API
 bool operator==(
-    const HgiComponentMapping& lhs,
-    const HgiComponentMapping& rhs);
+    const BgiComponentMapping& lhs,
+    const BgiComponentMapping& rhs);
 
 BGI_API
 bool operator!=(
-    const HgiComponentMapping& lhs,
-    const HgiComponentMapping& rhs);
+    const BgiComponentMapping& lhs,
+    const BgiComponentMapping& rhs);
 
 /// \struct HgiTextureDesc
 ///
@@ -104,13 +104,13 @@ struct BgiTextureDesc
 
 BGI_API
 bool operator==(
-    const HgiTextureDesc& lhs,
-    const HgiTextureDesc& rhs);
+    const BgiTextureDesc& lhs,
+    const BgiTextureDesc& rhs);
 
 BGI_API
 bool operator!=(
-    const HgiTextureDesc& lhs,
-    const HgiTextureDesc& rhs);
+    const BgiTextureDesc& lhs,
+    const BgiTextureDesc& rhs);
 
 ///
 /// \class HgiTexture

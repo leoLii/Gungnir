@@ -366,7 +366,7 @@ BgiVulkanGraphicsCmds::_ApplyPendingUpdates()
         BgiVulkanGraphicsPipeline* pso = 
             static_cast<BgiVulkanGraphicsPipeline*>(_pipeline.Get());
 
-        GfVec2i size(0);
+        Vector2i size(0);
         VkClearValueVector const& clearValues = pso->GetClearValues();
 
         VkRenderPassBeginInfo beginInfo =
@@ -388,10 +388,10 @@ BgiVulkanGraphicsCmds::_ApplyPendingUpdates()
         // Make sure viewport and scissor are set since our HgiVulkanPipeline
         // hardcodes one dynamic viewport and scissor.
         if (!_viewportSet) {
-            SetViewport(GfVec4i(0, 0, size[0], size[1]));
+            SetViewport(Vector4i(0, 0, size[0], size[1]));
         }
         if (!_scissorSet) {
-            SetScissor(GfVec4i(0, 0, size[0], size[1]));
+            SetScissor(Vector4i(0, 0, size[0], size[1]));
         }
     }
 
@@ -421,7 +421,7 @@ BgiVulkanGraphicsCmds::_CreateCommandBuffer()
         BgiVulkanDevice* device = _bgi->GetPrimaryDevice();
         BgiVulkanCommandQueue* queue = device->GetCommandQueue();
         _commandBuffer = queue->AcquireCommandBuffer();
-        UTILS_VERIFYIFY(_commandBuffer);
+        UTILS_VERIFY(_commandBuffer);
     }
 }
 

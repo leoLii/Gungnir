@@ -12,10 +12,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-/// \enum BgiFormat
+/// \enum HgiFormat
 ///
-/// BgiFormat describes the memory format of image buffers used in Bgi.
-/// These formats are closely aligned with HdFormat and allow us to keep Bgi
+/// HgiFormat describes the memory format of image buffers used in Hgi.
+/// These formats are closely aligned with HdFormat and allow us to keep Hgi
 /// independent of Hd.
 ///
 /// For reference, see:
@@ -28,14 +28,14 @@ enum BgiFormat : int
     // float value = (unorm / 255.0f);
     BgiFormatUNorm8 = 0,
     BgiFormatUNorm8Vec2,
-    /* BgiFormatUNorm8Vec3 */ // Unsupported Metal (MTLPixelFormat)
+    /* HgiFormatUNorm8Vec3 */ // Unsupported Metal (MTLPixelFormat)
     BgiFormatUNorm8Vec4,
 
     // SNorm8 - a 1-byte value representing a float between -1 and 1.
     // float value = max(snorm / 127.0f, -1.0f);
     BgiFormatSNorm8,
     BgiFormatSNorm8Vec2,
-    /* BgiFormatSNorm8Vec3 */ // Unsupported Metal (MTLPixelFormat)
+    /* HgiFormatSNorm8Vec3 */ // Unsupported Metal (MTLPixelFormat)
     BgiFormatSNorm8Vec4,
 
     // Float16 - a 2-byte IEEE half-precision float.
@@ -71,9 +71,9 @@ enum BgiFormat : int
     // UNorm8 SRGB - a 1-byte value representing a float between 0 and 1.
     // Gamma compression/decompression happens during read/write.
     // Alpha component is linear.
-    /* BgiFormatUNorm8srgb */     // Unsupported by OpenGL
-    /* BgiFormatUNorm8Vec2srgb */ // Unsupported by OpenGL
-    /* BgiFormatUNorm8Vec3srgb */ // Unsupported Metal (MTLPixelFormat)
+    /* HgiFormatUNorm8srgb */     // Unsupported by OpenGL
+    /* HgiFormatUNorm8Vec2srgb */ // Unsupported by OpenGL
+    /* HgiFormatUNorm8Vec3srgb */ // Unsupported Metal (MTLPixelFormat)
     BgiFormatUNorm8Vec4srgb,
 
     // BPTC compressed. 3-component, 4x4 blocks, signed floating-point
@@ -108,22 +108,22 @@ enum BgiFormat : int
     BgiFormatCount
 };
 
-/// \class BgiMipInfo
+/// \class HgiMipInfo
 ///
-/// BgiMipInfo describes size and other info for a mip level.
+/// HgiMipInfo describes size and other info for a mip level.
 struct BgiMipInfo
 {
     /// Offset in bytes from start of texture data to start of mip map.
-    size_t byteOffset;
+    std::size_t byteOffset;
     /// Dimension of mip GfVec3i.
     Vector3i dimensions;
     /// size of (one layer if array of) mip map in bytes.
-    size_t byteSizePerLayer;
+    std::size_t byteSizePerLayer;
 };
 
 /// Return the count of components in the given format.
 BGI_API
-size_t BgiGetComponentCount(BgiFormat f);
+std::size_t BgiGetComponentCount(BgiFormat f);
 
 /// Return the size of a single element of the given format.
 ///
@@ -134,10 +134,10 @@ size_t BgiGetComponentCount(BgiFormat f);
 /// a block.
 ///
 BGI_API
-size_t BgiGetDataSizeOfFormat(
+std::size_t BgiGetDataSizeOfFormat(
     BgiFormat f,
-    size_t *blockWidth = nullptr,
-    size_t *blockHeight = nullptr);
+    std::size_t* blockWidth = nullptr,
+    std::size_t* blockHeight = nullptr);
 
 /// Return whether the given format uses compression.
 BGI_API
@@ -147,11 +147,11 @@ bool BgiIsCompressed(BgiFormat f);
 /// and format, rounding dimensions up to suitable multiple when
 /// using a compressed format.
 BGI_API
-size_t BgiGetDataSize(
+std::size_t BgiGetDataSize(
     BgiFormat f,
-    const Vector3i &dimensions);
+    const Vector3i& dimensions);
 
-/// Returns the scalar type of the format, in the form of an BgiFormat, if
+/// Returns the scalar type of the format, in the form of an HgiFormat, if
 /// possible.
 BGI_API
 BgiFormat BgiGetComponentBaseFormat(
@@ -175,8 +175,9 @@ std::vector<BgiMipInfo>
 BgiGetMipInfos(
     BgiFormat format,
     const Vector3i& dimensions,
-    size_t layerCount,
-    size_t dataByteSize = std::numeric_limits<size_t>::max());
+    std::size_t layerCount,
+    std::size_t dataByteSize = std::numeric_limits<std::size_t>::max());
+
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

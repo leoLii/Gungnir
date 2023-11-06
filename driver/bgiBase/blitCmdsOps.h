@@ -45,7 +45,7 @@ struct BgiTextureGpuToCpuOp
 {
     BgiTextureGpuToCpuOp()
     : gpuSourceTexture()
-    , sourceTexelOffset(GfVec3i(0))
+    , sourceTexelOffset(Vector3i(0))
     , mipLevel(0)
     , cpuDestinationBuffer(nullptr)
     , destinationByteOffset(0)
@@ -89,7 +89,7 @@ struct BgiTextureCpuToGpuOp
     BgiTextureCpuToGpuOp()
     : cpuSourceBuffer(nullptr)
     , bufferByteSize(0)
-    , destinationTexelOffset(GfVec3i(0))
+    , destinationTexelOffset(Vector3i(0))
     , mipLevel(0)
     , gpuDestinationTexture()
     {}
@@ -248,7 +248,7 @@ struct BgiTextureToBufferOp
 {
     BgiTextureToBufferOp()
     : gpuSourceTexture()
-    , sourceTexelOffset(GfVec3i(0))
+    , sourceTexelOffset(Vector3i(0))
     , mipLevel(0)
     , gpuDestinationBuffer()
     , destinationByteOffset(0)
@@ -294,7 +294,7 @@ struct BgiBufferToTextureOp
     : gpuSourceBuffer()
     , sourceByteOffset(0)
     , gpuDestinationTexture()
-    , destinationTexelOffset(GfVec3i(0))
+    , destinationTexelOffset(Vector3i(0))
     , mipLevel(0)
     , byteSize(0)
     {}
