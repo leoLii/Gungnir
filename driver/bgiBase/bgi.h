@@ -19,6 +19,7 @@
 
 #include <atomic>
 #include <memory>
+#include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
@@ -261,7 +262,7 @@ public:
     /// Return the name of the api (e.g. "OpenGL").
     /// Thread safety: This call is thread safe.
     BGI_API
-    virtual TfToken const& GetAPIName() const = 0;
+    virtual std::string const& GetAPIName() const = 0;
 
     /// Returns the device-specific capabilities structure.
     /// Thread safety: This call is thread safe.

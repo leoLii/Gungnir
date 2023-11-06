@@ -12,6 +12,7 @@
 
 #include <thread>
 #include <vector>
+#include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
@@ -109,7 +110,7 @@ public:
     void DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle) override;
 
     BGIVULKAN_API
-    TfToken const& GetAPIName() const override;
+    std::string const& GetAPIName() const override;
 
     BGIVULKAN_API
     BgiVulkanCapabilities const* GetCapabilities() const override;

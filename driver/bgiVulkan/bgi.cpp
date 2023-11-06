@@ -242,9 +242,9 @@ BgiVulkan::DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle)
 }
 
 /* Multi threaded */
-TfToken const&
+std::string const&
 BgiVulkan::GetAPIName() const {
-    return BgiTokens->Vulkan;
+    return "vulkan";
 }
 
 /* Multi threaded */
