@@ -1,5 +1,4 @@
 #include "core/utils/diagnostic.h"
-#include "pxr/base/tf/iterator.h"
 
 #include "driver/bgiVulkan/conversions.h"
 
@@ -516,7 +515,7 @@ BgiVulkanConversions::GetBlendFactor(BgiBlendFactor bf)
 }
 
 VkBlendOp
-HgiVulkanConversions::GetBlendEquation(BgiBlendOp bo)
+BgiVulkanConversions::GetBlendEquation(BgiBlendOp bo)
 {
     return VkBlendOp(_blendEquationTable[bo][1]);
 }
