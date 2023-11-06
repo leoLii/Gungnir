@@ -1,6 +1,5 @@
 #include "driver/bgiBase/shaderGenerator.h"
-
-#include "pxr/base/tf/stringUtils.h"
+#include "driver/bgiBase/shaderFunction.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
