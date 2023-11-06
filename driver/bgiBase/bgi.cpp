@@ -18,8 +18,6 @@ Bgi::~Bgi() = default;
 void
 Bgi::SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
 {
-    TRACE_FUNCTION();
-
     if (cmds && UTILS_VERIFY(!cmds->IsSubmitted())) {
         _SubmitCmds(cmds, wait);
         cmds->_SetSubmitted();
@@ -31,8 +29,6 @@ _MakeNewPlatformDefaultBgi()
 {
     // We use the plugin system to construct derived Hgi classes to avoid any
     // linker complications.
-
-    PlugRegistry& plugReg = PlugRegistry::GetInstance();
 
     const char* bgiType = 
         #if defined(ARCH_OS_DARWIN)
@@ -47,27 +43,15 @@ _MakeNewPlatformDefaultBgi()
             return nullptr;
         #endif
 
-    const TfType plugType = plugReg.FindDerivedTypeByName<Bgi>(bgiType);
-
-    PlugPluginPtr plugin = plugReg.GetPluginForType(plugType);
-    if (!plugin || !plugin->Load()) {
-        UTILS_CODING_ERROR(
-            "[PluginLoad] PlugPlugin could not be loaded for TfType '%s'\n",
-            plugType.GetTypeName().c_str());
-        return nullptr;
-    }
-
-    BgiFactoryBase* factory = plugType.GetFactory<BgiFactoryBase>();
+    BgiFactory<Bgi>* factory = new BgiFactory<Bgi>();
     if (!factory) {
-        UTILS_CODING_ERROR("[PluginLoad] Cannot manufacture type '%s' \n",
-                plugType.GetTypeName().c_str());
+        UTILS_CODING_ERROR("Cannot create bgiFactory \n");
         return nullptr;
     }
 
     Bgi* instance = factory->New();
     if (!instance) {
-        UTILS_CODING_ERROR("[PluginLoad] Cannot construct instance of type '%s'\n",
-                plugType.GetTypeName().c_str());
+        UTILS_CODING_ERROR("Cannot construct instance of bgi\n");
         return nullptr;
     }
 

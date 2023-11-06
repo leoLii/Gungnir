@@ -175,9 +175,8 @@ std::vector<BgiMipInfo>
 BgiGetMipInfos(
     BgiFormat format,
     const Vector3i& dimensions,
-    std::size_t layerCount,
-    std::size_t dataByteSize = std::numeric_limits<std::size_t>::max());
-
+    const std::size_t layerCount,
+    const std::size_t dataByteSize = std::numeric_limits<std::size_t>::max());
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

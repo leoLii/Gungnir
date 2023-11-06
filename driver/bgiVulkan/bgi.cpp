@@ -1,9 +1,5 @@
 #include "core/utils/diagnostic.h"
 
-#include "pxr/base/trace/trace.h"
-#include "pxr/base/tf/registryManager.h"
-#include "pxr/base/tf/type.h"
-
 #include "driver/bgiVulkan/bgi.h"
 #include "driver/bgiVulkan/blitCmds.h"
 #include "driver/bgiVulkan/buffer.h"
@@ -24,12 +20,6 @@
 #include "driver/bgiVulkan/texture.h"
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
-
-TF_REGISTRY_FUNCTION(TfType)
-{
-    TfType t = TfType::Define<BgiVulkan, TfType::Bases<Bgi> >();
-    t.SetFactory<BgiFactory<BgiVulkan>>();
-}
 
 BgiVulkan::BgiVulkan()
     : _instance(new BgiVulkanInstance())
@@ -309,14 +299,12 @@ BgiVulkan::GetGarbageCollector() const
 bool
 BgiVulkan::_SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
 {
-    TRACE_FUNCTION();
-
     // XXX The device queue is externally synchronized so we would at minimum
     // need a mutex here to ensure only one thread submits cmds at a time.
     // However, since we currently call garbage collection here and because
     // we only have one resource command buffer, we cannot support submitting
     // cmds from secondary threads until those issues are resolved.
-    if (ARCH_UNLIKELY(_threadId != std::this_thread::get_id())) {
+    if (_threadId != std::this_thread::get_id()) {
         UTILS_CODING_ERROR("Secondary threads should not submit cmds");
         return false;
     }
@@ -343,7 +331,7 @@ BgiVulkan::_EndFrameSync()
 {
     // The garbage collector and command buffer reset must happen on the
     // main-thread when no threads are recording.
-    if (ARCH_UNLIKELY(_threadId != std::this_thread::get_id())) {
+    if (_threadId != std::this_thread::get_id()) {
         UTILS_CODING_ERROR("Secondary thread violation");
         return;
     }

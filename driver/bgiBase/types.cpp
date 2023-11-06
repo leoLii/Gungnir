@@ -1,4 +1,5 @@
 #include "core/base.h"
+#include "core/utils/diagnostic.h"
 
 #include "driver/bgiBase/types.h"
 
@@ -53,10 +54,10 @@ BgiGetComponentCount(const BgiFormat f)
         return 4;
     case BgiFormatCount:
     case BgiFormatInvalid:
-        //TODO: LOG TF_CODING_ERROR("Invalid Format");
+        UTILS_CODING_ERROR("Invalid Format");
         return 0;
     }
-    //TODO: LOG TF_CODING_ERROR("Missing Format");
+    UTILS_CODING_ERROR("Missing Format");
     return 0;
 }
 
@@ -133,10 +134,10 @@ BgiGetDataSizeOfFormat(
         return 16;
     case BgiFormatCount:
     case BgiFormatInvalid:
-        //TODO: LOG TF_CODING_ERROR("Invalid Format");
+        UTILS_CODING_ERROR("Invalid Format");
         return 0;
     }
-    //TODO: LOG TF_CODING_ERROR("Missing Format");
+    UTILS_CODING_ERROR("Missing Format");
     return 0;
 }
 
@@ -224,10 +225,10 @@ BgiGetComponentBaseFormat(
         return  BgiFormatPackedInt1010102;
     case BgiFormatCount:
     case BgiFormatInvalid:
-        //TODO: LOG TF_CODING_ERROR("Invalid Format");
+        UTILS_CODING_ERROR("Invalid Format");
         return BgiFormatInvalid;
     }
-    //TODO: LOG TF_CODING_ERROR("Missing Format");
+    UTILS_CODING_ERROR("Missing Format");
     return BgiFormatInvalid;
 }
 
@@ -256,7 +257,7 @@ BgiGetMipInfos(
 {
     const bool is2DArray = layerCount > 1;
     if (is2DArray && dimensions[2] != 1) {
-        //TODO: LOG TF_CODING_ERROR("An array of 3D textures is invalid");
+        UTILS_CODING_ERROR("An array of 3D textures is invalid");
     }
 
     const uint16_t numMips = _ComputeNumMipLevels(dimensions);
