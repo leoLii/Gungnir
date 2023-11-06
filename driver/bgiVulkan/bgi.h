@@ -2,9 +2,9 @@
 #define GUNGNIR_DRIVER_VULKAN_BGI_H
 
 #include "core/base.h"
+#include "core/utils/tokens.h"
 
 #include "driver/bgiBase/bgi.h"
-#include "driver/bgiBase/tokens.h"
 #include "driver/bgiVulkan/capabilities.h"
 #include "driver/bgiVulkan/commandQueue.h"
 #include "driver/bgiVulkan/device.h"
@@ -110,7 +110,7 @@ public:
     void DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle) override;
 
     BGIVULKAN_API
-    std::string const& GetAPIName() const override;
+    DRIVER const& GetAPIName() const override;
 
     BGIVULKAN_API
     BgiVulkanCapabilities const* GetCapabilities() const override;

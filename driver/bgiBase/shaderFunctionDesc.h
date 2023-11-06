@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_DESC_H
 
 #include "core/base.h"
+#include "core/utils/tokens.h"
 
 #include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
@@ -148,7 +149,7 @@ struct BgiShaderFunctionParamDesc
     BgiInterpolationType interpolation;
     BgiSamplingType sampling;
     BgiStorageType storage;
-    std::string role;
+    SHADER_KEYWORD role;
     std::string arraySize;
 };
 
@@ -508,7 +509,7 @@ BgiShaderFunctionAddConstantParam(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role = std::string());
+    const SHADER_KEYWORD &role = 0);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor.
@@ -519,7 +520,7 @@ BgiShaderFunctionAddStageInput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role = std::string());
+    const SHADER_KEYWORD &role = 0);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor given param descriptor.
@@ -546,7 +547,7 @@ BgiShaderFunctionAddStageOutput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role = std::string());
+    const SHADER_KEYWORD &role = 0);
 
 /// Adds stage output function param descriptor to given shader function
 /// descriptor.

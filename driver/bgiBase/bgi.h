@@ -2,6 +2,7 @@
 #define GUNGNIR_DRIVER_BASE_BGI_H
 
 #include "core/base.h"
+#include "core/utils/tokens.h"
 
 #include "driver/bgiBase/api.h"
 #include "driver/bgiBase/blitCmds.h"
@@ -262,7 +263,7 @@ public:
     /// Return the name of the api (e.g. "OpenGL").
     /// Thread safety: This call is thread safe.
     BGI_API
-    virtual std::string const& GetAPIName() const = 0;
+    virtual DRIVER const& GetAPIName() const = 0;
 
     /// Returns the device-specific capabilities structure.
     /// Thread safety: This call is thread safe.

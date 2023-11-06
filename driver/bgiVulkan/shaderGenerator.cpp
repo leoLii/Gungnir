@@ -1,4 +1,5 @@
-#include "driver/bgiBase/tokens.h"
+#include "core/utils/tokens.h"
+
 #include "driver/bgiVulkan/shaderGenerator.h"
 #include "driver/bgiVulkan/bgi.h"
 #include "driver/bgiVulkan/conversions.h"
@@ -343,24 +344,24 @@ BgiVulkanShaderGenerator::_WriteInOuts(
         "gl_CullDistance",
     };
 
-    const static std::unordered_map<std::string, std::string> takenInParams {
-        { BgiShaderKeywordTokens->Position, "gl_Position"},
-        { BgiShaderKeywordTokens->PointCoord, "gl_PointCoord"},
-        { BgiShaderKeywordTokens->ClipDistance, "gl_ClipDistance"},
-        { BgiShaderKeywordTokens->CullDistance, "gl_CullDistance"},
-        { BgiShaderKeywordTokens->VertexID, "gl_VertexIndex"},
-        { BgiShaderKeywordTokens->InstanceID, "gl_InstanceIndex"},
-        { BgiShaderKeywordTokens->PrimitiveID, "gl_PrimitiveID"},
-        { BgiShaderKeywordTokens->SampleID, "gl_SampleID"},
-        { BgiShaderKeywordTokens->SamplePosition, "gl_SamplePosition"},
-        { BgiShaderKeywordTokens->FragCoord, "gl_FragCoord"},
-        { BgiShaderKeywordTokens->BaseVertex, "gl_BaseVertex"},
-        { BgiShaderKeywordTokens->BaseInstance, "BgiGetBaseInstance()"},
-        { BgiShaderKeywordTokens->FrontFacing, "gl_FrontFacing"},
-        { BgiShaderKeywordTokens->Layer, "gl_Layer"},
-        { BgiShaderKeywordTokens->ViewportIndex, "gl_ViewportIndex"},
-        { BgiShaderKeywordTokens->GlobalInvocationID, "gl_GlobalInvocationID"},
-        { BgiShaderKeywordTokens->BaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
+    const static std::unordered_map<SHADER_KEYWORD, std::string> takenInParams {
+        { SHADER_KEYWORD::Position, "gl_Position"},
+        { SHADER_KEYWORD::PointCoord, "gl_PointCoord"},
+        { SHADER_KEYWORD::ClipDistance, "gl_ClipDistance"},
+        { SHADER_KEYWORD::CullDistance, "gl_CullDistance"},
+        { SHADER_KEYWORD::VertexID, "gl_VertexIndex"},
+        { SHADER_KEYWORD::InstanceID, "gl_InstanceIndex"},
+        { SHADER_KEYWORD::PrimitiveID, "gl_PrimitiveID"},
+        { SHADER_KEYWORD::SampleID, "gl_SampleID"},
+        { SHADER_KEYWORD::SamplePosition, "gl_SamplePosition"},
+        { SHADER_KEYWORD::FragCoord, "gl_FragCoord"},
+        { SHADER_KEYWORD::BaseVertex, "gl_BaseVertex"},
+        { SHADER_KEYWORD::BaseInstance, "BgiGetBaseInstance()"},
+        { SHADER_KEYWORD::FrontFacing, "gl_FrontFacing"},
+        { SHADER_KEYWORD::Layer, "gl_Layer"},
+        { SHADER_KEYWORD::ViewportIndex, "gl_ViewportIndex"},
+        { SHADER_KEYWORD::GlobalInvocationID, "gl_GlobalInvocationID"},
+        { SHADER_KEYWORD::BaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
     };
 
     const bool in_qualifier = qualifier == "in";
@@ -373,25 +374,25 @@ BgiVulkanShaderGenerator::_WriteInOuts(
             continue;
         }
         if (in_qualifier) {
-            const std::string &role = param.role;
+            const SHADER_KEYWORD &role = param.role;
             auto const& keyword = takenInParams.find(role);
             if (keyword != takenInParams.end()) {
-                if (role == BgiShaderKeywordTokens->hdGlobalInvocationID) {
+                if (role == SHADER_KEYWORD::GlobalInvocationID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == BgiShaderKeywordTokens->hdVertexID) {
+                } else if (role == SHADER_KEYWORD::VertexID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == BgiShaderKeywordTokens->hdInstanceID) {
+                } else if (role == SHADER_KEYWORD::InstanceID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == BgiShaderKeywordTokens->hdBaseInstance) {
+                } else if (role == SHADER_KEYWORD::BaseInstance) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,

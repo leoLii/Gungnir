@@ -242,9 +242,9 @@ BgiVulkan::DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle)
 }
 
 /* Multi threaded */
-std::string const&
+DRIVER const&
 BgiVulkan::GetAPIName() const {
-    return "vulkan";
+    return DRIVER::Vulkan;
 }
 
 /* Multi threaded */

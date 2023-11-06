@@ -21,7 +21,7 @@ BgiShaderFunctionBufferDesc::BgiShaderFunctionBufferDesc()
 }
 
 BgiShaderFunctionComputeDesc::BgiShaderFunctionComputeDesc()
-    : localSize(GfVec3i(0, 0, 0))
+    : localSize(Vector3i(0, 0, 0))
 { 
 }
 
@@ -365,7 +365,7 @@ BgiShaderFunctionAddConstantParam(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role)
+    const SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
@@ -380,7 +380,7 @@ BgiShaderFunctionAddStageInput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role)
+    const SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
@@ -417,7 +417,7 @@ BgiShaderFunctionAddStageOutput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const std::string &role)
+    const SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
