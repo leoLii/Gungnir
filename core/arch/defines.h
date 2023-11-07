@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_DEFINES_H
-#define GUNGNIR_CORE_DEFINES_H
+#pragma once
 
 //
 // OS
@@ -80,5 +79,3 @@
 #if defined(ARCH_OS_LINUX)
 #define ARCH_HAS_MMAP_MAP_POPULATE
 #endif
-
-#endif // GUNGNIR_CORE_DEFINES_H

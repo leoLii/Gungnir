@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_VULKAN_BRIDGE_H
-#define GUNGNIR_DRIVER_VULKAN_VULKAN_BRIDGE_H
+#pragma once
 
 #include "core/arch/defines.h"
 
@@ -23,5 +22,3 @@ inline VkAllocationCallbacks*
 BgiVulkanAllocator() {
     return nullptr;
 }
-
-#endif // GUNGNIR_DRIVER_VULKAN_VULKAN_BRIDGE_H

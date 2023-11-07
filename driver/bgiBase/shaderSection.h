@@ -1,5 +1,4 @@
-#ifndef GUGNIR_DRIVER_BASE_SHADER_SECTION_H
-#define GUGNIR_DRIVER_BASE_SHADER_SECTION_H
+#pragma once
 
 #include "core/base.h"
 
@@ -97,5 +96,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUGNIR_DRIVER_BASE_SHADER_SECTION_H

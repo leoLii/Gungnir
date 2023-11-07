@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_DEVICE_H
-#define GUNGNIR_DRIVER_VULKAN_DEVICE_H
+#pragma once
 
 #include "core/base.h"
 
@@ -92,5 +91,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_DEVICE_H

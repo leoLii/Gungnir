@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_TYPES_H
-#define GUNGNIR_DRIVER_BASE_TYPES_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -179,5 +178,3 @@ BgiGetMipInfos(
     const size_t dataByteSize = std::numeric_limits<size_t>::max());
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_TYPES_H

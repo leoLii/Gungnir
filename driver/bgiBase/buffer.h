@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_BUFFER_H
-#define GUNGNIR_DRIVER_BASE_BUFFER_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -126,5 +125,3 @@ using BgiBufferHandle = BgiHandle<class BgiBuffer>;
 using BgiBufferHandleVector = std::vector<BgiBufferHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_BUFFER_H

@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_TOKENS_H
-#define GUNGNIR_CORE_TOKENS_H
+#pragma once
 
 #include "core/base.h"
 
@@ -36,5 +35,3 @@ enum SHADER_KEYWORD {
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_CORE_TOKENS_H

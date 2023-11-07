@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_DIAGNOSTIC_H
-#define GUNGNIR_DRIVER_VULKAN_DIAGNOSTIC_H
+#pragma once
 
 #include "core/base.h"
 
@@ -62,5 +61,3 @@ BGIVULKAN_API
 void BgiVulkanEndQueueLabel(BgiVulkanDevice* device);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_DIAGNOSTIC_H

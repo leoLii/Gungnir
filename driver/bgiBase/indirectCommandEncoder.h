@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_INDIRECT_COMMAND_ENCODER_H
-#define GUNGNIR_DRIVER_BASE_INDIRECT_COMMAND_ENCODER_H
+#pragma once
 
 #include "core/base.h"
 
@@ -101,5 +100,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif

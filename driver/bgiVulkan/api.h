@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_API_H
-#define GUNGNIR_DRIVER_VULKAN_API_H
+#pragma once
 
 #include "core/arch/export.h"
 
@@ -19,6 +18,4 @@
 #       define BGIVULKAN_API_TEMPLATE_STRUCT(...) ARCH_IMPORT_TEMPLATE(struct, __VA_ARGS__)
 #   endif
 #   define BGIVULKAN_LOCAL ARCH_HIDDEN
-#endif
-
 #endif

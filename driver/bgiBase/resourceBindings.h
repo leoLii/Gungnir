@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H
-#define GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H
+#pragma once
 
 #include "core/base.h"
 
@@ -219,5 +218,3 @@ struct BgiVertexBufferBinding
 using BgiVertexBufferBindingVector = std::vector<BgiVertexBufferBinding>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_RESOURCE_BINDINGS_H

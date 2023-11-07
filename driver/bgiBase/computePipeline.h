@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
-#define GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H
+#pragma once
 
 #include "core/base.h"
 
@@ -108,5 +107,3 @@ using BgiComputePipelineHandle = BgiHandle<class BgiComputePipeline>;
 using BgiComputePipelineHandleVector = std::vector<BgiComputePipelineHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_COMPUTE_PIPELINE_H

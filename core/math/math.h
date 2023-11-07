@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_MATH_MATH_H
-#define GUNGNIR_CORE_MATH_MATH_H
+#pragma once
 
 #include "core/base.h"
 
@@ -29,5 +28,3 @@ using Matrixd = Eigen::Matrix4d;
 using Matrixi = Eigen::Matrix4i;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif

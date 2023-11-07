@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_TEXTURE_H
-#define GUNGNIR_DRIVER_VULKAN_TEXTURE_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -137,5 +136,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_TEXTURE_H

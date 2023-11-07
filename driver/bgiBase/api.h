@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_API_H
-#define GUNGNIR_DRIVER_BASE_API_H
+#pragma once
 
 #include "core/arch/export.h"
 
@@ -20,5 +19,3 @@
 #   endif
 #   define BGI_LOCAL ARCH_HIDDEN
 #endif
-
-#endif // GUNGNIR_DRIVER_BGI_BASE_API_H

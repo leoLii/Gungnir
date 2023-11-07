@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_BLIT_CMDS_OPS_H
-#define GUNGNIR_DRIVER_BASE_BLIT_CMDS_OPS_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -308,5 +307,3 @@ struct BgiBufferToTextureOp
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_BLIT_CMDS_OPS_H

@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_ENUMS_H
-#define GUNGNIR_DRIVER_BASE_ENUMS_H
+#pragma once
 
 #include "core/base.h"
 
@@ -808,5 +807,3 @@ enum BgiComputeDispatch
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_ENUMS_H

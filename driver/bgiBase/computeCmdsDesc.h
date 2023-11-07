@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_DESC_H
-#define GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_DESC_H
+#pragma once
 
 #include "core/base.h"
 
@@ -36,5 +35,3 @@ bool operator!=(
     const BgiComputeCmdsDesc& rhs);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_COMPUTE_CMDS_DESC_H

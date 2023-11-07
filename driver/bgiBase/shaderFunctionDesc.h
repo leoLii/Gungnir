@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_DESC_H
-#define GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_DESC_H
+#pragma once
 
 #include "core/base.h"
 #include "core/utils/tokens.h"
@@ -568,5 +567,3 @@ BgiShaderFunctionAddStageOutput(
         BgiShaderFunctionParamDesc const &paramDesc);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_DESC_H

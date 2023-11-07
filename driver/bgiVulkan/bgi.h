@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_BGI_H
-#define GUNGNIR_DRIVER_VULKAN_BGI_H
+#pragma once
 
 #include "core/base.h"
 #include "core/utils/tokens.h"
@@ -180,5 +179,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_BGI_H

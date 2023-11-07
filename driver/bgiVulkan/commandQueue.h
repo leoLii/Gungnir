@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_COMMAND_QUEUE_H
-#define GUNGNIR_DRIVER_VULKAN_COMMAND_QUEUE_H
+#pragma once
 
 #include "core/base.h"
 
@@ -120,5 +119,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_COMMAND_QUEUE_H

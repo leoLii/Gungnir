@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_SHADER_COMPILER_H
-#define GUNGNIR_DRIVER_VULKAN_SHADER_COMPILER_H
+#pragma once
 
 #include "core/base.h"
 
@@ -64,5 +63,3 @@ VkDescriptorSetLayoutVector BgiVulkanMakeDescriptorSetLayouts(
     std::string const& debugName);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_SHADER_COMPILER_H

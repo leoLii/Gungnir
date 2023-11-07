@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_VULKAN_COMPUTE_CMDS_H
-#define GUNGNIR_DRIVER_VULKAN_COMPUTE_CMDS_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -84,5 +83,3 @@ private:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_VULKAN_COMPUTE_CMDS_H

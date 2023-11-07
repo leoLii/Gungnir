@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_UTILS_DIAGNOSTIC_H
-#define GUNGNIR_CORE_UTILS_DIAGNOSTIC_H
+#pragma once
 
 #include "core/base.h"
 
@@ -30,5 +29,3 @@ verifyStringFormat(char const *format, ...);
 #define UTILS_ERROR printf
 
 }
-
-#endif // GUNGNIR_CORE_UTILS_DIAGNOSTIC_H

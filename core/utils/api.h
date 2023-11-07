@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_UTILS_API_H
-#define GUNGNIR_CORE_UTILS_API_H
+#pragma once
 
 #include "core/arch/export.h"
 
@@ -20,5 +19,3 @@
 #   endif
 #   define UTILS_LOCAL ARCH_HIDDEN
 #endif
-
-#endif // GUNGNIR_CORE_UTILS_API_H

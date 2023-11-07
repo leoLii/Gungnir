@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_ARCH_EXPORT_H
-#define GUNGNIR_CORE_ARCH_EXPORT_H
+#pragma once
 
 /// \file arch/export.h
 /// \ingroup group_arch_SymbolVisibility
@@ -158,5 +157,3 @@
 #   define ARCH_HIDDEN
 #   define ARCH_EXPORT_TYPE
 #endif
-
-#endif // GUNGNIR_CORE_EXPORT_H

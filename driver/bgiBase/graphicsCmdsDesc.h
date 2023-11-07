@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H
-#define GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H
+#pragma once
 
 #include "core/base.h"
 
@@ -77,5 +76,3 @@ std::ostream& operator<<(
     const BgiGraphicsCmdsDesc& desc);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_GRAPHICS_CMDS_DESC_H

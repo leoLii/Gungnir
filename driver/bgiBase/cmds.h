@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_CMDS_H
-#define GUNGNIR_DRIVER_BASE_CMDS_H
+#pragma once
 
 #include "core/base.h"
 
@@ -53,5 +52,3 @@ protected:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_CMDS_H

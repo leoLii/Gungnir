@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_SAMPLER_H
-#define GUNGNIR_DRIVER_BASE_SAMPLER_H
+#pragma once
 
 #include "core/base.h"
 
@@ -121,5 +120,3 @@ using BgiSamplerHandle = BgiHandle<BgiSampler>;
 using BgiSamplerHandleVector = std::vector<BgiSamplerHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_SAMPLER_H

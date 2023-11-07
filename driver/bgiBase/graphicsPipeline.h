@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H
-#define GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -460,5 +459,3 @@ using BgiGraphicsPipelineHandle = BgiHandle<BgiGraphicsPipeline>;
 using BgiGraphicsPipelineHandleVector = std::vector<BgiGraphicsPipelineHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_GRAPHICS_PIIPELINE_H

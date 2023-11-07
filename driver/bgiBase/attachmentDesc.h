@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H
-#define GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H
+#pragma once
 
 #include "core/base.h"
 #include "core/math/math.h"
@@ -94,5 +93,3 @@ std::ostream& operator<<(
     const BgiAttachmentDesc& attachment);
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_ATTACHMENT_DESC_H

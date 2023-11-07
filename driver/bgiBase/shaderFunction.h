@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_H
-#define GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_H
+#pragma once
 
 #include "core/base.h"
 
@@ -78,5 +77,3 @@ using BgiShaderFunctionHandle = BgiHandle<class BgiShaderFunction>;
 using BgiShaderFunctionHandleVector = std::vector<BgiShaderFunctionHandle>;
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_SHADER_FUNCTION_H

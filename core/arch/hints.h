@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_CORE_ARCH_HINTS_H
-#define GUNGNIR_CORE_ARCH_HINTS_H
+#pragma once
 
 #include "core/arch/defines.h"
 
@@ -24,5 +23,3 @@
 #define ARCH_UNLIKELY(x) (x)
 
 #endif
-
-#endif // GUNGNIR_CORE_ARCH_HINTS_H

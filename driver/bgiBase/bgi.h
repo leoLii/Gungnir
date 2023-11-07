@@ -1,5 +1,4 @@
-#ifndef GUNGNIR_DRIVER_BASE_BGI_H
-#define GUNGNIR_DRIVER_BASE_BGI_H
+#pragma once
 
 #include "core/base.h"
 #include "core/utils/tokens.h"
@@ -329,5 +328,3 @@ public:
 };
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
-
-#endif // GUNGNIR_DRIVER_BASE_BGI_H
