@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkan;
 class BgiVulkanCommandBuffer;
 
@@ -82,5 +84,7 @@ private:
     // BlitCmds is used only one frame so storing multi-frame state on BlitCmds
     // will not survive.
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

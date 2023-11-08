@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiTexture::BgiTexture(BgiTextureDesc const& desc)
     : _descriptor(desc)
 {
@@ -108,6 +110,8 @@ BgiTextureHandle const&
 BgiTextureView::GetViewTexture() const
 {
     return _viewTexture;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -3,6 +3,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanShaderProgram::BgiVulkanShaderProgram(
     BgiVulkanDevice* device,
     BgiShaderProgramDesc const& desc)
@@ -61,5 +63,7 @@ BgiVulkanShaderProgram::GetInflightBits()
 
 using BgiShaderProgramHandle = BgiHandle<class BgiShaderProgram>;
 using BgiShaderProgramHandleVector = std::vector<BgiShaderProgramHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

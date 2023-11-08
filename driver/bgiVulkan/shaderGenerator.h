@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class Bgi;
 
 using BgiVulkanShaderSectionUniquePtrVector =
@@ -72,5 +74,7 @@ private:
     uint32_t _outLocationIndex;
     std::vector<std::string> _shaderLayoutAttributes;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

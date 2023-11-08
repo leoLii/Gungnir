@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiShaderFunctionDesc const&
 BgiShaderFunction::GetDescriptor() const
 {
@@ -14,5 +16,7 @@ BgiShaderFunction::BgiShaderFunction(BgiShaderFunctionDesc const& desc)
 }
 
 BgiShaderFunction::~BgiShaderFunction() = default;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

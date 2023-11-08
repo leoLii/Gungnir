@@ -4,6 +4,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static const uint32_t
 _LoadOpTable[BgiAttachmentLoadOpCount][2] =
 {
@@ -584,6 +586,8 @@ BgiVulkanConversions::GetImageLayoutFormatQualifier(BgiFormat inFormat)
         return _imageLayoutFormatTable[9][1];
     }
     return layoutQualifier;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "core/base.h"
-#include "core/math/math.h"
 
 #include "driver/bgiBase/api.h"
 #include "driver/bgiBase/enums.h"
@@ -12,6 +11,8 @@
 #include <string>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
+
+namespace driver {
 
 /// \struct HgiBufferDesc
 ///
@@ -123,5 +124,7 @@ private:
 
 using BgiBufferHandle = BgiHandle<class BgiBuffer>;
 using BgiBufferHandleVector = std::vector<BgiBufferHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

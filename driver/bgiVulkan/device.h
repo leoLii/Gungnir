@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanCapabilities;
 class BgiVulkanCommandQueue;
 class BgiVulkanInstance;
@@ -89,5 +91,7 @@ private:
     BgiVulkanCapabilities* _capabilities;
     BgiVulkanPipelineCache* _pipelineCache;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

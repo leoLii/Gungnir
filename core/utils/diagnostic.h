@@ -7,11 +7,13 @@
 #include <iostream>
 #include <stdarg.h>
 
-namespace utils {
+GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 #define UTILS_VERIFY(cond, ...) \
     ((cond) ? true : \
     utils::verifyFailedHelper(# cond, utils::verifyStringFormat(__VA_ARGS__)))
+
+namespace utils {
 
 UTILS_API bool
 verifyFailedHelper(const char *condition, const char *msg);
@@ -29,3 +31,5 @@ verifyStringFormat(char const *format, ...);
 #define UTILS_ERROR printf
 
 }
+
+GUNGNIR_NAMESPACE_CLOSE_SCOPE

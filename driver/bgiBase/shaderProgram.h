@@ -12,6 +12,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiShaderProgramDesc
 ///
 /// Describes the properties needed to create a GPU shader program.
@@ -106,5 +108,7 @@ private:
 
 using BgiShaderProgramHandle = BgiHandle<class BgiShaderProgram>;
 using BgiShaderProgramHandleVector = std::vector<BgiShaderProgramHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

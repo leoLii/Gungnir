@@ -4,6 +4,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 bool operator==(
     const BgiAttachmentDesc& lhs,
     const BgiAttachmentDesc& rhs) 
@@ -52,6 +54,8 @@ std::ostream& operator<<(
         << "blendConstantColor: " << attachment.blendConstantColor <<
     "}";
     return out;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

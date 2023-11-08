@@ -12,6 +12,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static shaderc_shader_kind
 _GetShaderStage(BgiShaderStage stage)
 {
@@ -268,6 +270,8 @@ BgiVulkanMakeDescriptorSetLayouts(
     }
 
     return layouts;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

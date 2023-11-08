@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiComputeCmdsDesc
 ///
 /// Describes the properties to construct a HgiComputeCmds.
@@ -33,5 +35,7 @@ BGI_API
 bool operator!=(
     const BgiComputeCmdsDesc& lhs,
     const BgiComputeCmdsDesc& rhs);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

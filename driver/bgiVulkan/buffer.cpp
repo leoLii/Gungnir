@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanBuffer::BgiVulkanBuffer(
     BgiVulkan* bgi,
     BgiVulkanDevice* device,
@@ -228,6 +230,8 @@ BgiVulkanBuffer::CreateStagingBuffer(
 
     // Return new staging buffer (caller manages lifetime)
     return new BgiVulkanBuffer(device, buffer, alloc, desc);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

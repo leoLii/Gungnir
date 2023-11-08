@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiSampler::BgiSampler(BgiSamplerDesc const& desc)
     : _descriptor(desc)
 {
@@ -32,6 +34,8 @@ bool operator!=(const BgiSamplerDesc& lhs,
     const BgiSamplerDesc& rhs)
 {
     return !(lhs == rhs);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 using BgiComputeCmdsUniquePtr = std::unique_ptr<class BgiComputeCmds>;
 
 /// \class HgiComputeCmds
@@ -83,5 +85,7 @@ private:
     BgiComputeCmds & operator=(const BgiComputeCmds&) = delete;
     BgiComputeCmds(const BgiComputeCmds&) = delete;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

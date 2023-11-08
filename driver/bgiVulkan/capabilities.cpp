@@ -6,6 +6,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     : supportsTimeStamps(false)
 {
@@ -123,6 +125,8 @@ BgiVulkanCapabilities::GetShaderVersion() const
     // Note: This is not the Vulkan Shader Language version. It is provided for
     // compatibility with code that is asking for the GLSL version.
     return 450;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

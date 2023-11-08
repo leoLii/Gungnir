@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiShaderSection::BgiShaderSection(
     const std::string &identifier,
     const BgiShaderSectionAttributeVector& attributes,
@@ -71,6 +73,8 @@ const std::string&
 BgiShaderSection::_GetDefaultValue() const
 {
     return _defaultValue;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

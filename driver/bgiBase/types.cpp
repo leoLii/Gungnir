@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 std::size_t
 BgiGetComponentCount(const BgiFormat f)
 {
@@ -284,6 +286,8 @@ BgiGetMipInfos(
     }
 
     return result;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

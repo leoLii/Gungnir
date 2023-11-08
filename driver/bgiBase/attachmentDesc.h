@@ -11,6 +11,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 /// \struct HgiAttachmentDesc
 ///
 /// Describes the properties of a framebuffer attachment.
@@ -91,5 +95,7 @@ BGI_API
 std::ostream& operator<<(
     std::ostream& out,
     const BgiAttachmentDesc& attachment);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

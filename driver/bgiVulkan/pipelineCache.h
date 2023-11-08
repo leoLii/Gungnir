@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 /// \class HgiVulkanPipelineCache
@@ -34,5 +36,7 @@ private:
     BgiVulkanDevice* _device;
     VkPipelineCache _vkPipelineCache;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

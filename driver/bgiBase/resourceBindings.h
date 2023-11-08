@@ -15,6 +15,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiBufferBindDesc
 ///
 /// Describes the binding information of a buffer (or array of buffers).
@@ -216,5 +218,7 @@ struct BgiVertexBufferBinding
 };
 
 using BgiVertexBufferBindingVector = std::vector<BgiVertexBufferBinding>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

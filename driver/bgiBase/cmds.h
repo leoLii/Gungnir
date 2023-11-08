@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class Bgi;
 
 using BgiCmdsUniquePtr = std::unique_ptr<class BgiCmds>;
@@ -50,5 +52,7 @@ protected:
 
     bool _submitted;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

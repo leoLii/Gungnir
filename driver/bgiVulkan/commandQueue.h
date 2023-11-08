@@ -14,6 +14,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanCommandBuffer;
 class BgiVulkanDevice;
 
@@ -117,5 +119,7 @@ private:
     std::thread::id _threadId;
     BgiVulkanCommandBuffer* _resourceCommandBuffer;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

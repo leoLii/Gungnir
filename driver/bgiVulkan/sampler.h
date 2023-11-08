@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 ///
@@ -54,5 +56,7 @@ private:
     BgiVulkanDevice* _device;
     uint64_t _inflightBits;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

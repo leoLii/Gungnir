@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static const char *
 _GetPackedTypeDefinitions()
 {
@@ -344,24 +346,24 @@ BgiVulkanShaderGenerator::_WriteInOuts(
         "gl_CullDistance",
     };
 
-    const static std::unordered_map<SHADER_KEYWORD, std::string> takenInParams {
-        { SHADER_KEYWORD::Position, "gl_Position"},
-        { SHADER_KEYWORD::PointCoord, "gl_PointCoord"},
-        { SHADER_KEYWORD::ClipDistance, "gl_ClipDistance"},
-        { SHADER_KEYWORD::CullDistance, "gl_CullDistance"},
-        { SHADER_KEYWORD::VertexID, "gl_VertexIndex"},
-        { SHADER_KEYWORD::InstanceID, "gl_InstanceIndex"},
-        { SHADER_KEYWORD::PrimitiveID, "gl_PrimitiveID"},
-        { SHADER_KEYWORD::SampleID, "gl_SampleID"},
-        { SHADER_KEYWORD::SamplePosition, "gl_SamplePosition"},
-        { SHADER_KEYWORD::FragCoord, "gl_FragCoord"},
-        { SHADER_KEYWORD::BaseVertex, "gl_BaseVertex"},
-        { SHADER_KEYWORD::BaseInstance, "BgiGetBaseInstance()"},
-        { SHADER_KEYWORD::FrontFacing, "gl_FrontFacing"},
-        { SHADER_KEYWORD::Layer, "gl_Layer"},
-        { SHADER_KEYWORD::ViewportIndex, "gl_ViewportIndex"},
-        { SHADER_KEYWORD::GlobalInvocationID, "gl_GlobalInvocationID"},
-        { SHADER_KEYWORD::BaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
+    const static std::unordered_map<tokens::SHADER_KEYWORD, std::string> takenInParams {
+        { tokens::SHADER_KEYWORD::Position, "gl_Position"},
+        { tokens::SHADER_KEYWORD::PointCoord, "gl_PointCoord"},
+        { tokens::SHADER_KEYWORD::ClipDistance, "gl_ClipDistance"},
+        { tokens::SHADER_KEYWORD::CullDistance, "gl_CullDistance"},
+        { tokens::SHADER_KEYWORD::VertexID, "gl_VertexIndex"},
+        { tokens::SHADER_KEYWORD::InstanceID, "gl_InstanceIndex"},
+        { tokens::SHADER_KEYWORD::PrimitiveID, "gl_PrimitiveID"},
+        { tokens::SHADER_KEYWORD::SampleID, "gl_SampleID"},
+        { tokens::SHADER_KEYWORD::SamplePosition, "gl_SamplePosition"},
+        { tokens::SHADER_KEYWORD::FragCoord, "gl_FragCoord"},
+        { tokens::SHADER_KEYWORD::BaseVertex, "gl_BaseVertex"},
+        { tokens::SHADER_KEYWORD::BaseInstance, "BgiGetBaseInstance()"},
+        { tokens::SHADER_KEYWORD::FrontFacing, "gl_FrontFacing"},
+        { tokens::SHADER_KEYWORD::Layer, "gl_Layer"},
+        { tokens::SHADER_KEYWORD::ViewportIndex, "gl_ViewportIndex"},
+        { tokens::SHADER_KEYWORD::GlobalInvocationID, "gl_GlobalInvocationID"},
+        { tokens::SHADER_KEYWORD::BaryCoordNoPerspNV, "gl_BaryCoordNoPerspNV"},
     };
 
     const bool in_qualifier = qualifier == "in";
@@ -374,25 +376,25 @@ BgiVulkanShaderGenerator::_WriteInOuts(
             continue;
         }
         if (in_qualifier) {
-            const SHADER_KEYWORD &role = param.role;
+            const tokens::SHADER_KEYWORD &role = param.role;
             auto const& keyword = takenInParams.find(role);
             if (keyword != takenInParams.end()) {
-                if (role == SHADER_KEYWORD::GlobalInvocationID) {
+                if (role == tokens::SHADER_KEYWORD::GlobalInvocationID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == SHADER_KEYWORD::VertexID) {
+                } else if (role == tokens::SHADER_KEYWORD::VertexID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == SHADER_KEYWORD::InstanceID) {
+                } else if (role == tokens::SHADER_KEYWORD::InstanceID) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
                         keyword->second);
-                } else if (role == SHADER_KEYWORD::BaseInstance) {
+                } else if (role == tokens::SHADER_KEYWORD::BaseInstance) {
                     CreateShaderSection<BgiVulkanKeywordShaderSection>(
                         paramName,
                         param.type,
@@ -541,6 +543,8 @@ BgiVulkanShaderSectionUniquePtrVector*
 BgiVulkanShaderGenerator::GetShaderSections()
 {
     return &_shaderSections;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

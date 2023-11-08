@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiBuffer::BgiBuffer(BgiBufferDesc const& desc)
     : _descriptor(desc)
 {
@@ -32,6 +34,8 @@ bool operator!=(
     const BgiBufferDesc& rhs)
 {
     return !(lhs == rhs);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

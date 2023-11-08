@@ -11,6 +11,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 /// \enum HgiFormat
 ///
 /// HgiFormat describes the memory format of image buffers used in Hgi.
@@ -169,6 +173,10 @@ BgiFormat BgiGetComponentBaseFormat(
 /// level 3: 4x6
 /// level 4: 2x3
 /// level 5: 1x1
+#ifdef max
+#undef max
+#endif
+
 BGI_API
 std::vector<BgiMipInfo> 
 BgiGetMipInfos(
@@ -176,5 +184,7 @@ BgiGetMipInfos(
     const Vector3i& dimensions,
     const size_t layerCount,
     const size_t dataByteSize = std::numeric_limits<size_t>::max());
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

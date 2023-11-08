@@ -6,6 +6,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static BgiVulkanCommandQueue::BgiVulkan_CommandPool*
 _CreateCommandPool(BgiVulkanDevice* device)
 {
@@ -284,6 +286,8 @@ BgiVulkanCommandQueue::_SetInflightBit(uint8_t id, bool enabled)
         while (!_inflightBits.compare_exchange_weak(
             expect, expect & ~(1ULL<<id)));
     }
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanSampler::BgiVulkanSampler(
     BgiVulkanDevice* device,
     BgiSamplerDesc const& desc)
@@ -83,6 +85,8 @@ uint64_t &
 BgiVulkanSampler::GetInflightBits()
 {
     return _inflightBits;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

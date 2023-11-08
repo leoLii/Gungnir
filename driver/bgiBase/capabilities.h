@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \class HgiCapabilities
 ///
 /// Reports the capabilities of the Hgi device.
@@ -84,6 +86,8 @@ private:
 
     BgiDeviceCapabilities _flags;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
 

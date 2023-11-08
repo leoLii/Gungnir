@@ -10,6 +10,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 // "Enable debugging for HgiVulkan"
 #define VULKAN_DEBUG 0
 
@@ -240,6 +242,8 @@ BgiVulkanEndQueueLabel(BgiVulkanDevice* device)
 
     VkQueue gfxQueue = device->GetCommandQueue()->GetVulkanGraphicsQueue();
     device->vkQueueEndDebugUtilsLabelEXT(gfxQueue);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

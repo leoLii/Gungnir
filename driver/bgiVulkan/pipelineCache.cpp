@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanPipelineCache::BgiVulkanPipelineCache(
     BgiVulkanDevice* device)
     : _device(device)
@@ -21,6 +23,8 @@ VkPipelineCache
 BgiVulkanPipelineCache::GetVulkanPipelineCache() const
 {
     return _vkPipelineCache;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

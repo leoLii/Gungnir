@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \class HgiVkInstance
 ///
 /// Initializes the Vulkan library and contains the apps Vulkan state.
@@ -32,5 +34,7 @@ public:
 private:
     VkInstance _vkInstance;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -21,6 +21,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkan::BgiVulkan()
     : _instance(new BgiVulkanInstance())
     , _device(new BgiVulkanDevice(_instance))
@@ -232,9 +234,9 @@ BgiVulkan::DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle)
 }
 
 /* Multi threaded */
-DRIVER const&
+tokens::DRIVER const&
 BgiVulkan::GetAPIName() const {
-    return DRIVER::Vulkan;
+    return tokens::DRIVER::Vulkan;
 }
 
 /* Multi threaded */
@@ -344,6 +346,8 @@ BgiVulkan::_EndFrameSync()
 
     // Perform garbage collection for each device.
     _garbageCollector->PerformGarbageCollection(device);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

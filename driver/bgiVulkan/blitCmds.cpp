@@ -13,6 +13,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanBlitCmds::BgiVulkanBlitCmds(BgiVulkan* bgi)
     : _bgi(bgi)
     , _commandBuffer(nullptr)
@@ -511,6 +513,8 @@ BgiVulkanBlitCmds::_CreateCommandBuffer()
         _commandBuffer = queue->AcquireCommandBuffer();
         UTILS_VERIFY(_commandBuffer);
     }
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

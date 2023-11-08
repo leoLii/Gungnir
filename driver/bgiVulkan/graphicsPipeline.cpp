@@ -10,6 +10,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 using BgiAttachmentDescConstPtrVector = std::vector<BgiAttachmentDesc const*>;
 
 BgiVulkanGraphicsPipeline::BgiVulkanGraphicsPipeline(
@@ -774,6 +776,8 @@ BgiVulkanGraphicsPipeline::_CreateRenderPass()
             VK_OBJECT_TYPE_RENDER_PASS,
             debugLabel.c_str());
     }
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

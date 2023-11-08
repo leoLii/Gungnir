@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 using BgiVulkanCompletedHandler = std::function<void(void)>;
@@ -119,5 +121,7 @@ private:
     bool _isSubmitted;
     uint8_t _inflightId;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

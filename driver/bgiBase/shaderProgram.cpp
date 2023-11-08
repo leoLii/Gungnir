@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiShaderProgram::BgiShaderProgram(BgiShaderProgramDesc const& desc)
     : _descriptor(desc)
 {
@@ -31,6 +33,8 @@ bool operator!=(
     const BgiShaderProgramDesc& rhs)
 {
     return !(lhs == rhs);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -10,6 +10,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 struct BgiShaderFunctionDesc;
 
 /// \class HgiShaderGenerator
@@ -61,5 +63,7 @@ private:
     BgiShaderGenerator & operator=(const BgiShaderGenerator&) = delete;
     BgiShaderGenerator(const BgiShaderGenerator&) = delete;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

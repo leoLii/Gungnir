@@ -4,6 +4,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 bool operator==(
     const BgiGraphicsCmdsDesc& lhs,
     const BgiGraphicsCmdsDesc& rhs) 
@@ -55,6 +57,8 @@ std::ostream& operator<<(
 
     out << "}";
     return out;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiComputeShaderConstantsDesc::BgiComputeShaderConstantsDesc()
     : byteSize(0)
 {
@@ -53,6 +55,8 @@ BgiComputePipelineDesc const&
 BgiComputePipeline::GetDescriptor() const
 {
     return _descriptor;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

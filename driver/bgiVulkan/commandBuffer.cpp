@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanCommandBuffer::BgiVulkanCommandBuffer(
     BgiVulkanDevice* device,
     VkCommandPool pool)
@@ -272,6 +274,8 @@ BgiVulkanCommandBuffer::_GetCommandBufferResetFlags()
     // Releasing resources can come at a performance cost.
     static const VkCommandBufferResetFlags flags = 0;
     return flags;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

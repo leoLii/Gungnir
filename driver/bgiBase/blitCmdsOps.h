@@ -13,6 +13,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 //// \struct HgiTextureGpuToCpuOp
 ///
 /// Describes the properties needed to copy texture data from GPU to CPU.
@@ -305,5 +309,7 @@ struct BgiBufferToTextureOp
     uint32_t mipLevel;
     size_t byteSize;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

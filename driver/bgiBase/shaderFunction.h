@@ -13,6 +13,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 ///
 /// \class HgiShaderFunction
 ///
@@ -75,5 +77,7 @@ private:
 
 using BgiShaderFunctionHandle = BgiHandle<class BgiShaderFunction>;
 using BgiShaderFunctionHandleVector = std::vector<BgiShaderFunctionHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

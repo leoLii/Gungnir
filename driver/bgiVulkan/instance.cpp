@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanInstance::BgiVulkanInstance()
     : vkDebugMessenger(nullptr)
     , vkCreateDebugUtilsMessengerEXT(nullptr)
@@ -77,5 +79,6 @@ BgiVulkanInstance::GetVulkanInstance() const
     return _vkInstance;
 }
 
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

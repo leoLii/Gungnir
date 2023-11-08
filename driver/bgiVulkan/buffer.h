@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkan;
 class BgiVulkanCommandBuffer;
 class BgiVulkanDevice;
@@ -93,5 +95,7 @@ private:
     BgiVulkanBuffer* _stagingBuffer;
     void* _cpuStagingAddress;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

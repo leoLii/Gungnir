@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 ///
@@ -57,5 +59,7 @@ private:
     VkDescriptorSetLayout _vkDescriptorSetLayout;
     VkDescriptorSet _vkDescriptorSet;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

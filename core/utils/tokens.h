@@ -4,6 +4,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace tokens {
+
 enum DRIVER {
     taskDriver,
     renderDriver,
@@ -33,5 +35,7 @@ enum SHADER_KEYWORD {
     GlobalInvocationID,
     BaryCoordNoPerspNV
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

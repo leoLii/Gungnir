@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVertexAttributeDesc::BgiVertexAttributeDesc()
     : format(BgiFormatFloat32Vec4)
     , offset(0)
@@ -251,5 +253,7 @@ BgiGraphicsPipeline::BgiGraphicsPipeline(BgiGraphicsPipelineDesc const& desc)
 }
 
 BgiGraphicsPipeline::~BgiGraphicsPipeline() = default;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

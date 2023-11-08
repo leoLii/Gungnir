@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiShaderFunctionTextureDesc::BgiShaderFunctionTextureDesc()
   : dimensions(2)
   , format(BgiFormatInvalid)
@@ -365,7 +367,7 @@ BgiShaderFunctionAddConstantParam(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role)
+    const tokens::SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
@@ -380,7 +382,7 @@ BgiShaderFunctionAddStageInput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role)
+    const tokens::SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
@@ -417,7 +419,7 @@ BgiShaderFunctionAddStageOutput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role)
+    const tokens::SHADER_KEYWORD &role)
 {
     BgiShaderFunctionParamDesc paramDesc;
     paramDesc.nameInShader = nameInShader;
@@ -448,6 +450,8 @@ BgiShaderFunctionAddStageOutput(
         BgiShaderFunctionParamDesc const &paramDesc)
 {
     functionDesc->stageOutputs.push_back(paramDesc);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

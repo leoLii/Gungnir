@@ -15,6 +15,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiComputeShaderConstantsDesc
 ///
 /// A small, but fast buffer of uniform data for shaders.
@@ -105,5 +107,7 @@ private:
 
 using BgiComputePipelineHandle = BgiHandle<class BgiComputePipeline>;
 using BgiComputePipelineHandleVector = std::vector<BgiComputePipelineHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

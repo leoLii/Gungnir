@@ -13,6 +13,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 using BgiGraphicsCmdsUniquePtr = std::unique_ptr<class BgiGraphicsCmds>;
 
 /// \class HgiGraphicsCmds
@@ -188,5 +192,7 @@ private:
     BgiGraphicsCmds & operator=(const BgiGraphicsCmds&) = delete;
     BgiGraphicsCmds(const BgiGraphicsCmds&) = delete;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

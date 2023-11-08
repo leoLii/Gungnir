@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiComputeCmdsDesc::BgiComputeCmdsDesc()
     : dispatchMethod(BgiComputeDispatchSerial)
 {
@@ -19,6 +21,8 @@ bool operator!=(
     const BgiComputeCmdsDesc& rhs)
 {
     return !(lhs == rhs);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

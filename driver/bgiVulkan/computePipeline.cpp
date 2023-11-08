@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanComputePipeline::BgiVulkanComputePipeline(
     BgiVulkanDevice* device,
     BgiComputePipelineDesc const& desc)
@@ -154,6 +156,8 @@ uint64_t &
 BgiVulkanComputePipeline::GetInflightBits()
 {
     return _inflightBits;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

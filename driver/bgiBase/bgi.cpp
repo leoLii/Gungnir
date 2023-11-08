@@ -4,10 +4,12 @@
 #include "driver/bgiBase/bgi.h"
 #include "driver/bgiVulkan/bgi.h"
 
-GUNGNIR_NAMESPACE_OPEN_SCOPE
-
 // "Enable Vulkan as platform default Hgi backend (WIP)"
 #define BGI_ENABLE_VULKAN 1
+
+GUNGNIR_NAMESPACE_OPEN_SCOPE
+
+namespace driver {
 
 Bgi::Bgi()
     : _uniqueIdCounter(1)
@@ -85,6 +87,8 @@ bool
 Bgi::_SubmitCmds(BgiCmds* cmds, BgiSubmitWaitType wait)
 {
     return cmds->_Submit(this, wait);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

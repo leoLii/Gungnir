@@ -10,6 +10,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiGraphicsCmdsDesc
 ///
 /// Describes the properties to begin a HgiGraphicsCmds.
@@ -74,5 +76,7 @@ BGI_API
 std::ostream& operator<<(
     std::ostream& out,
     const BgiGraphicsCmdsDesc& desc);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

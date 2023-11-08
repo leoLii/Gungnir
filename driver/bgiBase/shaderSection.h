@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 //struct to hold attribute definitions
 struct BgiShaderSectionAttribute
 {
@@ -94,5 +96,7 @@ private:
     const std::string _arraySize;
     const std::string _blockInstanceIdentifier;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

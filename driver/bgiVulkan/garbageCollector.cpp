@@ -16,6 +16,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 std::vector<BgiVulkanBufferVector*> 
     BgiVulkanGarbageCollector::_bufferList;
 std::vector<BgiVulkanTextureVector*> 
@@ -195,6 +197,8 @@ T* BgiVulkanGarbageCollector::_GetThreadLocalStorageList(std::vector<T*>* collec
         collector->push_back(_tls);
     }
     return _tls;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

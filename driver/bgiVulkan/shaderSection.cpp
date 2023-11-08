@@ -4,6 +4,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanShaderSection::BgiVulkanShaderSection(
     const std::string &identifier,
     const BgiShaderSectionAttributeVector &attributes,
@@ -572,6 +574,8 @@ BgiVulkanInterstageBlockShaderSection::VisitGlobalMemberDeclarations(
     WriteArraySize(ss);
     ss << ";\n";
     return true;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

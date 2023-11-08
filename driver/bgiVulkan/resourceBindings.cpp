@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 namespace {
     static const uint8_t _descriptorSetCnt = 1;
 }
@@ -398,6 +400,8 @@ uint64_t &
 BgiVulkanResourceBindings::GetInflightBits()
 {
     return _inflightBits;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

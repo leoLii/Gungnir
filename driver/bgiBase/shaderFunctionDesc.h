@@ -12,6 +12,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \struct HgiShaderFunctionTextureDesc
 ///
 /// Describes a texture to be passed into a shader
@@ -148,7 +150,7 @@ struct BgiShaderFunctionParamDesc
     BgiInterpolationType interpolation;
     BgiSamplingType sampling;
     BgiStorageType storage;
-    SHADER_KEYWORD role;
+    tokens::SHADER_KEYWORD role;
     std::string arraySize;
 };
 
@@ -508,7 +510,7 @@ BgiShaderFunctionAddConstantParam(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role);
+    const tokens::SHADER_KEYWORD &role);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor.
@@ -519,7 +521,7 @@ BgiShaderFunctionAddStageInput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role);
+    const tokens::SHADER_KEYWORD &role);
 
 /// Adds stage input function param descriptor to given shader function
 /// descriptor given param descriptor.
@@ -546,7 +548,7 @@ BgiShaderFunctionAddStageOutput(
     BgiShaderFunctionDesc *desc,
     const std::string &nameInShader,
     const std::string &type,
-    const SHADER_KEYWORD &role);
+    const tokens::SHADER_KEYWORD &role);
 
 /// Adds stage output function param descriptor to given shader function
 /// descriptor.
@@ -565,5 +567,7 @@ void
 BgiShaderFunctionAddStageOutput(
         BgiShaderFunctionDesc *functionDesc,
         BgiShaderFunctionParamDesc const &paramDesc);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

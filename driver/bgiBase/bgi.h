@@ -23,6 +23,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiCapabilities;
 class BgiIndirectCommandEncoder;
 
@@ -262,7 +264,7 @@ public:
     /// Return the name of the api (e.g. "OpenGL").
     /// Thread safety: This call is thread safe.
     BGI_API
-    virtual DRIVER const& GetAPIName() const = 0;
+    virtual tokens::DRIVER const& GetAPIName() const = 0;
 
     /// Returns the device-specific capabilities structure.
     /// Thread safety: This call is thread safe.
@@ -326,5 +328,7 @@ public:
         return new T;
     }
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 /// \class HgiVulkanCapabilities
@@ -42,5 +44,7 @@ public:
         vkVertexAttributeDivisorFeatures;
     VkPhysicalDeviceMemoryProperties vkMemoryProperties;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiResourceBindings::BgiResourceBindings(BgiResourceBindingsDesc const& desc)
     : _descriptor(desc)
 {
@@ -10,7 +12,7 @@ BgiResourceBindings::BgiResourceBindings(BgiResourceBindingsDesc const& desc)
 BgiResourceBindings::~BgiResourceBindings() = default;
 
 BgiResourceBindingsDesc const&
-BgiResourceBindings::GetDescriptor() const
+    BgiResourceBindings::GetDescriptor() const
 {
     return _descriptor;
 }
@@ -27,12 +29,12 @@ bool operator==(
     const BgiBufferBindingDesc& rhs)
 {
     return lhs.buffers == rhs.buffers &&
-           lhs.resourceType == rhs.resourceType &&
-           lhs.offsets == rhs.offsets &&
-           lhs.sizes == rhs.sizes &&
-           lhs.bindingIndex == rhs.bindingIndex &&
-           lhs.stageUsage == rhs.stageUsage &&
-           lhs.writable == rhs.writable;
+        lhs.resourceType == rhs.resourceType &&
+        lhs.offsets == rhs.offsets &&
+        lhs.sizes == rhs.sizes &&
+        lhs.bindingIndex == rhs.bindingIndex &&
+        lhs.stageUsage == rhs.stageUsage &&
+        lhs.writable == rhs.writable;
 }
 
 bool operator!=(
@@ -55,11 +57,11 @@ bool operator==(
     const BgiTextureBindingDesc& rhs)
 {
     return lhs.textures == rhs.textures &&
-           lhs.resourceType == rhs.resourceType &&
-           lhs.bindingIndex == rhs.bindingIndex &&
-           lhs.stageUsage == rhs.stageUsage &&
-           lhs.samplers == rhs.samplers &&
-           lhs.writable == rhs.writable;
+        lhs.resourceType == rhs.resourceType &&
+        lhs.bindingIndex == rhs.bindingIndex &&
+        lhs.stageUsage == rhs.stageUsage &&
+        lhs.samplers == rhs.samplers &&
+        lhs.writable == rhs.writable;
 }
 
 bool operator!=(
@@ -76,8 +78,8 @@ bool operator==(
     const BgiResourceBindingsDesc& rhs)
 {
     return lhs.debugName == rhs.debugName &&
-           lhs.buffers == rhs.buffers &&
-           lhs.textures == rhs.textures;
+        lhs.buffers == rhs.buffers &&
+        lhs.textures == rhs.textures;
 }
 
 bool operator!=(
@@ -85,6 +87,8 @@ bool operator!=(
     const BgiResourceBindingsDesc& rhs)
 {
     return !(lhs == rhs);
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

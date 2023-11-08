@@ -15,6 +15,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanGraphicsCmds::BgiVulkanGraphicsCmds(
     BgiVulkan* bgi,
     BgiGraphicsCmdsDesc const& desc)
@@ -423,6 +425,8 @@ BgiVulkanGraphicsCmds::_CreateCommandBuffer()
         _commandBuffer = queue->AcquireCommandBuffer();
         UTILS_VERIFY(_commandBuffer);
     }
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

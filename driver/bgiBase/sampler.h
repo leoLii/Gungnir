@@ -11,6 +11,8 @@
 #include <vector>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
+
+namespace driver {
 /// \struct HgiSamplerDesc
 ///
 /// Describes the properties needed to create a GPU sampler.
@@ -118,5 +120,7 @@ private:
 
 using BgiSamplerHandle = BgiHandle<BgiSampler>;
 using BgiSamplerHandleVector = std::vector<BgiSamplerHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

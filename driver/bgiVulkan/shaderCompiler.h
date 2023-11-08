@@ -13,6 +13,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanDevice;
 
 struct BgiVulkanDescriptorSetInfo
@@ -61,5 +63,7 @@ VkDescriptorSetLayoutVector BgiVulkanMakeDescriptorSetLayouts(
     BgiVulkanDevice* device,
     std::vector<BgiVulkanDescriptorSetInfoVector> const& infos,
     std::string const& debugName);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

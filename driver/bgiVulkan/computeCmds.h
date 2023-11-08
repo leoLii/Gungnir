@@ -10,6 +10,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 struct BgiComputeCmdsDesc;
 class BgiVulkan;
 class BgiVulkanCommandBuffer;
@@ -81,5 +85,7 @@ private:
     // Cmds is used only one frame so storing multi-frame state on will not
     // survive.
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

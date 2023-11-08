@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace math {
+
 using Vector2f = Eigen::Vector2f;
 using Vector2d = Eigen::Vector2d;
 using Vector2i = Eigen::Vector2i;
@@ -26,5 +28,7 @@ using Vector4i = Eigen::Vector4i;
 using Matrixf = Eigen::Matrix4f;
 using Matrixd = Eigen::Matrix4d;
 using Matrixi = Eigen::Matrix4i;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

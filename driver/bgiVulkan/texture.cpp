@@ -15,6 +15,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static bool
 _CheckFormatSupport(
     VkPhysicalDevice pDevice,
@@ -575,6 +577,8 @@ BgiVulkanTexture::GetDefaultAccessFlags(BgiTextureUsage usage)
     }
 
     return VK_ACCESS_SHADER_READ_BIT;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

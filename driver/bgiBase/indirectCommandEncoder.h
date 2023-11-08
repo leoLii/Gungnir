@@ -12,6 +12,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class Bgi;
 class BgiComputeCmds;
 class BgiGraphicsCmds;
@@ -98,5 +100,7 @@ private:
     BgiIndirectCommandEncoder & operator=(const BgiIndirectCommandEncoder&) = delete;
     BgiIndirectCommandEncoder(const BgiIndirectCommandEncoder&) = delete;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

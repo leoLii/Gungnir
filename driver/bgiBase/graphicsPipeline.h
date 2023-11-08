@@ -16,6 +16,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 /// \struct HgiVertexAttributeDesc
 ///
 /// Describes one attribute of a vertex.
@@ -457,5 +461,7 @@ private:
 
 using BgiGraphicsPipelineHandle = BgiHandle<BgiGraphicsPipeline>;
 using BgiGraphicsPipelineHandleVector = std::vector<BgiGraphicsPipelineHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

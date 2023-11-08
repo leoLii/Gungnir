@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 struct BgiTextureGpuToCpuOp;
 struct BgiTextureCpuToGpuOp;
 struct BgiBufferGpuToGpuOp;
@@ -96,5 +98,7 @@ private:
     BgiBlitCmds & operator=(const BgiBlitCmds&) = delete;
     BgiBlitCmds(const BgiBlitCmds&) = delete;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

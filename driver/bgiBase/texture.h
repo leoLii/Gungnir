@@ -13,6 +13,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 /// \struct BgiComponentMapping
 /// 
 struct BgiComponentMapping
@@ -274,5 +278,7 @@ private:
 
 using BgiTextureViewHandle = BgiHandle<class BgiTextureView>;
 using BgiTextureViewHandleVector = std::vector<BgiTextureViewHandle>;
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

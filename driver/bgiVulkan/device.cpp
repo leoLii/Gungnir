@@ -14,6 +14,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 static uint32_t
 _GetGraphicsQueueFamilyIndex(VkPhysicalDevice physicalDevice)
 {
@@ -395,6 +397,8 @@ BgiVulkanDevice::IsSupportedExtension(const char* extensionName) const
     }
 
     return false;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

@@ -9,6 +9,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 ///
 /// \class HgiVulkanConversions
 ///
@@ -95,5 +97,7 @@ public:
     BGIVULKAN_API
     static std::string GetImageLayoutFormatQualifier(BgiFormat inFormat);
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

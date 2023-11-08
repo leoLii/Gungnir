@@ -11,6 +11,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiVulkanShaderFunction::BgiVulkanShaderFunction(
     BgiVulkanDevice* device,
     Bgi const* bgi,
@@ -155,6 +157,8 @@ uint64_t &
 BgiVulkanShaderFunction::GetInflightBits()
 {
     return _inflightBits;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

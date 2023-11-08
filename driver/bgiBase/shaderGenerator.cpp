@@ -3,6 +3,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiShaderGenerator::BgiShaderGenerator(const BgiShaderFunctionDesc &descriptor)
     : _descriptor(descriptor)
 {
@@ -57,6 +59,8 @@ BgiShaderGenerator::GetGeneratedShaderCode() const
     } else {
        return _localGeneratedShaderCode.c_str();
     }
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

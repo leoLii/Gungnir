@@ -8,8 +8,9 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
-using BgiBits = uint32_t;
+namespace driver {
 
+using BgiBits = uint32_t;
 
 /// \enum BgiDeviceCapabilitiesBits
 ///
@@ -805,5 +806,7 @@ enum BgiComputeDispatch
     BgiComputeDispatchSerial = 0,
     BgiComputeDispatchConcurrent
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

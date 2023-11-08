@@ -7,6 +7,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanCommandBuffer;
 class BgiVulkanDevice;
 class BgiVulkanInstance;
@@ -59,5 +61,7 @@ void BgiVulkanBeginQueueLabel(
 /// End the last pushed label in the vulkan device gfx queue
 BGIVULKAN_API
 void BgiVulkanEndQueueLabel(BgiVulkanDevice* device);
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

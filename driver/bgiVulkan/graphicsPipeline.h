@@ -12,6 +12,10 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+using namespace math;
+
+namespace driver {
+
 class BgiVulkanDevice;
 
 using VkDescriptorSetLayoutVector = std::vector<VkDescriptorSetLayout>;
@@ -88,5 +92,7 @@ private:
 
     std::vector<BgiVulkan_Framebuffer> _framebuffers;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

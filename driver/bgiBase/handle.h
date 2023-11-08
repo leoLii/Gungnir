@@ -8,6 +8,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \class HgiHandle
 ///
 /// Handle that contains a hgi object and unique id.
@@ -52,5 +54,7 @@ private:
     T* _ptr;
     uint64_t _id;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

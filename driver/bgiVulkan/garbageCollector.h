@@ -10,6 +10,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkan;
 class BgiVulkanDevice;
 
@@ -91,5 +93,7 @@ private:
 
     bool _isDestroying;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

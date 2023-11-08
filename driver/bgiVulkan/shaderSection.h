@@ -12,6 +12,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 /// \class HgiVulkanShaderSection
 ///
 /// Base class for Vulkan code sections. The generator holds these
@@ -298,5 +300,7 @@ private:
     const std::string _qualifier;
     const BgiVulkanShaderSectionPtrVector _members;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

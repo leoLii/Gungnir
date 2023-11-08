@@ -15,6 +15,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 class BgiVulkanGarbageCollector;
 class BgiVulkanInstance;
 
@@ -109,7 +111,7 @@ public:
     void DestroyComputePipeline(BgiComputePipelineHandle* pipeHandle) override;
 
     BGIVULKAN_API
-    DRIVER const& GetAPIName() const override;
+    tokens::DRIVER const& GetAPIName() const override;
 
     BGIVULKAN_API
     BgiVulkanCapabilities const* GetCapabilities() const override;
@@ -177,5 +179,7 @@ private:
     std::thread::id _threadId;
     int _frameDepth;
 };
+
+}
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE

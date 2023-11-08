@@ -2,6 +2,8 @@
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 
+namespace driver {
+
 BgiCmds::BgiCmds()
     : _submitted(false)
 {}
@@ -24,6 +26,8 @@ void
 BgiCmds::_SetSubmitted()
 {
     _submitted = true;
+}
+
 }
 
 GUNGNIR_NAMESPACE_CLOSE_SCOPE
