@@ -7,8 +7,8 @@ set_languages("c++20")
 
 add_requires("volk", "vulkan-memory-allocator-hpp", "assimp", "eigen", "robin-map", "shaderc", "boost", "glfw")
 
-target("application")
-    set_kind("binary")
+target("platform")
+    set_kind("static")
     add_includedirs("$(projectdir)")
     add_headerfiles("application/*.h")
     add_files("application/*.cpp")
