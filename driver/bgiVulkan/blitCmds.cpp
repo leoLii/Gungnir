@@ -1,4 +1,4 @@
-#include "core/utils/diagnostic.h"
+#include "common/utils/diagnostic.h"
 
 #include "driver/bgiBase/blitCmdsOps.h"
 #include "driver/bgiVulkan/blitCmds.h"

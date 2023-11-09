@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/arch/defines.h"
+#include "common/arch/defines.h"
 
 /// \file arch/hints.h
 /// Compiler hints.

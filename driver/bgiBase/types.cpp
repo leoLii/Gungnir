@@ -1,5 +1,5 @@
-#include "core/base.h"
-#include "core/utils/diagnostic.h"
+#include "common/base.h"
+#include "common/utils/diagnostic.h"
 
 #include "driver/bgiBase/types.h"
 

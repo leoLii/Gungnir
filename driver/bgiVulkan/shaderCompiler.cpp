@@ -1,4 +1,4 @@
-#include "core/utils/diagnostic.h"
+#include "commonon/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/shaderCompiler.h"
 #include "driver/bgiVulkan/conversions.h"

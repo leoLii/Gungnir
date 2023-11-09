@@ -1,5 +1,5 @@
-#include "core/arch/defines.h"
-#include "core/utils/diagnostic.h"
+#include "common/arch/defines.h"
+#include "common/utils/diagnostic.h"
 
 #include "driver/bgiBase/bgi.h"
 #include "driver/bgiVulkan/bgi.h"

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/base.h"
-#include "core/math/math.h"
+#include "common/base.h"
+#include "common/math/math.h"
 
 #include "driver/bgiBase/graphicsCmdsDesc.h"
 #include "driver/bgiBase/graphicsPipeline.h"

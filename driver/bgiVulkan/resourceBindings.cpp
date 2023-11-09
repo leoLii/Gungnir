@@ -1,4 +1,4 @@
-#include "core/utils/diagnostic.h"
+#include "common/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/resourceBindings.h"
 #include "driver/bgiVulkan/buffer.h"

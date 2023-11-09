@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/base.h"
+#include "common/base.h"
 
 #include "driver/bgiVulkan/api.h"
 #include "driver/bgiVulkan/vulkanBridge.h"

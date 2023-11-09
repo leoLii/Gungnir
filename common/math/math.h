@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/base.h"
+#include "common/base.h"
 
 // This defination must be placed before including Eigen, cause Eigen might have included windowskit 
 // and windowskit has defined min and max, it's a disaster when you use your own min max functions

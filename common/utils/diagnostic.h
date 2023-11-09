@@ -1,8 +1,8 @@
 #pragma once
 
-#include "core/base.h"
+#include "common/base.h"
 
-#include "core/utils/api.h"
+#include "common/utils/api.h"
 
 #include <iostream>
 #include <stdarg.h>

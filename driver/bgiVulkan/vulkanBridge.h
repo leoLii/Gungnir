@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/arch/defines.h"
+#include "common/arch/defines.h"
 
 // Define the platform for Vulkan so vulkan.h below picks the correct includes.
 #if defined(ARCH_OS_WINDOWS)

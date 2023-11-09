@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/arch/export.h"
+#include "commonon/arch/export.h"
 
 #if defined(GUNGNIR_STATIC)
 #   define BGI_API

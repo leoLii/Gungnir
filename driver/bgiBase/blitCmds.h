@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/base.h"
+#include "common/base.h"
 
 #include "driver/bgiBase/api.h"
 #include "driver/bgiBase/cmds.h"

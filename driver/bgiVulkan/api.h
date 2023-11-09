@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/arch/export.h"
+#include "common/arch/export.h"
 
 #if defined(GUNGNIR_STATIC)
 #   define BGIVULKAN_API

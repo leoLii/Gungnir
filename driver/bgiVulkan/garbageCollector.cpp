@@ -1,5 +1,5 @@
-#include "core/arch/hints.h"
-#include "core/utils/diagnostic.h"
+#include "common/arch/hints.h"
+#include "common/utils/diagnostic.h"
 
 #include "driver/bgiVulkan/garbageCollector.h"
 #include "driver/bgiVulkan/buffer.h"

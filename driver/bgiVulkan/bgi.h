@@ -1,7 +1,7 @@
 #pragma once
 
-#include "core/base.h"
-#include "core/utils/tokens.h"
+#include "common/base.h"
+#include "common/utils/tokens.h"
 
 #include "driver/bgiBase/bgi.h"
 #include "driver/bgiVulkan/capabilities.h"
