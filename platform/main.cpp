@@ -1,10 +1,21 @@
 #include "common/base.h"
 
+#include "platform/application.h"
+
 #include <iostream>
 
+
+
 int main() {
-    std::cout << "Hello gungnir" << std::endl;
 
+    HelloTriangleApplication app;
 
-    return 0;
+    try {
+        app.run();
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
 }
