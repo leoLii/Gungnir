@@ -223,15 +223,15 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
 
     // Enabling certain features may incure a performance hit
     // (e.g. robustBufferAccess), so only enable the features we will use.
-    VkPhysicalDeviceVulkan11Features vulkan11Features =
-        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES};
-    vulkan11Features.pNext = _capabilities->vkVulkan11Features.pNext;
-    vulkan11Features.shaderDrawParameters =
-        _capabilities->vkVulkan11Features.shaderDrawParameters;
+    VkPhysicalDeviceVulkan11Features vulkanFeatures =
+        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES};
+    vulkanFeatures.pNext = _capabilities->vkVulkanFeatures.pNext;
+    vulkanFeatures.shaderDrawParameters =
+        _capabilities->vkVulkanFeatures.shaderDrawParameters;
 
     VkPhysicalDeviceFeatures2 features =
         {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2};
-    features.pNext = &vulkan11Features;
+    features.pNext = &vulkanFeatures;
 
     features.features.multiDrawIndirect =
         _capabilities->vkDeviceFeatures.multiDrawIndirect;
