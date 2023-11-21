@@ -31,8 +31,8 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
         supportsTimeStamps = gfxQueue.timestampValidBits > 0;
     }
 
+    // vkGetPhysicalDeviceFeatures(physicalDevice, &vkDeviceFeatures);
     vkGetPhysicalDeviceProperties(physicalDevice, &vkDeviceProperties);
-    vkGetPhysicalDeviceFeatures(physicalDevice, &vkDeviceFeatures);
     vkGetPhysicalDeviceMemoryProperties(physicalDevice, &vkMemoryProperties);
 
     // Vertex attribute divisor properties ext
@@ -61,9 +61,19 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
         VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES;
     vkVulkan11Features.pNext = &vkIndexingFeatures;
 
+    // Vulkan 1.2 features
+    vkVulkan12Features.sType =
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES;
+    vkVulkan12Features.pNext = &vkVulkan11Features;
+
+    // Vulkan 1.3 features
+    vkVulkan13Features.sType =
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES;
+    vkVulkan13Features.pNext = &vkVulkan12Features;
+
     // Query device features
     vkDeviceFeatures2.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
-    vkDeviceFeatures2.pNext = &vkVulkan11Features;
+    vkDeviceFeatures2.pNext = &vkVulkan13Features;
     vkGetPhysicalDeviceFeatures2(physicalDevice, &vkDeviceFeatures2);
 
     // Verify we meet feature and extension requirements
