@@ -229,42 +229,50 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     vulkan11Features.shaderDrawParameters =
         _capabilities->vkVulkan11Features.shaderDrawParameters;
 
-    VkPhysicalDeviceFeatures2 features =
-        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2};
-    features.pNext = &vulkan11Features;
+    VkPhysicalDeviceVulkan12Features vulkan12Features =
+        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES};
+    vulkan12Features.pNext = _capabilities->vkVulkan12Features.pNext;
 
-    features.features.multiDrawIndirect =
+    VkPhysicalDeviceVulkan12Features vulkan13Features =
+        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES};
+    vulkan13Features.pNext = _capabilities->vkVulkan13Features.pNext;
+
+    VkPhysicalDeviceFeatures2 features2 =
+        {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2};
+    features2.pNext = &vulkan13Features;
+
+    features2.features.multiDrawIndirect =
         _capabilities->vkDeviceFeatures.multiDrawIndirect;
-    features.features.samplerAnisotropy =
+    features2.features.samplerAnisotropy =
         _capabilities->vkDeviceFeatures.samplerAnisotropy;
-    features.features.shaderSampledImageArrayDynamicIndexing =
+    features2.features.shaderSampledImageArrayDynamicIndexing =
         _capabilities->vkDeviceFeatures.shaderSampledImageArrayDynamicIndexing;
-    features.features.shaderStorageImageArrayDynamicIndexing =
+    features2.features.shaderStorageImageArrayDynamicIndexing =
         _capabilities->vkDeviceFeatures.shaderStorageImageArrayDynamicIndexing;
-    features.features.sampleRateShading =
+    features2.features.sampleRateShading =
         _capabilities->vkDeviceFeatures.sampleRateShading;
-    features.features.shaderClipDistance =
+    features2.features.shaderClipDistance =
         _capabilities->vkDeviceFeatures.shaderClipDistance;
-    features.features.tessellationShader =
+    features2.features.tessellationShader =
         _capabilities->vkDeviceFeatures.tessellationShader;
-    features.features.depthClamp =
+    features2.features.depthClamp =
         _capabilities->vkDeviceFeatures.depthClamp;
-    features.features.shaderFloat64 =
+    features2.features.shaderFloat64 =
         _capabilities->vkDeviceFeatures.shaderFloat64;
 
     // Needed to write to storage buffers from vertex shader (eg. GPU culling).
-    features.features.vertexPipelineStoresAndAtomics =
+    features2.features.vertexPipelineStoresAndAtomics =
         _capabilities->vkDeviceFeatures.vertexPipelineStoresAndAtomics;
     // Needed to write to storage buffers from fragment shader (eg. OIT).
-    features.features.fragmentStoresAndAtomics =
+    features2.features.fragmentStoresAndAtomics =
         _capabilities->vkDeviceFeatures.fragmentStoresAndAtomics;
 
     #if !defined(VK_USE_PLATFORM_MACOS_MVK)
         // Needed for buffer address feature
-        features.features.shaderInt64 =
+        features2.features.shaderInt64 =
             _capabilities->vkDeviceFeatures.shaderInt64;
         // Needed for gl_primtiveID
-        features.features.geometryShader =
+        features2.features.geometryShader =
             _capabilities->vkDeviceFeatures.geometryShader;
     #endif
 
@@ -273,7 +281,7 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     createInfo.pQueueCreateInfos = &queueInfo;
     createInfo.ppEnabledExtensionNames = extensions.data();
     createInfo.enabledExtensionCount = (uint32_t) extensions.size();
-    createInfo.pNext = &features;
+    createInfo.pNext = &features2;
 
     UTILS_VERIFY(
         vkCreateDevice(

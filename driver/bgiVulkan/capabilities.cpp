@@ -31,7 +31,7 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
         supportsTimeStamps = gfxQueue.timestampValidBits > 0;
     }
 
-    // vkGetPhysicalDeviceFeatures(physicalDevice, &vkDeviceFeatures);
+    vkGetPhysicalDeviceFeatures(physicalDevice, &vkDeviceFeatures);
     vkGetPhysicalDeviceProperties(physicalDevice, &vkDeviceProperties);
     vkGetPhysicalDeviceMemoryProperties(physicalDevice, &vkMemoryProperties);
 
@@ -74,6 +74,7 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     // Query device features
     vkDeviceFeatures2.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
     vkDeviceFeatures2.pNext = &vkVulkan13Features;
+    vkDeviceFeatures2.features = vkDeviceFeatures;
     vkGetPhysicalDeviceFeatures2(physicalDevice, &vkDeviceFeatures2);
 
     // Verify we meet feature and extension requirements
