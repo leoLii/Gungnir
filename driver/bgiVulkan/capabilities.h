@@ -38,7 +38,7 @@ public:
         vkVertexAttributeDivisorProperties;
     VkPhysicalDeviceFeatures vkDeviceFeatures;
     VkPhysicalDeviceFeatures2 vkDeviceFeatures2;
-    VkPhysicalDeviceVulkanFeatures vkVulkanFeatures;
+    VkPhysicalDeviceVulkan11Features vkVulkan11Features;
     VkPhysicalDeviceDescriptorIndexingFeaturesEXT vkIndexingFeatures;
     VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT
         vkVertexAttributeDivisorFeatures;

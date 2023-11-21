@@ -56,21 +56,21 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
         VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES_EXT;
     vkIndexingFeatures.pNext = &vkVertexAttributeDivisorFeatures;
 
-    // Vulkan features
-    vkVulkanFeatures.sType =
-        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES;
-    vkVulkanFeatures.pNext = &vkIndexingFeatures;
+    // Vulkan 1.1 features
+    vkVulkan11Features.sType =
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES;
+    vkVulkan11Features.pNext = &vkIndexingFeatures;
 
     // Query device features
     vkDeviceFeatures2.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
-    vkDeviceFeatures2.pNext = &vkVulkanFeatures;
+    vkDeviceFeatures2.pNext = &vkVulkan11Features;
     vkGetPhysicalDeviceFeatures2(physicalDevice, &vkDeviceFeatures2);
 
     // Verify we meet feature and extension requirements
 
     // Storm with HgiVulkan needs gl_BaseInstance/gl_BaseInstanceARB in shader.
     UTILS_VERIFY(
-        vkVulkanFeatures.shaderDrawParameters);
+        vkVulkan11Features.shaderDrawParameters);
 
     #if !defined(VK_USE_PLATFORM_MACOS_MVK)
         UTILS_VERIFY(
@@ -97,7 +97,7 @@ BgiVulkanCapabilities::BgiVulkanCapabilities(BgiVulkanDevice* device)
     const bool hasBuiltinBarycentrics = (device->IsSupportedExtension(
         VK_NV_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME));
     const bool shaderDrawParametersEnabled =
-        vkVulkanFeatures.shaderDrawParameters;
+        vkVulkan11Features.shaderDrawParameters;
 
     _SetFlag(BgiDeviceCapabilitiesBitsDepthRangeMinusOnetoOne, false);
     _SetFlag(BgiDeviceCapabilitiesBitsStencilReadback, true);
