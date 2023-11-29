@@ -66,7 +66,7 @@ public:
     /// Execute a compute shader with provided thread group count in each
     /// dimension.
     BGI_API
-    virtual void Dispatch(int dimX, int dimY) = 0;
+    virtual void Dispatch(int dimX, int dimY, int dimZ) = 0;
 
     /// Inserts a barrier so that data written to memory by commands before
     /// the barrier is available to commands after the barrier.
