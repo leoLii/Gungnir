@@ -2,6 +2,8 @@
 
 #include <string>
 
+GUNGNIR_NAMESPACE_OPEN_SCOPE
+
 namespace utils {
 
 const char*
@@ -27,3 +29,5 @@ verifyFailedHelper(const char *cond, const char *msg)
 }
 
 }
+
+GUNGNIR_NAMESPACE_CLOSE_SCOPE
