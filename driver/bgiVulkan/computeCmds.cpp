@@ -106,15 +106,17 @@ BgiVulkanComputeCmds::SetConstantValues(
 }
 
 void
-BgiVulkanComputeCmds::Dispatch(int dimX, int dimY)
+BgiVulkanComputeCmds::Dispatch(int dimX, int dimY, int dimZ)
 {
     _CreateCommandBuffer();
     _BindResources();
 
     const int threadsPerGroupX = _localWorkGroupSize[0];
     const int threadsPerGroupY = _localWorkGroupSize[1];
+    const int threadsPerGroupZ = _localWorkGroupSize[2];
     int numWorkGroupsX = (dimX + (threadsPerGroupX - 1)) / threadsPerGroupX;
     int numWorkGroupsY = (dimY + (threadsPerGroupY - 1)) / threadsPerGroupY;
+    int numWorkGroupsZ = (dimZ + (threadsPerGroupZ - 1)) / threadsPerGroupZ;
 
     // Determine device's num compute work group limits
     const VkPhysicalDeviceLimits limits = 
@@ -134,12 +136,17 @@ BgiVulkanComputeCmds::Dispatch(int dimX, int dimY)
                 "than %i", maxNumWorkGroups[1], numWorkGroupsY);
         numWorkGroupsY = maxNumWorkGroups[1];
     }
+    if (numWorkGroupsZ > maxNumWorkGroups[2]) {
+        UTILS_WARN("Max number of work group available from device is %i, larger "
+                "than %i", maxNumWorkGroups[2], numWorkGroupsZ);
+        numWorkGroupsZ = maxNumWorkGroups[2];
+    }
 
     vkCmdDispatch(
         _commandBuffer->GetVulkanCommandBuffer(),
         (uint32_t) numWorkGroupsX,
         (uint32_t) numWorkGroupsY,
-        1);
+        (uint32_t) numWorkGroupsZ);
 }
 
 bool

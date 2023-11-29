@@ -48,7 +48,7 @@ public:
         const void* data) override;
     
     BGIVULKAN_API
-    void Dispatch(int dimX, int dimY) override;
+    void Dispatch(int dimX, int dimY, int dimZ) override;
 
     BGIVULKAN_API
     void InsertMemoryBarrier(BgiMemoryBarrier barrier) override;
