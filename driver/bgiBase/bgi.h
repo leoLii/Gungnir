@@ -315,19 +315,19 @@ private:
 ///
 /// Bgi factory for plugin system
 ///
-class BgiFactoryBase {
-public:
-    virtual Bgi* New() const = 0;
-    virtual ~BgiFactoryBase();
-};
-
-template <class T>
-class BgiFactory : public BgiFactoryBase {
-public:
-    Bgi* New() const {
-        return new T;
-    }
-};
+//class BgiFactoryBase {
+//public:
+//    virtual Bgi* New() const = 0;
+//    virtual ~BgiFactoryBase();
+//};
+//
+//template <class T>
+//class BgiFactory : public BgiFactoryBase {
+//public:
+//    Bgi* New() const {
+//        return new T;
+//    }
+//};
 
 }
 

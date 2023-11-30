@@ -33,26 +33,26 @@ _MakeNewPlatformDefaultBgi()
     // We use the plugin system to construct derived Hgi classes to avoid any
     // linker complications.
 
-    const char* bgiType = 
-        #if defined(ARCH_OS_DARWIN)
-            "BgiMetal";
-        #elif defined(ARCH_OS_WINDOWS)
-            #if BGI_ENABLE_VULKAN == 1
-            "BgiVulkan";
-            #endif
-        #else
-            ""; 
-            #error Unknown Platform
-            return nullptr;
-        #endif
+    //const char* bgiType = 
+    //    #if defined(ARCH_OS_DARWIN)
+    //        "BgiMetal";
+    //    #elif defined(ARCH_OS_WINDOWS)
+    //        #if BGI_ENABLE_VULKAN == 1
+    //        "BgiVulkan";
+    //        #endif
+    //    #else
+    //        ""; 
+    //        #error Unknown Platform
+    //        return nullptr;
+    //    #endif
 
-    BgiFactory<BgiVulkan>* factory = new BgiFactory<BgiVulkan>();
-    if (!factory) {
-        UTILS_CODING_ERROR("Cannot create bgiFactory \n");
-        return nullptr;
-    }
+    //BgiFactory<BgiVulkan>* factory = new BgiFactory<BgiVulkan>();
+    //if (!factory) {
+    //    UTILS_CODING_ERROR("Cannot create bgiFactory \n");
+    //    return nullptr;
+    //}
 
-    Bgi* instance = factory->New();
+    Bgi* instance = new BgiVulkan();
     if (!instance) {
         UTILS_CODING_ERROR("Cannot construct instance of bgi\n");
         return nullptr;

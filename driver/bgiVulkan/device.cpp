@@ -43,8 +43,8 @@ _SupportsPresentation(
     uint32_t familyIndex)
 {
     #if defined(VK_USE_PLATFORM_WIN32_KHR)
-        return vkGetPhysicalDeviceWin32PresentationSupportKHR(
-                    physicalDevice, familyIndex);
+        //return vkGetPhysicalDeviceWin32PresentationSupportKHR(physicalDevice, familyIndex);
+    return true;
     #elif defined(VK_USE_PLATFORM_XLIB_KHR)
         Display* dsp = XOpenDisplay(nullptr);
         VisualID visualID = XVisualIDFromVisual(
