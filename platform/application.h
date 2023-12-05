@@ -94,11 +94,15 @@ private:
 
     void initVulkan() {
 
-        _bgi = static_cast<gungnir::driver::BgiVulkan*>(gungnir::driver::Bgi::CreatePlatformDefaultBgi().get());
+        _bgi = new gungnir::driver::BgiVulkan();
         this->instance = _bgi->GetVulkanInstance()->GetVulkanInstance();
         this->device = _bgi->GetPrimaryDevice()->GetVulkanDevice();
         this->physicalDevice = _bgi->GetPrimaryDevice()->GetVulkanPhysicalDevice();
 
+        vkGetDeviceQueue(device, _bgi->GetPrimaryDevice()->GetGfxQueueFamilyIndex(), 0, &graphicsQueue);
+        vkGetDeviceQueue(device, _bgi->GetPrimaryDevice()->GetGfxQueueFamilyIndex(), 0, &presentQueue);
+
+        createSurface();
         createSwapChain();
         createImageViews();
         createRenderPass();
@@ -275,8 +279,8 @@ private:
     }
 
     void createGraphicsPipeline() {
-        auto vertShaderCode = readFile("shaders/vert.spv");
-        auto fragShaderCode = readFile("shaders/frag.spv");
+        auto vertShaderCode = readFile("G:/workfield/GungnirEngine/shaders/vert.spv");
+        auto fragShaderCode = readFile("G:/workfield/GungnirEngine/shaders/frag.spv");
 
         VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
         VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
@@ -377,7 +381,7 @@ private:
         if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline) != VK_SUCCESS) {
             throw std::runtime_error("failed to create graphics pipeline!");
         }
-
+        
         vkDestroyShaderModule(device, fragShaderModule, nullptr);
         vkDestroyShaderModule(device, vertShaderModule, nullptr);
     }
