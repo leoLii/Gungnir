@@ -13,7 +13,7 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 namespace driver {
 
 // "Enable debugging for HgiVulkan"
-#define VULKAN_DEBUG 0
+#define VULKAN_DEBUG 1
 
 // "Enable verbose debugging for HgiVulkan"
 #define VULKAN_DEBUG_VERBOSE 0
