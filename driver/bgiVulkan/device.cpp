@@ -229,17 +229,17 @@ BgiVulkanDevice::BgiVulkanDevice(BgiVulkanInstance* instance)
     vulkan11Features.shaderDrawParameters =
         _capabilities->vkVulkan11Features.shaderDrawParameters;
 
-    VkPhysicalDeviceVulkan12Features vulkan12Features =
+    /*VkPhysicalDeviceVulkan12Features vulkan12Features =
         {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES};
     vulkan12Features.pNext = _capabilities->vkVulkan12Features.pNext;
 
     VkPhysicalDeviceVulkan12Features vulkan13Features =
         {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES};
-    vulkan13Features.pNext = _capabilities->vkVulkan13Features.pNext;
+    vulkan13Features.pNext = _capabilities->vkVulkan13Features.pNext;*/
 
     VkPhysicalDeviceFeatures2 features2 =
         {VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2};
-    features2.pNext = &vulkan13Features;
+    features2.pNext = &vulkan11Features;
 
     features2.features.multiDrawIndirect =
         _capabilities->vkDeviceFeatures.multiDrawIndirect;
