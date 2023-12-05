@@ -6,7 +6,7 @@
 #include "driver/bgiVulkan/diagnostic.h"
 #include "driver/bgiVulkan/spirv_reflect.h"
 
-#include <shaderc/shaderc.hpp>
+//#include <shaderc/shaderc.hpp>
 
 #include <unordered_map>
 
@@ -14,27 +14,27 @@ GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 namespace driver {
 
-static shaderc_shader_kind
-_GetShaderStage(BgiShaderStage stage)
-{
-    switch(stage) {
-        case BgiShaderStageVertex:
-            return shaderc_glsl_vertex_shader;
-        case BgiShaderStageTessellationControl:
-            return shaderc_glsl_tess_control_shader;
-        case BgiShaderStageTessellationEval:
-            return shaderc_glsl_tess_evaluation_shader;
-        case BgiShaderStageGeometry:
-            return shaderc_glsl_geometry_shader;
-        case BgiShaderStageFragment:
-            return shaderc_glsl_fragment_shader;
-        case BgiShaderStageCompute:
-            return shaderc_glsl_compute_shader;
-    }
-
-    UTILS_CODING_ERROR("Unknown stage");
-    return shaderc_glsl_infer_from_source;
-}
+//static shaderc_shader_kind
+//_GetShaderStage(BgiShaderStage stage)
+//{
+//    switch(stage) {
+//        case BgiShaderStageVertex:
+//            return shaderc_glsl_vertex_shader;
+//        case BgiShaderStageTessellationControl:
+//            return shaderc_glsl_tess_control_shader;
+//        case BgiShaderStageTessellationEval:
+//            return shaderc_glsl_tess_evaluation_shader;
+//        case BgiShaderStageGeometry:
+//            return shaderc_glsl_geometry_shader;
+//        case BgiShaderStageFragment:
+//            return shaderc_glsl_fragment_shader;
+//        case BgiShaderStageCompute:
+//            return shaderc_glsl_compute_shader;
+//    }
+//
+//    UTILS_CODING_ERROR("Unknown stage");
+//    return shaderc_glsl_infer_from_source;
+//}
 
 bool
 BgiVulkanCompileGLSL(
@@ -57,7 +57,7 @@ BgiVulkanCompileGLSL(
         source += shaderCodes[i];
     }
 
-    shaderc::CompileOptions options;
+    /*shaderc::CompileOptions options;
     options.SetTargetEnvironment(shaderc_target_env_vulkan,
                                  shaderc_env_version_vulkan_1_0);
     options.SetTargetSpirv(shaderc_spirv_version_1_0);
@@ -71,9 +71,9 @@ BgiVulkanCompileGLSL(
     if (result.GetCompilationStatus() != shaderc_compilation_status_success) {
         *errors = result.GetErrorMessage();
         return false;
-    }
+    }*/
 
-    spirvOUT->assign(result.cbegin(), result.cend());
+    //spirvOUT->assign(result.cbegin(), result.cend());
 
     return true;
 }
