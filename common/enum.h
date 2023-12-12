@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Error.h"
+#include "error.h"
 #include "Utils/Logger.h"
 #include <span>
 #include <string>
@@ -10,8 +10,8 @@
 #include <vector>
 #include <fmt/core.h>
 
-namespace Falcor
-{
+GUNGNIR_NAMESPACE_OPEN_SCOPE
+
 // Helper using ADL to find EnumInfo in other namespaces.
 template<typename T>
 using EnumInfo = decltype(falcorFindEnumInfoADL(std::declval<T>()));
@@ -101,7 +101,7 @@ inline T stringListToFlags(const std::vector<std::string>& list)
     return flags;
 }
 
-} // namespace Falcor
+GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
 
 /**
  * Define enum information. This is expected to be used as follows:

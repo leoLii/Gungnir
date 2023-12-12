@@ -1,6 +1,7 @@
 #pragma once
 
-//#include "Macros.h"
+#include "common/macros.h"
+
 #include <source_location>
 #include <format>
 #include <exception>
@@ -9,7 +10,7 @@
 #include <string_view>
 #include <type_traits>
 
-GUNGNIR_NAMESPACE_OPENSCOPE
+GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 //
 // Exceptions.
@@ -21,9 +22,9 @@ GUNGNIR_NAMESPACE_OPENSCOPE
 #endif
 
 /**
- * Base class for all Falcor exceptions.
+ * Base class for all Gungnir exceptions.
  */
-class FALCOR_API Exception : public std::exception
+class GUNGNIR_API Exception : public std::exception
 {
 public:
     Exception() noexcept {}
@@ -44,7 +45,7 @@ protected:
 /**
  * Exception to be thrown when an error happens at runtime.
  */
-class FALCOR_API RuntimeError : public Exception
+class GUNGNIR_API RuntimeError : public Exception
 {
 public:
     RuntimeError() noexcept {}
@@ -54,9 +55,9 @@ public:
 };
 
 /**
- * Exception to be thrown on FALCOR_ASSERT.
+ * Exception to be thrown on GUNGNIR_ASSERT.
  */
-class FALCOR_API AssertionError : public Exception
+class GUNGNIR_API AssertionError : public Exception
 {
 public:
     AssertionError() noexcept {}
@@ -72,73 +73,73 @@ public:
 /// Throw a RuntimeError exception.
 /// If ErrorDiagnosticFlags::AppendStackTrace is set, a stack trace will be appended to the exception message.
 /// If ErrorDiagnosticFlags::BreakOnThrow is set, the debugger will be broken into (if attached).
-[[noreturn]] FALCOR_API void throwException(const std::source_location& loc, std::string_view msg);
+[[noreturn]] GUNGNIR_API void throwException(const std::source_location& loc, std::string_view msg);
 
 namespace detail
 {
-/// Overload to allow FALCOR_THROW to be called with a message only.
+/// Overload to allow GUNGNIR_THROW to be called with a message only.
 [[noreturn]] inline void throwException(const std::source_location& loc, std::string_view msg)
 {
-    ::Falcor::throwException(loc, msg);
+    ::gungnir::throwException(loc, msg);
 }
 
-/// Overload to allow FALCOR_THROW to be called with a format string and arguments.
+/// Overload to allow GUNGNIR_THROW to be called with a format string and arguments.
 template<typename... Args>
 [[noreturn]] inline void throwException(const std::source_location& loc, fmt::format_string<Args...> fmt, Args&&... args)
 {
-    ::Falcor::throwException(loc, fmt::format(fmt, std::forward<Args>(args)...));
+    ::gungnir::throwException(loc, fmt::format(fmt, std::forward<Args>(args)...));
 }
 } // namespace detail
-GUNGNIR_NAMESPACE_CLOSESCOPE // namespace Falcor
+GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
 
 /// Helper for throwing a RuntimeError exception.
 /// Accepts either a string or a format string and arguments:
-/// FALCOR_THROW("This is an error message.");
-/// FALCOR_THROW("Expected {} items, got {}.", expectedCount, actualCount);
-#define FALCOR_THROW(...) ::Falcor::detail::throwException(std::source_location::current(), __VA_ARGS__)
+/// GUNGNIR_THROW("This is an error message.");
+/// GUNGNIR_THROW("Expected {} items, got {}.", expectedCount, actualCount);
+#define GUNGNIR_THROW(...) ::gungnir::detail::throwException(std::source_location::current(), __VA_ARGS__)
 
 /// Helper for throwing a RuntimeError exception if condition isn't met.
 /// Accepts either a string or a format string and arguments.
-/// FALCOR_CHECK(device != nullptr, "Device is null.");
-/// FALCOR_CHECK(count % 3 == 0, "Count must be a multiple of 3, got {}.", count);
-#define FALCOR_CHECK(cond, ...)        \
+/// GUNGNIR_CHECK(device != nullptr, "Device is null.");
+/// GUNGNIR_CHECK(count % 3 == 0, "Count must be a multiple of 3, got {}.", count);
+#define GUNGNIR_CHECK(cond, ...)        \
     do                                 \
     {                                  \
         if (!(cond))                   \
-            FALCOR_THROW(__VA_ARGS__); \
+            GUNGNIR_THROW(__VA_ARGS__); \
     } while (0)
 
 /// Helper for marking unimplemented functions.
-#define FALCOR_UNIMPLEMENTED() FALCOR_THROW("Unimplemented")
+#define GUNGNIR_UNIMPLEMENTED() GUNGNIR_THROW("Unimplemented")
 
 /// Helper for marking unreachable code.
-#define FALCOR_UNREACHABLE() FALCOR_THROW("Unreachable")
+#define GUNGNIR_UNREACHABLE() GUNGNIR_THROW("Unreachable")
 
 //
 // Assertions.
 //
 
-GUNGNIR_NAMESPACE_OPENSCOPE
+GUNGNIR_NAMESPACE_OPEN_SCOPE
 /// Report an assertion.
 /// If ErrorDiagnosticFlags::AppendStackTrace is set, a stack trace will be appended to the exception message.
 /// If ErrorDiagnosticFlags::BreakOnAssert is set, the debugger will be broken into (if attached).
-[[noreturn]] FALCOR_API void reportAssertion(const std::source_location& loc, std::string_view cond, std::string_view msg = {});
+[[noreturn]] GUNGNIR_API void reportAssertion(const std::source_location& loc, std::string_view cond, std::string_view msg = {});
 
 namespace detail
 {
-/// Overload to allow FALCOR_ASSERT to be called without a message.
+/// Overload to allow GUNGNIR_ASSERT to be called without a message.
 [[noreturn]] inline void reportAssertion(const std::source_location& loc, std::string_view cond)
 {
-    ::Falcor::reportAssertion(loc, cond);
+    ::gungnir::reportAssertion(loc, cond);
 }
 
-/// Overload to allow FALCOR_ASSERT to be called with a message only.
+/// Overload to allow GUNGNIR_ASSERT to be called with a message only.
 [[noreturn]] inline void reportAssertion(const std::source_location& loc, std::string_view cond, std::string_view msg)
 {
-    ::Falcor::reportAssertion(loc, cond, msg);
+    ::gungnir::reportAssertion(loc, cond, msg);
 }
 
-/// Overload to allow FALCOR_ASSERT to be called with a format string and arguments.
+/// Overload to allow GUNGNIR_ASSERT to be called with a format string and arguments.
 template<typename... Args>
 [[noreturn]] inline void reportAssertion(
     const std::source_location& loc,
@@ -147,87 +148,87 @@ template<typename... Args>
     Args&&... args
 )
 {
-    ::Falcor::reportAssertion(loc, cond, fmt::format(fmt, std::forward<Args>(args)...));
+    ::gungnir::reportAssertion(loc, cond, fmt::format(fmt, std::forward<Args>(args)...));
 }
 } // namespace detail
-GUNGNIR_NAMESPACE_CLOSESCOPE // namespace Falcor
+GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
 
-#if FALCOR_ENABLE_ASSERTS
+#if GUNGNIR_ENABLE_ASSERTS
 
 /// Helper for asserting a condition.
 /// Accepts either only the condition, the condition with a string or the condition with a format string and arguments:
-/// FALCOR_ASSERT(device != nullptr);
-/// FALCOR_ASSERT(device != nullptr, "Device is null.");
-/// FALCOR_ASSERT(count % 3 == 0, "Count must be a multiple of 3, got {}.", count);
-#define FALCOR_ASSERT(cond, ...)                                                                   \
+/// GUNGNIR_ASSERT(device != nullptr);
+/// GUNGNIR_ASSERT(device != nullptr, "Device is null.");
+/// GUNGNIR_ASSERT(count % 3 == 0, "Count must be a multiple of 3, got {}.", count);
+#define GUNGNIR_ASSERT(cond, ...)                                                                   \
     if (!(cond))                                                                                   \
     {                                                                                              \
-        ::Falcor::detail::reportAssertion(std::source_location::current(), #cond, ##__VA_ARGS__); \
+        ::gungnir::detail::reportAssertion(std::source_location::current(), #cond, ##__VA_ARGS__); \
     }
 
 /// Helper for asserting a binary comparison between two variables.
 /// Automatically prints the compared values.
-#define FALCOR_ASSERT_OP(a, b, OP)                                                                                                       \
+#define GUNGNIR_ASSERT_OP(a, b, OP)                                                                                                       \
     if (!(a OP b))                                                                                                                       \
     {                                                                                                                                    \
-        ::Falcor::detail::reportAssertion(std::source_location::current(), fmt::format("{} {} {} ({} {} {})", #a, #OP, #b, a, #OP, b)); \
+        ::gungnir::detail::reportAssertion(std::source_location::current(), fmt::format("{} {} {} ({} {} {})", #a, #OP, #b, a, #OP, b)); \
     }
 
-#define FALCOR_ASSERT_EQ(a, b) FALCOR_ASSERT_OP(a, b, ==)
-#define FALCOR_ASSERT_NE(a, b) FALCOR_ASSERT_OP(a, b, !=)
-#define FALCOR_ASSERT_GE(a, b) FALCOR_ASSERT_OP(a, b, >=)
-#define FALCOR_ASSERT_GT(a, b) FALCOR_ASSERT_OP(a, b, >)
-#define FALCOR_ASSERT_LE(a, b) FALCOR_ASSERT_OP(a, b, <=)
-#define FALCOR_ASSERT_LT(a, b) FALCOR_ASSERT_OP(a, b, <)
+#define GUNGNIR_ASSERT_EQ(a, b) GUNGNIR_ASSERT_OP(a, b, ==)
+#define GUNGNIR_ASSERT_NE(a, b) GUNGNIR_ASSERT_OP(a, b, !=)
+#define GUNGNIR_ASSERT_GE(a, b) GUNGNIR_ASSERT_OP(a, b, >=)
+#define GUNGNIR_ASSERT_GT(a, b) GUNGNIR_ASSERT_OP(a, b, >)
+#define GUNGNIR_ASSERT_LE(a, b) GUNGNIR_ASSERT_OP(a, b, <=)
+#define GUNGNIR_ASSERT_LT(a, b) GUNGNIR_ASSERT_OP(a, b, <)
 
-#else // FALCOR_ENABLE_ASSERTS
+#else // GUNGNIR_ENABLE_ASSERTS
 
-#define FALCOR_ASSERT(cond, ...) \
+#define GUNGNIR_ASSERT(cond, ...) \
     {}
-#define FALCOR_ASSERT_OP(a, b, OP) \
+#define GUNGNIR_ASSERT_OP(a, b, OP) \
     {}
-#define FALCOR_ASSERT_EQ(a, b) FALCOR_ASSERT_OP(a, b, ==)
-#define FALCOR_ASSERT_NE(a, b) FALCOR_ASSERT_OP(a, b, !=)
-#define FALCOR_ASSERT_GE(a, b) FALCOR_ASSERT_OP(a, b, >=)
-#define FALCOR_ASSERT_GT(a, b) FALCOR_ASSERT_OP(a, b, >)
-#define FALCOR_ASSERT_LE(a, b) FALCOR_ASSERT_OP(a, b, <=)
-#define FALCOR_ASSERT_LT(a, b) FALCOR_ASSERT_OP(a, b, <)
+#define GUNGNIR_ASSERT_EQ(a, b) GUNGNIR_ASSERT_OP(a, b, ==)
+#define GUNGNIR_ASSERT_NE(a, b) GUNGNIR_ASSERT_OP(a, b, !=)
+#define GUNGNIR_ASSERT_GE(a, b) GUNGNIR_ASSERT_OP(a, b, >=)
+#define GUNGNIR_ASSERT_GT(a, b) GUNGNIR_ASSERT_OP(a, b, >)
+#define GUNGNIR_ASSERT_LE(a, b) GUNGNIR_ASSERT_OP(a, b, <=)
+#define GUNGNIR_ASSERT_LT(a, b) GUNGNIR_ASSERT_OP(a, b, <)
 
-#endif // FALCOR_ENABLE_ASSERTS
+#endif // GUNGNIR_ENABLE_ASSERTS
 
 //
 // Error reporting.
 //
 
-GUNGNIR_NAMESPACE_OPENSCOPE
+GUNGNIR_NAMESPACE_OPEN_SCOPE
 
 /// Flags controlling the error diagnostic behavior.
 enum class ErrorDiagnosticFlags
 {
     None = 0,
-    /// Break into debugger (if attached) when calling FALCOR_THROW.
+    /// Break into debugger (if attached) when calling GUNGNIR_THROW.
     BreakOnThrow,
-    /// Break into debugger (if attached) when calling FALCOR_ASSERT.
+    /// Break into debugger (if attached) when calling GUNGNIR_ASSERT.
     BreakOnAssert,
-    /// Append a stack trace to the exception error message when using FALCOR_THROW and FALCOR_ASSERT.
+    /// Append a stack trace to the exception error message when using GUNGNIR_THROW and GUNGNIR_ASSERT.
     AppendStackTrace = 2,
     /// Show a message box when reporting errors using the reportError() functions.
     ShowMessageBoxOnError = 4,
 };
-FALCOR_ENUM_CLASS_OPERATORS(ErrorDiagnosticFlags);
+GUNGNIR_ENUM_CLASS_OPERATORS(ErrorDiagnosticFlags);
 
 /// Set the global error diagnostic flags.
-FALCOR_API void setErrorDiagnosticFlags(ErrorDiagnosticFlags flags);
+GUNGNIR_API void setErrorDiagnosticFlags(ErrorDiagnosticFlags flags);
 
 /// Get the global error diagnostic flags.
-FALCOR_API ErrorDiagnosticFlags getErrorDiagnosticFlags();
+GUNGNIR_API ErrorDiagnosticFlags getErrorDiagnosticFlags();
 
 /**
  * Report an error by logging it and optionally showing a message box.
  * The message box is only shown if ErrorDiagnosticFlags::ShowMessageBoxOnError is set.
  * @param msg Error message.
  */
-FALCOR_API void reportErrorAndContinue(std::string_view msg);
+GUNGNIR_API void reportErrorAndContinue(std::string_view msg);
 
 /**
  * Report an error by logging it and optionally showing a message box with the option to abort or retry.
@@ -236,7 +237,7 @@ FALCOR_API void reportErrorAndContinue(std::string_view msg);
  * @param msg Error message.
  * @return Returns true if the user chose to retry.
  */
-FALCOR_API bool reportErrorAndAllowRetry(std::string_view msg);
+GUNGNIR_API bool reportErrorAndAllowRetry(std::string_view msg);
 
 /**
  * Report a fatal error.
@@ -251,7 +252,7 @@ FALCOR_API bool reportErrorAndAllowRetry(std::string_view msg);
  * - The application is immediately terminated (std::quick_exit(1)).
  * @param msg Error message.
  */
-[[noreturn]] FALCOR_API void reportFatalErrorAndTerminate(std::string_view msg);
+[[noreturn]] GUNGNIR_API void reportFatalErrorAndTerminate(std::string_view msg);
 
 /// Helper to run a callback and catch/report all exceptions.
 /// This is typically used in main() to guard the entire application.
@@ -274,4 +275,4 @@ int catchAndReportAllExceptions(CallbackT callback, ResultT errorResult = 1)
     return result;
 }
 
-GUNGNIR_NAMESPACE_CLOSESCOPE
+GUNGNIR_NAMESPACE_CLOSE_SCOPE

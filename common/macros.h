@@ -1,6 +1,12 @@
 #pragma once
 
 /**
+ * Namespace.
+ */
+#define GUNGNIR_NAMESPACE_OPEN_SCOPE namespace gungnir {
+#define GUNGNIR_NAMESPACE_CLOSE_SCOPE }
+
+/**
  * Compilers.
  */
 #define GUNGNIR_COMPILER_MSVC 1
