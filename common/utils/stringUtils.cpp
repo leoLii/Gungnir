@@ -1,7 +1,5 @@
 #include "common/utils/stringUtils.h"
 
-#include <fmt/format.h>
-
 #include <array>
 #include <string>
 #include <utility>

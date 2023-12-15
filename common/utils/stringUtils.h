@@ -3,6 +3,8 @@
 #include "common/macros.h"
 #include "common/error.h"
 
+#include <fmt/format.h>
+
 #include <algorithm>
 #include <codecvt>
 #include <iomanip>
