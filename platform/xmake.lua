@@ -1,0 +1,6 @@
+target("platform")
+    set_kind("binary")
+    add_headerfiles("./*.h")
+    add_files("./*.cpp")
+    add_packages("eigen", "boost", "glfw", "vulkan-hpp", "vulkan-memory-allocator-hpp", "spirv-reflect", "fmt")
+    add_deps("common", "driver", "engine")
