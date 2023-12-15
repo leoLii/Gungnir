@@ -181,4 +181,4 @@ inline std::string encodeBase64(const std::vector<uint8_t>& in)
  */
 GUNGNIR_API std::vector<uint8_t> decodeBase64(const std::string& in);
 
-GUNGNIR_NAMESPACE_OPEN_SCOPE; // namespace Gungnir
+GUNGNIR_NAMESPACE_CLOSE_SCOPE; // namespace Gungnir
