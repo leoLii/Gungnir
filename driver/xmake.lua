@@ -1,5 +1,5 @@
 target("driver")
-    set_kind("shared")
+    set_kind("static")
     add_headerfiles("./**/*.h")
     add_files("./**/*.cpp")
     add_packages("eigen", "vulkan-hpp", "vulkan-memory-allocator-hpp", "spirv-reflect", "fmt")

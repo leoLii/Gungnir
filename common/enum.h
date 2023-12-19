@@ -1,7 +1,7 @@
 #pragma once
 
 #include "error.h"
-#include "Utils/Logger.h"
+//#include "Utils/Logger.h"
 #include <span>
 #include <string>
 #include <string_view>
@@ -151,7 +151,7 @@ GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
 
 /// Enum formatter.
 template<typename T>
-struct fmt::formatter<T, std::enable_if_t<Falcor::has_enum_info_v<T>, char>> : formatter<std::string>
+struct fmt::formatter<T, std::enable_if_t<gungnir::has_enum_info_v<T>, char>> : formatter<std::string>
 {
     template<typename FormatContext>
     auto format(const T& e, FormatContext& ctx)

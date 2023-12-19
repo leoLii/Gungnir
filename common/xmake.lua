@@ -1,5 +1,5 @@
 target("common")
-    set_kind("shared")
+    set_kind("static")
     add_headerfiles("./*.h", "./**/*.h")
     add_files("./*.cpp", "./**/*.cpp")
     add_packages("eigen", "robin_map", "fmt")

@@ -118,11 +118,11 @@ private:
             glfwPollEvents();
             drawFrame();
         }
-
-        vkDeviceWaitIdle(device);
     }
 
     void cleanup() {
+        _bgi->GetPrimaryDevice()->WaitForIdle();
+
         vkDestroySemaphore(device, renderFinishedSemaphore, nullptr);
         vkDestroySemaphore(device, imageAvailableSemaphore, nullptr);
         vkDestroyFence(device, inFlightFence, nullptr);
