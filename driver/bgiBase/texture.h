@@ -84,7 +84,7 @@ struct BgiTextureDesc
         BgiComponentSwizzleB,
         BgiComponentSwizzleA}
     , type(BgiTextureType2D)
-    , dimensions(0)
+    , dimensions(0, 0, 0)
     , layerCount(1)
     , mipLevels(1)
     , sampleCount(BgiSampleCount1)
