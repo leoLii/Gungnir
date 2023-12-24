@@ -279,8 +279,9 @@ private:
     }
 
     void createGraphicsPipeline() {
-        auto vertShaderCode = readFile("G:/workfield/GungnirEngine/shaders/vert.spv");
-        auto fragShaderCode = readFile("G:/workfield/GungnirEngine/shaders/frag.spv");
+        // TODO: Replace with predefined directionaty.
+        auto vertShaderCode = readFile("../../../../shaders/vert.spv");
+        auto fragShaderCode = readFile("../../../../shaders/frag.spv");
 
         VkShaderModule vertShaderModule = createShaderModule(vertShaderCode);
         VkShaderModule fragShaderModule = createShaderModule(fragShaderCode);
