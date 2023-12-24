@@ -29,7 +29,7 @@ class BgiHandle
 {
 public:
     BgiHandle() : _ptr(nullptr), _id(0) {}
-    BgiHandle(T* obj, uint64_t id) : _ptr(nullptr), _id(0) {}
+    BgiHandle(T* obj, uint64_t id) : _ptr(obj), _id(id) {}
 
     T*
     Get() const {

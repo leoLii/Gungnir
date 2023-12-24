@@ -9,8 +9,7 @@
 #include "driver/bgiVulkan/pipelineCache.h"
 
 #define VMA_IMPLEMENTATION
-    #include <vk_mem_alloc.h>
-#undef VMA_IMPLEMENTATION
+#include <vk_mem_alloc.h>
 
 GUNGNIR_NAMESPACE_OPEN_SCOPE
 

@@ -212,11 +212,12 @@ private:
 
         // TODO: Abstract swapchain to manage swapchain images.
         vkGetSwapchainImagesKHR(device, swapChain, &imageCount, nullptr);
-        swapChainImages.resize(imageCount);
         bgiTextures.resize(imageCount);
         for(int i = 0; i < imageCount; i++) {
             auto desc = BgiTextureDesc{};
+            desc.format = BgiFormatUNorm8;
             desc.dimensions = Vector3i(WIDTH, HEIGHT, 1);
+            desc.usage = BgiTextureUsageBitsShaderRead;
             bgiTextures[i] = _bgi->CreateTexture(desc);
             swapChainImages.push_back(dynamic_cast<BgiVulkanTexture*>(bgiTextures[i].Get())->GetImage());
         }
