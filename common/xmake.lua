@@ -1,6 +1,6 @@
 target("common")
-    set_kind("static")
+    set_kind("shared")
     add_headerfiles("./*.h", "./**/*.h")
     add_files("./*.cpp", "./**/*.cpp")
     add_packages("eigen", "robin_map", "fmt")
-    add_defines("GUNGNIR_STATIC")
+    add_defines("GUNGNIR_STATIC", "GUNGNIR_DLL")
