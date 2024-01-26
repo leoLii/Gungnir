@@ -85,9 +85,9 @@ namespace detail
 
 /// Overload to allow GUNGNIR_THROW to be called with a format string and arguments.
 template<typename... Args>
-[[noreturn]] inline void throwException(const std::source_location& loc, fmt::format_string<Args...> fmt, Args&&... args)
+[[noreturn]] inline void throwException(const std::source_location& loc, std::format_string<Args...> fmt, Args&&... args)
 {
-   ::gungnir::throwException(loc, fmt::format(fmt, std::forward<Args>(args)...));
+   ::gungnir::throwException(loc, format(fmt, std::forward<Args>(args)...));
 }
 } // namespace detail
 GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
@@ -144,11 +144,11 @@ template<typename... Args>
 [[noreturn]] inline void reportAssertion(
    const std::source_location& loc,
    std::string_view cond,
-   fmt::format_string<Args...> fmt,
+   std::format_string<Args...> fmt,
    Args&&... args
 )
 {
-   ::gungnir::reportAssertion(loc, cond, fmt::format(fmt, std::forward<Args>(args)...));
+   ::gungnir::reportAssertion(loc, cond, format(fmt, std::forward<Args>(args)...));
 }
 } // namespace detail
 GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
@@ -171,7 +171,7 @@ GUNGNIR_NAMESPACE_CLOSE_SCOPE // namespace Gungnir
 #define GUNGNIR_ASSERT_OP(a, b, OP)                                                                                                       \
    if (!(a OP b))                                                                                                                       \
    {                                                                                                                                    \
-       ::gungnir::detail::reportAssertion(std::source_location::current(), fmt::format("{} {} {} ({} {} {})", #a, #OP, #b, a, #OP, b)); \
+       ::gungnir::detail::reportAssertion(std::source_location::current(), format("{} {} {} ({} {} {})", #a, #OP, #b, a, #OP, b)); \
    }
 
 #define GUNGNIR_ASSERT_EQ(a, b) GUNGNIR_ASSERT_OP(a, b, ==)
